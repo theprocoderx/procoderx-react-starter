@@ -1,0 +1,151 @@
+:root {
+  color-scheme: light;
+  --focus-ring: rgba(0, 200, 255, 0.45);
+
+  /* ===============================
+     BACKGROUND
+  =============================== */
+  --bg: #ffffff;
+  --bg-secondary: #f6f9fc;
+  --surface: #fcfcfd;
+  --surface-hover: #f8fafc;
+
+  /* ===============================
+     TEXT
+  =============================== */
+  --text: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --text-inverse: #ffffff;
+
+  /* ===============================
+     BRAND
+  =============================== */
+  --primary: #00c8ff;
+  --accent: #4f46e5;
+
+  /* ===============================
+     UI
+  =============================== */
+  --border: #e2e8f0;
+  --divider: #cbd5e1;
+
+  --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+  --shadow-md: 0 8px 25px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 18px 45px rgba(15, 23, 42, 0.12);
+
+  /* ===============================
+     EFFECTS
+  =============================== */
+  --glow: rgba(0, 200, 255, 0.35);
+
+  --glass: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.5);
+
+  /* ===============================
+     COMPONENTS
+  =============================== */
+  --navbar-bg: rgba(255, 255, 255, 0.8);
+  --card-bg: var(--surface);
+
+  --button-bg: var(--accent);
+  --button-hover: #3f37c9;
+
+  --icon: var(--text-secondary);
+  --icon-hover: var(--primary);
+
+  /* ===============================
+     STATUS
+  =============================== */
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --error: #ef4444;
+
+  /* ===============================
+     SELECTION
+  =============================== */
+  --selection-bg: #00c8ff;
+  --selection-text: #ffffff;
+
+  /* ===============================
+     SCROLLBAR
+  =============================== */
+  --scrollbar: #cbd5e1;
+  --scrollbar-hover: #94a3b8;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  --focus-ring: rgba(0, 200, 255, 0.55);
+
+  /* ===============================
+     BACKGROUND
+  =============================== */
+  --bg: #0f172a;
+  --bg-secondary: #111827;
+  --surface: #1e293b;
+  --surface-hover: #243244;
+
+  /* ===============================
+     TEXT
+  =============================== */
+  --text: #ffffff;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-inverse: #0f172a;
+
+  /* ===============================
+     BRAND
+  =============================== */
+  --primary: #00c8ff;
+  --accent: #4f46e5;
+
+  /* ===============================
+     UI
+  =============================== */
+  --border: #334155;
+  --divider: #475569;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.18);
+  --shadow-md: 0 10px 30px rgba(0, 0, 0, 0.3);
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.45);
+
+  /* ===============================
+     EFFECTS
+  =============================== */
+  --glow: rgba(0, 200, 255, 0.45);
+
+  --glass: rgba(15, 23, 42, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.08);
+
+  /* ===============================
+     COMPONENTS
+  =============================== */
+  --navbar-bg: rgba(15, 23, 42, 0.82);
+  --card-bg: var(--surface);
+
+  --button-bg: var(--accent);
+  --button-hover: #6055ff;
+
+  --icon: var(--text-secondary);
+  --icon-hover: var(--primary);
+
+  /* ===============================
+     STATUS
+  =============================== */
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --error: #ef4444;
+
+  /* ===============================
+     SELECTION
+  =============================== */
+  --selection-bg: #00c8ff;
+  --selection-text: #ffffff;
+
+  /* ===============================
+     SCROLLBAR
+  =============================== */
+  --scrollbar: #334155;
+  --scrollbar-hover: #475569;
+}

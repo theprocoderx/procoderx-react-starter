@@ -1,19 +1,21 @@
 {
-  "name": "@maganstackforge/react-starter",
+  "name": "@procoderx/react-starter",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "preview": "vite preview",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "preview": "vite preview",
+    "format": "prettier --check .",
     "format:fix": "prettier --write .",
     "clean": "npm run lint:fix && npm run format:fix"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.0",
+    "clsx": "^2.1.1",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-router-dom": "^7.16.0",
@@ -29,7 +31,6 @@
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.6.0",
     "prettier": "^3.8.3",
-    "prettier-plugin-classnames": "^0.10.1",
     "prettier-plugin-tailwindcss": "^0.8.0",
     "vite": "^8.0.12"
   }
