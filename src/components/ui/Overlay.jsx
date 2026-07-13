@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Portal } from '../Portal';
+import Portal from './Portal';
 
-export function Overlay({
+export default function Overlay({
   open,
   onClose,
   children,
@@ -14,9 +14,13 @@ export function Overlay({
 }) {
   const [mounted, setMounted] = useState(open);
 
-  // Mount / Unmount animation
+  // Mount immediately when opening.
+  // Delay unmount when closing so the exit animation can complete.
   useEffect(() => {
     if (open) {
+      // This state update is intentional. The overlay must mount
+      // immediately so the enter animation can run.
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setMounted(true);
       return;
     }
@@ -28,7 +32,7 @@ export function Overlay({
     return () => clearTimeout(timer);
   }, [open, animationDuration]);
 
-  // Escape key
+  // Close on Escape key
   useEffect(() => {
     if (!open || !closeOnEscape) return;
 
@@ -45,7 +49,7 @@ export function Overlay({
     };
   }, [open, closeOnEscape, onClose]);
 
-  // Lock body scroll
+  // Lock body scroll while the overlay is open
   useEffect(() => {
     if (!lockScroll || !open) return;
 
@@ -63,16 +67,24 @@ export function Overlay({
   return (
     <Portal>
       <div
+        role='presentation'
+        aria-hidden='true'
         onClick={() => {
           if (closeOnOverlayClick) {
             onClose?.();
           }
         }}
-        className={`fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm transition-opacity duration-300 ${overlayClassName} `}
+        className={`fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm ${overlayClassName}`}
+        style={{
+          transition: `opacity ${animationDuration}ms ease`,
+        }}
       >
         <div
           onClick={(event) => event.stopPropagation()}
-          className={`transition-all duration-300 ${open ? 'scale-100 opacity-100' : 'scale-95 opacity-0'} ${className} `}
+          className={`${open ? 'scale-100 opacity-100' : 'scale-95 opacity-0'} ${className}`}
+          style={{
+            transition: `all ${animationDuration}ms ease`,
+          }}
         >
           {children}
         </div>

@@ -1,5 +1,24 @@
-const Home = () => {
-  return <h1>Home Page</h1>;
-};
-
-export default Home;
+import {
+  Hero,
+  Features,
+  ThemeShowcase,
+  ProjectStructure,
+  TechStack,
+  WhyChooseStarter,
+  QuickStart,
+  CallToAction,
+} from '@/components/home';
+export default function Home() {
+  return (
+    <>
+      <Hero />
+      <Features />
+      <ThemeShowcase />
+      <ProjectStructure />
+      <TechStack />
+      <WhyChooseStarter />
+      <QuickStart />
+      <CallToAction />
+    </>
+  );
+}

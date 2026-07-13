@@ -1,8 +1,7 @@
+import { Header, Footer } from '@/components/layout';
 import { Outlet } from 'react-router-dom';
-import Header from '../components/layout/Header';
-import Footer from '../components/layout/Footer';
-
-const MainLayout = () => {
+// import { Button, Overlay, Portal } from '@/components/ui';
+export default function MainLayout() {
   return (
     <>
       <Header />
@@ -12,6 +11,4 @@ const MainLayout = () => {
       <Footer />
     </>
   );
-};
-
-export default MainLayout;
+}
