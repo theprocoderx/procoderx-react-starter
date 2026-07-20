@@ -2,11 +2,11 @@ import PropTypes from 'prop-types';
 
 const DemoSection = ({ title, description, children }) => {
   return (
-    <section className='space-y-6 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-8 shadow-sm'>
+    <section className='space-y-6 rounded-2xl border border-(--border) bg-(--surface) p-8 shadow-sm'>
       <header className='space-y-2'>
-        <h2 className='text-2xl font-semibold text-[var(--text)]'>{title}</h2>
+        <h2 className='text-2xl font-semibold text-(--text)'>{title}</h2>
 
-        {description && <p className='text-sm text-[var(--text-muted)]'>{description}</p>}
+        {description && <p className='text-sm text-(--text-muted)'>{description}</p>}
       </header>
 
       <div className='space-y-6'>{children}</div>

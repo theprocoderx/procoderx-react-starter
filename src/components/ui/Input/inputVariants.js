@@ -8,14 +8,14 @@ export const inputVariants = cva(
     'overflow-hidden',
 
     // Shape
-    'rounded-xl',
+    'rounded-[var(--radius-md)]',
 
     // Border & Background
     'border',
-    'bg-[var(--bg)]',
+    'bg-[var(--field-bg)]',
 
     // Typography
-    'text-[var(--text)]',
+    'text-[var(--field-text)]',
 
     // Cursor
     'cursor-text',
@@ -23,24 +23,26 @@ export const inputVariants = cva(
     'has-[:disabled]:opacity-50',
 
     // Shadow
-    'shadow-sm',
+    'shadow-[var(--shadow-xs)]',
 
     // Animation
     'transition-[background-color,border-color,color,box-shadow]',
-    'duration-200',
-    'ease-out',
+    'duration-[var(--duration-normal)]',
+    'ease-[var(--ease-out)]',
 
     // Focus
     'focus-within:ring-2',
-    'focus-within:ring-[var(--focus-ring)]',
+    'focus-within:ring-[var(--field-focus-ring)]',
     'focus-within:ring-offset-2',
     'focus-within:ring-offset-[var(--bg)]',
 
     // Read-only
     'has-[:read-only]:cursor-default',
-    'has-[:read-only]:bg-[var(--surface)]',
+    'has-[:read-only]:bg-[var(--field-readonly-bg)]',
+    'has-[:read-only]:border-[var(--field-readonly-border)]',
+    'has-[:read-only]:text-[var(--field-readonly-text)]',
 
-    // File Input Support
+    // File Input
     'has-[input[type=file]]:py-0',
 
     '[&_input::file-selector-button]:mr-4',
@@ -50,28 +52,28 @@ export const inputVariants = cva(
     '[&_input::file-selector-button]:px-2',
     '[&_input::file-selector-button]:py-1',
     '[&_input::file-selector-button]:font-medium',
-    '[&_input::file-selector-button]:text-[var(--text)]',
+    '[&_input::file-selector-button]:text-[var(--field-text)]',
     '[&_input::file-selector-button]:cursor-pointer',
   ],
   {
     variants: {
       variant: {
         default: [
-          'border-[var(--border)]',
+          'border-[var(--field-border)]',
 
-          'has-[:enabled]:hover:border-[var(--divider)]',
+          'has-[:enabled]:hover:border-[var(--field-border-hover)]',
 
-          'focus-within:border-[var(--primary)]',
+          'focus-within:border-[var(--field-border-focus)]',
         ],
 
         filled: [
           'border-transparent',
 
-          'bg-[var(--bg-secondary)]',
+          'bg-[var(--field-bg)]',
 
-          'has-[:enabled]:hover:bg-[var(--surface-hover)]',
+          'has-[:enabled]:hover:bg-[var(--field-bg-hover)]',
 
-          'focus-within:border-[var(--primary)]',
+          'focus-within:border-[var(--field-border-focus)]',
         ],
 
         ghost: [
@@ -79,27 +81,27 @@ export const inputVariants = cva(
 
           'bg-transparent',
 
-          'has-[:enabled]:hover:bg-[var(--surface)]',
+          'has-[:enabled]:hover:bg-[var(--field-bg-hover)]',
 
-          'focus-within:border-[var(--primary)]',
+          'focus-within:border-[var(--field-border-focus)]',
         ],
       },
 
       size: {
-        sm: 'h-9 px-3 text-sm',
+        sm: 'h-10 px-3 text-sm',
 
-        md: 'h-11 px-4 text-base',
+        md: 'h-12 px-4 text-base',
 
-        lg: 'h-12 px-5 text-lg',
+        lg: 'h-14 px-5 text-lg',
       },
 
       invalid: {
         true: [
-          'border-[var(--error)]',
+          'border-[var(--field-error)]',
 
-          'focus-within:border-[var(--error)]',
+          'focus-within:border-[var(--field-error)]',
 
-          'focus-within:ring-[var(--error)]/20',
+          'focus-within:ring-[var(--field-error)]/20',
         ],
 
         false: null,
@@ -107,11 +109,11 @@ export const inputVariants = cva(
 
       success: {
         true: [
-          'border-[var(--success)]',
+          'border-[var(--field-success)]',
 
-          'focus-within:border-[var(--success)]',
+          'focus-within:border-[var(--field-success)]',
 
-          'focus-within:ring-[var(--success)]/20',
+          'focus-within:ring-[var(--field-success)]/20',
         ],
 
         false: null,

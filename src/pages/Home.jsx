@@ -7,7 +7,7 @@ import {
   WhyChooseStarter,
   QuickStart,
   CallToAction,
-} from '@/components/home';
+} from '@/components/sections';
 export default function Home() {
   return (
     <>

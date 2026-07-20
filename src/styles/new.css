@@ -162,8 +162,6 @@
   /* ==========================================================
      FORM
      Shared tokens for all form controls
-     Form: Input, Textarea, Select, Checkbox, Radio, Switch, Slider,
-     OTP, Search, Password, Combobox, DatePicker
      ========================================================== */
 
   /* ----------------------------------------------------------
@@ -194,7 +192,7 @@
 ---------------------------------------------------------- */
 
   --field-label: var(--text);
-  --field-label-hover: var(--primary-text);
+  --field-label-hover: var(--text-primary);
   --field-label-muted: var(--text-secondary);
 
   /* ----------------------------------------------------------
@@ -268,6 +266,7 @@
   /* ----------------------------------------------------------
    Secondary
 ---------------------------------------------------------- */
+
   --button-secondary-bg: var(--surface);
   --button-secondary-bg-hover: var(--surface-hover);
   --button-secondary-bg-active: var(--surface-active);
@@ -400,7 +399,6 @@
   /* ==========================================================
    NAVIGATION
    Shared tokens for all navigation components
-   Navigation: Tabs, Breadcrumb, Pagination, Navbar, Sidebar, Menubar
    ========================================================== */
 
   /* ----------------------------------------------------------
@@ -481,7 +479,6 @@
   /* ==========================================================
    OVERLAY
    Shared tokens for overlay components
-   Overlay: Dialog, Drawer, Popover, Tooltip, Sheet, Dropdown Menu, Context Menu
    ========================================================== */
 
   /* ----------------------------------------------------------
@@ -544,7 +541,6 @@
   /* ==========================================================
    FEEDBACK
    Shared tokens for feedback components
-   Feedback: Alert, Toast, Progress, Spinner, Skeleton
    ========================================================== */
 
   /* ----------------------------------------------------------
@@ -596,8 +592,8 @@
    Progress
 ---------------------------------------------------------- */
 
-  --progress-track-bg: var(--surface-active);
-  ---progress-fill-bg: var(--primary);
+  --feedback-progress-bg: var(--surface-active);
+  --feedback-progress-fill: var(--primary);
 
   /* ----------------------------------------------------------
    Focus
@@ -627,7 +623,6 @@
   /* ==========================================================
    DATA DISPLAY
    Shared tokens for data presentation components
-   Data Display: Badge, Chip, Avatar, Card, Accordion, Table, Timeline, Statistic
    ========================================================== */
 
   /* ----------------------------------------------------------
@@ -652,26 +647,16 @@
   --display-text: var(--text-secondary);
   --display-muted: var(--text-muted);
 
-  /* ==========================================================
-   Badge
-   ========================================================== */
+  /* ----------------------------------------------------------
+   Badge / Chip
+---------------------------------------------------------- */
 
   --display-badge-bg: var(--primary-bg);
-  --display-badge-text: var(--primary-bg-text);
-  --display-badge-border: transparent;
-  --display-badge-radius: var(--radius-full);
-  --display-badge-padding: 0.25rem 0.625rem;
-  --display-badge-shadow: var(--shadow-xs);
+  --display-badge-text: var(--primary);
 
-  /* ==========================================================
-   chip
-   ========================================================== */
   --display-chip-bg: var(--surface-secondary);
   --display-chip-text: var(--text);
-  --display-chip-border: var(--border);
-  --display-chip-radius: var(--radius-full);
-  --display-chip-padding: 0.25rem 0.625rem;
-  --display-chip-shadow: none;
+
   /* ----------------------------------------------------------
    Avatar
 ---------------------------------------------------------- */
@@ -720,7 +705,6 @@
   /* ==========================================================
    SCROLLBAR
    Shared tokens for custom scrollbars
-   Layout: Separator, Divider, Scroll Area
    ========================================================== */
 
   /* ----------------------------------------------------------
@@ -1007,8 +991,6 @@
   /* ==========================================================
      FORM
      Shared tokens for all form controls
-     Form: Input, Textarea, Select, Checkbox, Radio, Switch, Slider, OTP, Search, 
-     Password, Combobox, DatePicker
      ========================================================== */
 
   /* ----------------------------------------------------------
@@ -1039,7 +1021,7 @@
 ---------------------------------------------------------- */
 
   --field-label: var(--text);
-  --field-label-hover: var(--primary-text);
+  --field-label-hover: var(--text-primary);
   --field-label-muted: var(--text-secondary);
 
   /* ----------------------------------------------------------
@@ -1081,7 +1063,7 @@
   ---------------------------------------------------------- */
 
   --field-disabled-bg: var(--bg-secondary);
-  --field-disabled-border: var(--border-strong);
+  --field-disabled-border: var(--border);
   --field-disabled-text: var(--text-muted);
   --field-disabled-placeholder: var(--text-disabled);
 
@@ -1107,11 +1089,13 @@
   --button-primary-bg-hover: var(--primary-bg-hover);
   --button-primary-bg-active: var(--primary-bg-active);
 
-  --button-primary-text: var(--text-inverse);
-  --button-primary-border: var(--border);
+  --button-primary-text: var(--primary-text);
+  --button-primary-border: var(--borde);
+
   /* ----------------------------------------------------------
      Secondary
   ---------------------------------------------------------- */
+
   --button-secondary-bg: var(--surface);
   --button-secondary-bg-hover: var(--surface-hover);
   --button-secondary-bg-active: var(--surface-active);
@@ -1244,7 +1228,6 @@
   /* ==========================================================
      NAVIGATION
      Shared tokens for all navigation components
-     Navigation: Tabs, Breadcrumb, Pagination, Navbar, Sidebar, Menubar
      ========================================================== */
 
   /* ----------------------------------------------------------
@@ -1325,7 +1308,6 @@
   /* ==========================================================
      OVERLAY
      Shared tokens for overlay components
-     Overlay: Dialog, Drawer, Popover, Tooltip, Sheet, Dropdown Menu, Context Menu
      ========================================================== */
 
   /* ----------------------------------------------------------
@@ -1388,7 +1370,6 @@
   /* ==========================================================
      FEEDBACK
      Shared tokens for feedback components
-     Feedback: Alert, Toast, Progress, Spinner, Skeleton
      ========================================================== */
 
   /* ----------------------------------------------------------
@@ -1440,8 +1421,8 @@
      Progress
   ---------------------------------------------------------- */
 
-  --progress-track-bg: var(--surface-active);
-  --progress-fill-bg: var(--primary);
+  --feedback-progress-bg: var(--surface-active);
+  --feedback-progress-fill: var(--primary);
 
   /* ----------------------------------------------------------
      Focus
@@ -1471,7 +1452,6 @@
   /* ==========================================================
      DATA DISPLAY
      Shared tokens for data presentation components
-     Data Display: Badge, Chip, Avatar, Card, Accordion, Table, Timeline, Statistic
      ========================================================== */
 
   /* ----------------------------------------------------------
@@ -1496,26 +1476,15 @@
   --display-text: var(--text-secondary);
   --display-muted: var(--text-muted);
 
-  /* ==========================================================
-   Badge
-   ========================================================== */
+  /* ----------------------------------------------------------
+     Badge / Chip
+  ---------------------------------------------------------- */
 
   --display-badge-bg: var(--primary-bg);
-  --display-badge-text: var(--primary-bg-text);
-  --display-badge-border: transparent;
-  --display-badge-radius: var(--radius-full);
-  --display-badge-padding: 0.25rem 0.625rem;
-  --display-badge-shadow: var(--shadow-xs);
+  --display-badge-text: var(--primary);
 
-  /* ==========================================================
-   chip
-   ========================================================== */
   --display-chip-bg: var(--surface-secondary);
   --display-chip-text: var(--text);
-  --display-chip-border: var(--border);
-  --display-chip-radius: var(--radius-full);
-  --display-chip-padding: 0.25rem 0.625rem;
-  --display-chip-shadow: none;
 
   /* ----------------------------------------------------------
      Avatar
@@ -1565,7 +1534,6 @@
   /* ==========================================================
      SCROLLBAR
      Shared tokens for custom scrollbars
-     Layout: Separator, Divider, Scroll Area
      ========================================================== */
 
   /* ----------------------------------------------------------

@@ -1,13 +1,13 @@
+# ProCoderX React Starter Kit — Master Context
+
+Version: v0.7.0
+Status: Active Development
+Last Updated: 2026-07-18
+Current Sprint: Form Components
+
 ## Development Rule
 
 Never begin a new component until the current component is fully implemented, manually verified in the Playground, documented, unit tested, and declared Stable.
-
-# ProCoderX React Starter Kit — Master Context
-
-> Version: v0.4.0
-> Status: Active Development
-> Current Sprint: Input Component
-> Last Updated: YYYY-MM-DD
 
 ---
 
@@ -17,7 +17,7 @@ Never begin a new component until the current component is fully implemented, ma
 
 ProCoderX React Starter Kit
 
-## Goal
+## 2. Goal
 
 Build a production-ready React Starter Kit inspired by shadcn/ui, but fully custom-built using modern React best practices.
 
@@ -33,7 +33,35 @@ Primary goals:
 
 ---
 
-# 2. Tech Stack
+# 3. Documentation Map
+
+- ARCHITECTURE.md
+  System architecture
+
+- API_GUIDELINES.md
+  Public API standards
+
+- COMPONENT_GUIDELINES.md
+  Component development standards
+
+- TESTING_GUIDELINES.md
+  Testing philosophy and workflow
+
+- CONTRIBUTING.md
+  Contribution workflow
+
+- ROADMAP.md
+  Planned features
+
+- CHANGELOG.md
+  Release history
+
+- FUTURE_VISION.md
+  Long-term vision
+
+---
+
+# 4. Tech Stack
 
 ## Core
 
@@ -69,79 +97,20 @@ Primary goals:
 
 ---
 
-# 3. Theme System
+# 5. Foundation Status
 
-Supports
+Completed
 
-- Light Theme
-- Dark Theme
-- System Theme
-
-Uses CSS Variables.
-
-Theme features
-
-- ThemeProvider
-- ThemeContext
-- useTheme()
-- localStorage persistence
-- prefers-color-scheme support
+- Theme System
+- Design Tokens
+- Shared Form Token System
+- Shared Component Token System
+- cn() Utility
+- Unified Playground Design
 
 ---
 
-# 4. Design Tokens
-
-Background
-
-- --bg
-- --bg-secondary
-
-Surface
-
-- --surface
-- --surface-hover
-- --surface-active
-
-Text
-
-- --text
-- --text-secondary
-- --text-muted
-- --text-inverse
-
-Brand
-
-- --primary
-- --accent
-
-UI
-
-- --border
-- --divider
-- --focus-ring
-
-Status
-
-- --success
-- --warning
-- --error
-
-Effects
-
-- Shadows
-- Glow
-- Glass
-
-Component Tokens
-
-- Button
-- Card
-- Navbar
-- Input (future)
-
----
-
-# 5. Folder Structure
+# 6. Folder Structure
 
 src/
 
@@ -174,7 +143,83 @@ tests/
 
 ---
 
-# 6. Export Conventions
+# 7. Theme System
+
+Supports
+
+- Light Theme
+- Dark Theme
+- System Theme
+
+Built with CSS Variables and Design Tokens.
+
+Includes:
+
+- Global Tokens
+- Shared Form Tokens
+- Button Tokens
+- Card Tokens
+- Navigation Tokens
+- Overlay Tokens
+- Feedback Tokens
+- Data Display Tokens
+- Scrollbar Tokens
+- Component-specific Tokens
+
+Features
+
+- ThemeProvider
+- ThemeContext
+- useTheme()
+- localStorage persistence
+- prefers-color-scheme support
+
+---
+
+# 8. Design Tokens
+
+Global Tokens
+
+- Background
+- Surface
+- Text
+- Brand
+- Border
+- Status
+- Shadow
+- Radius
+- Motion
+- Focus
+- Glass
+- Glow
+- Selection
+
+Shared Component Tokens
+
+- Form
+- Button
+- Card
+- Navigation
+- Overlay
+- Feedback
+- Data Display
+- Scrollbar
+
+Component-specific Tokens
+
+- Switch
+- Slider
+- Progress
+- Spinner
+- Avatar
+- Calendar
+- Rating
+- Divider
+- Resize Handle
+
+---
+
+# 9. Export Conventions
 
 ## Components
 
@@ -201,7 +246,7 @@ export { default as Button } from './Button';
 
 ---
 
-# 7. Naming Conventions
+# 10. Naming Conventions
 
 Folders
 
@@ -234,7 +279,7 @@ Barrel Files
 
 ---
 
-# 8. Coding Standards
+# 11. Coding Standards
 
 Architecture
 
@@ -271,7 +316,7 @@ Performance
 
 ---
 
-# 9. Utility Functions
+# 12. Utility Functions
 
 Completed
 
@@ -284,7 +329,7 @@ Uses
 
 ---
 
-# 10. Component Structure
+# 13. Component Structure
 
 Every UI component follows:
 
@@ -314,9 +359,7 @@ Input/
 - README.md
 - index.js
 
----
-
-# 11. Component Standards
+# 14. Component Requirements
 
 Every UI component should:
 
@@ -334,105 +377,89 @@ Every UI component should:
 
 ---
 
-# 12. Testing Strategy
+# 15. Current Sprint
 
-Each component has its own test file.
+## Sprint Objective
 
-Examples
+Complete the remaining Form Components and declare the entire Form Component library Stable.
 
-Button.test.jsx
+## Current Focus
 
-- Render
-- Children
-- Variants
-- Sizes
-- Disabled
-- Loading
-- Icons
-- Link Button
-- Download
-- Events
-- Accessibility
+- ⬜ Textarea
+- ⬜ Select
 
-Input.test.jsx
+## Sprint Requirements
 
-- Render
-- Placeholder
-- Value
+Every component in this sprint must be:
+
+- Production Ready
+- Accessible
+- Theme Aware
+- Reusable
+- Follow the shared Component API
+- Use CVA (where applicable)
+- Use shared design tokens
+- Include Playground
+- Include README
+- Include Unit Tests
+- Pass Accessibility Review
+- Be declared Stable before the next component begins
+
+---
+
+# 16. Current Statistics
+
+## Stable Components: 6
+
+- Button
+- Input
 - Label
-- Required
-- Disabled
-- ReadOnly
-- Validation
-- Icons
-- Focus
-- Accessibility
-
-Shared testing utilities
-
-src/tests/
-
-- setup.js
-- test-utils.js
-- renderWithTheme.js
-- renderWithProviders.js
-
----
-
-# 13. Playground
-
-Purpose
-
-Internal manual component testing.
-
-Every UI component should have a playground example.
-
-Playground is **not** a replacement for unit tests.
-
----
-
-# 14. Completed Components
-
-## Button
-
-Status
-
-✅ Stable v1.0
-
-Features
-
-- Variants
-- Sizes
-- Loading
-- Disabled
-- Full Width
-- Link Button
-- Download Button
-- startIcon
-- endIcon
-- Accessibility
-- Theme Support
-- Playground
-
-Status
-
-Frozen
-
-Only bug fixes allowed.
-
----
-
-# 15. Component Roadmap
-
-## Form Components
-
-- Input ⏳
-- Label
-- Textarea
-- Select
 - Checkbox
 - Radio
 - Switch
+
+## Current Sprint
+
+- Textarea
+- Select
+
+Project Version
+
+v0.7.0
+
+---
+
+# 17. Testing Strategy
+
+Every reusable UI component must include its own unit test suite.
+
+Shared testing utilities are located in:
+
+src/tests/
+
+Detailed testing standards, workflows, coverage goals, accessibility requirements, and component testing checklists are defined in:
+
+docs/TESTING_GUIDELINES.md
+
+---
+
+# 18. Component Roadmap
+
+## Form Components
+
+Completed
+
+- Button
+- Input
+- Label
+- Checkbox
+- Radio
+- Switch
+
+Remaining
+
+- Textarea
+- Select
 
 ## Display Components
 
@@ -454,44 +481,7 @@ Only bug fixes allowed.
 
 ---
 
-# 16. Current Sprint
-
-Build Input Component.
-
-Requirements
-
-- Production Ready
-- Accessible
-- Theme Aware
-- Reusable
-- CVA
-- Playground Demo
-- README
-- Unit Tests
-
----
-
-# 17. Version History
-
-v0.1.0
-
-- Project initialized
-
-v0.2.0
-
-- Theme System completed
-
-v0.3.0
-
-- Button Stable
-
-v0.4.0
-
-- Input development started
-
----
-
-# 18. Future Integrations
+# 19. Future Ecosystem
 
 - Storybook
 - Changesets
@@ -501,7 +491,27 @@ v0.4.0
 
 ---
 
-# 19. Project Philosophy
+# 20. Project Status
+
+## Foundation Status
+
+✅ Foundation Complete
+
+### Current Focus
+
+- Complete remaining Form Components
+
+### Next Milestone
+
+- Begin Display Components
+
+### Long-Term Goal
+
+- Publish ProCoderX React Starter Kit as an npm package
+
+---
+
+# 21. Project Philosophy
 
 Always prioritize:
 
@@ -516,24 +526,3 @@ Always prioritize:
 Avoid quick fixes unless explicitly requested.
 
 Always recommend production-quality solutions first.
-
----
-
-# Current Status
-
-Completed
-
-- Theme System ✅
-- Utilities ✅
-- Button ✅
-- Playground ✅
-
-Next
-
-- Input Component
-
-Project Status
-
-Production foundation completed.
-
-Ready to continue building the UI library.

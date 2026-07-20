@@ -1,55 +1,27 @@
 # Label
 
-A production-ready, accessible, theme-aware, and fully customizable **Label** component built with **React**, **Tailwind CSS v4**, and **Class Variance Authority (CVA)**.
+A production-ready, accessible, and customizable **Label** component built with **React**, **Tailwind CSS v4**, and **Class Variance Authority (CVA)**.
 
-The component provides semantic labeling for form controls while supporting multiple sizes, disabled state, visually hidden labels, required indicators, ref forwarding, and CSS variable-based theming.
-
----
-
-# Features
-
-- ✅ Semantic HTML `<label>`
-- ✅ Multiple sizes
-- ✅ Light / Dark / System theme support
-- ✅ Required field indicator
-- ✅ Disabled state
-- ✅ Visually hidden labels
-- ✅ Automatic accessibility support
-- ✅ Ref forwarding
-- ✅ Keyboard friendly
-- ✅ Screen reader friendly
-- ✅ Responsive
-- ✅ CVA powered
-- ✅ Production-ready API
+The component provides semantic labeling for form controls while supporting multiple sizes, disabled state, required indicators, visually hidden labels, and CSS variable-based theming.
 
 ---
 
-# Requirements
+## Features
 
-This component assumes your project already includes:
-
-- React 19+
-- Tailwind CSS v4
-- Class Variance Authority (CVA)
-- CSS Variable-based theme
-- `cn()` utility function
-
----
-
-# Compatibility
-
-| Package                  | Version |
-| ------------------------ | ------- |
-| React                    | 19+     |
-| Vite                     | 7+      |
-| Tailwind CSS             | v4      |
-| Class Variance Authority | Latest  |
-| clsx                     | Latest  |
-| tailwind-merge           | Latest  |
+- Semantic HTML `<label>`
+- Multiple sizes
+- Required indicator
+- Disabled state
+- Visually hidden labels
+- Ref forwarding
+- Theme-aware styling
+- CVA-powered variants
+- Accessible by default
+- Production-ready API
 
 ---
 
-# Import
+## Import
 
 Using the barrel export:
 
@@ -65,7 +37,7 @@ import Label from '@/components/ui/Label';
 
 ---
 
-# Basic Usage
+## Basic Usage
 
 ```jsx
 <Label htmlFor="email">
@@ -80,7 +52,9 @@ import Label from '@/components/ui/Label';
 
 ---
 
-# Required Label
+## Examples
+
+### Required
 
 ```jsx
 <Label htmlFor='email' required>
@@ -88,15 +62,7 @@ import Label from '@/components/ui/Label';
 </Label>
 ```
 
-Displays:
-
-```
-Email Address *
-```
-
----
-
-# Disabled Label
+### Disabled
 
 ```jsx
 <Label htmlFor='email' disabled>
@@ -104,11 +70,7 @@ Email Address *
 </Label>
 ```
 
----
-
-# Hidden Label
-
-Useful when the visual interface doesn't require a visible label but accessibility still does.
+### Hidden (Screen Reader Only)
 
 ```jsx
 <Label
@@ -124,35 +86,29 @@ Useful when the visual interface doesn't require a visible label but accessibili
 />
 ```
 
----
-
-# Sizes
-
-### Small
+### Sizes
 
 ```jsx
-<Label htmlFor='name' size='sm'>
-  Name
+<Label
+  htmlFor="name"
+  size="sm"
+>
+  Small
+</Label>
+
+<Label htmlFor="name">
+  Medium
+</Label>
+
+<Label
+  htmlFor="name"
+  size="lg"
+>
+  Large
 </Label>
 ```
 
-### Medium (Default)
-
-```jsx
-<Label htmlFor='name'>Name</Label>
-```
-
-### Large
-
-```jsx
-<Label htmlFor='name' size='lg'>
-  Name
-</Label>
-```
-
----
-
-# Custom Styling
+### Custom Styling
 
 ```jsx
 <Label htmlFor='email' className='text-blue-600'>
@@ -162,37 +118,39 @@ Useful when the visual interface doesn't require a visible label but accessibili
 
 ---
 
-# Props
+## Props
 
-| Prop        | Type                                    | Default | Required | Description                                           |
-| ----------- | --------------------------------------- | ------- | -------- | ----------------------------------------------------- |
-| `htmlFor`   | `string`                                | —       | No\*     | Associates the label with a form control.             |
-| `children`  | `ReactNode`                             | —       | Yes      | Label content.                                        |
-| `required`  | `boolean`                               | `false` | No       | Displays the required indicator (`*`).                |
-| `disabled`  | `boolean`                               | `false` | No       | Applies disabled styling.                             |
-| `hidden`    | `boolean`                               | `false` | No       | Visually hides the label while keeping it accessible. |
-| `size`      | `"sm" \| "md" \| "lg"`                  | `"md"`  | No       | Controls the label size.                              |
-| `className` | `string`                                | —       | No       | Additional Tailwind classes.                          |
-| `...props`  | `LabelHTMLAttributes<HTMLLabelElement>` | —       | No       | Supports all native label attributes.                 |
+| Prop        | Type                  | Default | Description                                          |
+| ----------- | --------------------- | ------- | ---------------------------------------------------- |
+| `htmlFor`   | `string`              | —       | Associates the label with a form control             |
+| `children`  | `ReactNode`           | —       | Label content                                        |
+| `required`  | `boolean`             | `false` | Displays the required indicator                      |
+| `disabled`  | `boolean`             | `false` | Applies disabled styling                             |
+| `hidden`    | `boolean`             | `false` | Visually hides the label while keeping it accessible |
+| `size`      | `string`              | `"md"`  | Label size                                           |
+| `className` | `string`              | —       | Additional CSS classes                               |
+| `...props`  | `LabelHTMLAttributes` | —       | Native label attributes                              |
 
-> **Note:** `htmlFor` is strongly recommended when labeling a form control.
+### Available Sizes
+
+```text
+sm
+md (default)
+lg
+```
 
 ---
 
-# Accessibility
+## Accessibility
 
-The Label component follows modern accessibility best practices.
+The Label component follows accessibility best practices.
 
-Features:
-
-- Semantic HTML `<label>`
-- Supports `htmlFor`
-- Works with native form controls
-- Required indicator uses `aria-hidden`
-- Supports screen-reader-only labels
-- Keyboard accessible
-- Screen reader friendly
-- Development warning when `htmlFor` is omitted
+- Uses the native `<label>` element.
+- Supports `htmlFor` association.
+- Required indicator is hidden from assistive technologies using `aria-hidden="true"`.
+- Supports visually hidden labels via the `hidden` prop.
+- Displays a development warning when `htmlFor` is omitted.
+- Compatible with screen readers and keyboard navigation.
 
 Example:
 
@@ -209,77 +167,21 @@ Example:
 
 ---
 
-# Keyboard Support
+## Testing
 
-| Key         | Action                        |
-| ----------- | ----------------------------- |
-| Tab         | Focus associated form control |
-| Shift + Tab | Focus previous control        |
-
----
-
-# Theme Support
-
-Automatically adapts to:
-
-- Light Theme
-- Dark Theme
-- System Theme
-
-using the project's CSS Variables.
-
-No additional configuration is required.
-
----
-
-# Responsive Behavior
-
-The component is responsive by default.
-
-Layout should be controlled by the parent container.
-
-Example:
-
-```jsx
-<div className='space-y-2'>
-  <Label htmlFor='email'>Email</Label>
-
-  <Input id='email' fullWidth />
-</div>
-```
-
----
-
-# Performance
-
-Optimized for production.
-
-Features:
-
-- Lightweight implementation
-- CVA variant composition
-- CSS Variable-based styling
-- Tree-shakeable imports
-- No runtime styling overhead
-- React production build compatible
-
----
-
-# Testing
-
-The component includes automated unit tests covering:
+Unit tests cover:
 
 - Rendering
 - Label association
 - Required indicator
 - Disabled state
 - Hidden labels
-- Sizes
+- Size variants
 - Ref forwarding
 - Accessibility
 - Custom class names
 
-Run tests:
+Run the tests:
 
 ```bash
 npm test
@@ -293,40 +195,16 @@ npm run test
 
 ---
 
-# Best Practices
+## Best Practices
 
-- ✔ Always associate labels with form controls.
-- ✔ Match `htmlFor` with the target element's `id`.
-- ✔ Use `hidden` instead of removing labels.
-- ✔ Keep labels concise.
-- ✔ Use semantic HTML.
-
----
-
-# Common Mistakes
-
-Avoid the following:
-
-- ❌ Missing `htmlFor`
-- ❌ Missing matching `id`
-- ❌ Using placeholders instead of labels
-- ❌ Hiding labels with `display: none`
-- ❌ Using labels only for layout
+- Always match `htmlFor` with the target input's `id`.
+- Use the `hidden` prop instead of removing labels visually.
+- Keep labels short and descriptive.
+- Do not rely on placeholders as replacements for labels.
 
 ---
 
-# Browser Support
-
-Supported browsers:
-
-- Chrome
-- Edge
-- Firefox
-- Safari
-
----
-
-# File Structure
+## File Structure
 
 ```text
 Label/
@@ -339,34 +217,6 @@ Label/
 
 ---
 
-# Future Improvements
-
-Potential future enhancements:
-
-- Tooltip support
-- Optional label indicator
-- Animated required indicator
-- Label groups
-- Localization support
-
----
-
-# Version
-
-Current Version
-
-```text
-v1.0.0
-```
-
-Status
-
-```text
-Stable
-```
-
----
-
-# License
+## License
 
 MIT License

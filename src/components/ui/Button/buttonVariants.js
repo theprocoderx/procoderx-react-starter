@@ -2,34 +2,36 @@ import { cva } from 'class-variance-authority';
 
 export const buttonVariants = cva(
   [
+    // Layout
     'inline-flex items-center justify-center gap-2',
 
-    'rounded-xl',
+    // Shape
+    'rounded-[var(--button-radius)]',
 
-    'font-medium',
+    // Typography
+    'font-medium whitespace-nowrap',
 
-    'whitespace-nowrap',
+    // Interaction
+    'overflow-hidden select-none cursor-pointer',
 
-    'overflow-hidden',
-
-    'select-none',
-
-    'cursor-pointer',
-
-    'disabled:cursor-not-allowed',
+    // Disabled
     'disabled:pointer-events-none',
+    'disabled:cursor-not-allowed',
     'disabled:opacity-50',
 
+    // Transition
     'transition-[background-color,color,border-color,box-shadow,transform]',
-    'duration-200',
-    'ease-out',
+    'duration-[var(--button-duration)]',
+    'ease-[var(--button-easing)]',
 
+    // Focus
     'focus-visible:outline-none',
     'focus-visible:ring-2',
-    'focus-visible:ring-[var(--focus-ring)]',
+    'focus-visible:ring-[var(--button-focus-ring)]',
     'focus-visible:ring-offset-2',
     'focus-visible:ring-offset-[var(--bg)]',
 
+    // Active
     'active:scale-[0.98]',
   ],
   {
@@ -37,52 +39,51 @@ export const buttonVariants = cva(
       variant: {
         primary: [
           'border',
-          'border-transparent',
+          'border-[var(--button-primary-border)]',
 
-          'bg-[var(--button-bg)]',
-          'text-[var(--text-inverse)]',
+          'bg-[var(--button-primary-bg)]',
+          'text-white',
 
-          'shadow-md',
+          'shadow-[var(--button-shadow)]',
 
-          'hover:bg-[var(--button-hover)]',
+          'hover:bg-[var(--button-primary-bg-hover)]',
           'hover:-translate-y-0.5',
-          'hover:shadow-xl',
+          'hover:shadow-[var(--button-shadow-hover)]',
 
+          'active:bg-[var(--button-primary-bg-active)]',
           'active:translate-y-0',
         ],
 
         secondary: [
           'border',
-          'border-[var(--border)]',
+          'border-[var(--button-secondary-border)]',
 
-          'bg-[var(--surface)]',
-          'text-[var(--text)]',
+          'bg-[var(--button-secondary-bg)]',
+          'text-[var(--button-secondary-text)]',
 
-          'hover:bg-[var(--surface-hover)]',
-          'hover:border-[var(--divider)]',
+          'hover:bg-[var(--button-secondary-bg-hover)]',
+
+          'active:bg-[var(--button-secondary-bg-active)]',
         ],
 
         outline: [
           'border',
-          'border-[var(--border)]',
+          'border-[var(--button-outline-border)]',
 
-          'bg-transparent',
+          'bg-[var(--button-outline-bg)]',
+          'text-[var(--button-outline-text)]',
 
-          'text-[var(--text)]',
-
-          'hover:bg-[var(--surface)]',
-          'hover:border-[var(--divider)]',
+          'hover:bg-[var(--button-outline-bg-hover)]',
         ],
 
         ghost: [
-          'bg-transparent',
+          'border',
+          'border-transparent',
 
-          'text-[var(--text)]',
+          'bg-[var(--button-ghost-bg)]',
+          'text-[var(--button-ghost-text)]',
 
-          'hover:bg-[var(--surface)]',
-          'hover:text-[var(--primary)]',
-
-          'focus-visible:text-[var(--primary)]',
+          'hover:bg-[var(--button-ghost-bg-hover)]',
         ],
 
         destructive: [
@@ -90,23 +91,21 @@ export const buttonVariants = cva(
           'border-transparent',
 
           'bg-[var(--error)]',
+          'text-[var(--error-text)]',
 
-          'text-white',
-
-          'hover:brightness-110',
+          'hover:bg-[var(--error-hover)]',
+          'active:bg-[var(--error-active)]',
         ],
 
         link: [
           'border-0',
-
           'rounded-none',
-
           'bg-transparent',
-
           'p-0',
 
-          'text-[var(--primary)]',
+          'text-[var(--button-link-text)]',
 
+          'hover:text-[var(--button-link-hover)]',
           'hover:underline',
 
           'underline-offset-4',

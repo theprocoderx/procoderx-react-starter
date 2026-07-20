@@ -10,15 +10,16 @@ export const labelVariants = cva(
     // Typography
     'font-medium',
     'leading-none',
-    'text-[var(--text)]',
+    'text-[var(--field-label)]',
 
     // Interaction
     'select-none',
-
-    // Animation
     'transition-colors',
     'duration-200',
     'ease-out',
+
+    // Hover
+    'group-hover:text-[var(--field-label-hover)]',
   ],
   {
     variants: {
@@ -29,12 +30,26 @@ export const labelVariants = cva(
       },
 
       disabled: {
-        true: 'cursor-not-allowed opacity-50',
+        true: ['cursor-not-allowed', 'text-[var(--field-disabled-text)]'],
+
         false: 'cursor-pointer',
+      },
+
+      muted: {
+        true: 'text-[var(--field-label-muted)]',
+
+        false: null,
+      },
+
+      required: {
+        true: "after:ml-1 after:text-[var(--field-error)] after:content-['*']",
+
+        false: null,
       },
 
       hidden: {
         true: 'sr-only',
+
         false: null,
       },
     },
@@ -42,6 +57,8 @@ export const labelVariants = cva(
     defaultVariants: {
       size: 'md',
       disabled: false,
+      muted: false,
+      required: false,
       hidden: false,
     },
   },

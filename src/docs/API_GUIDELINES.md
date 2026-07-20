@@ -12,8 +12,10 @@ Every component API should be:
 - Predictable
 - Consistent
 - Accessible
+- Theme Aware
 - Production Ready
 - Easy to extend
+- Composition Friendly
 
 ---
 
@@ -27,6 +29,9 @@ Every component should:
 - Keep prop names consistent across components
 - Avoid unnecessary custom props
 - Prefer composition over configuration
+- Support ref forwarding where appropriate
+- Follow the shared Form API conventions
+- Prefer native HTML attributes over custom props
 
 ---
 
@@ -59,13 +64,27 @@ function Component({
   variant,
   size,
 
-  className,
-
+  required,
   disabled,
+  readOnly,
+  invalid,
+  success,
+
+  helperText,
+  errorMessage,
+  successMessage,
+
+  startIcon,
+  endIcon,
+
+  className,
 
   ariaLabel,
 
   onClick,
+  onChange,
+  onFocus,
+  onBlur,
 
   ...props
 })
@@ -88,17 +107,29 @@ Recommended order:
 
 Use these names consistently.
 
-| Prop      | Purpose             |
-| --------- | ------------------- |
-| variant   | Visual appearance   |
-| size      | Component size      |
-| className | Custom classes      |
-| disabled  | Disabled state      |
-| loading   | Loading state       |
-| fullWidth | Width control       |
-| startIcon | Icon before content |
-| endIcon   | Icon after content  |
-| children  | Component content   |
+| Prop           | Purpose                     |
+| -------------- | --------------------------- |
+| variant        | Visual appearance           |
+| size           | Component size              |
+| className      | Custom classes              |
+| disabled       | Disabled state              |
+| loading        | Loading state               |
+| fullWidth      | Width control               |
+| required       | Required field              |
+| readOnly       | Read-only state             |
+| invalid        | Validation error state      |
+| success        | Success state               |
+| helperText     | Helper message              |
+| errorMessage   | Error message               |
+| successMessage | Success message             |
+| startIcon      | Icon before content         |
+| endIcon        | Icon after content          |
+| children       | Component content           |
+| name           | Form group                  |
+| defaultValue   | Uncontrolled input value    |
+| checked        | Controlled checkbox/radio   |
+| defaultChecked | Uncontrolled checkbox/radio |
+| id             | Label association           |
 
 ---
 
@@ -127,12 +158,20 @@ Avoid creating custom size names.
 Prefer these names.
 
 ```text
+Common variants
+
 primary
 secondary
 outline
 ghost
 destructive
 link
+
+Form components may expose
+
+default
+outline
+
 ```
 
 Only introduce new variants when there is a clear use case.
@@ -153,25 +192,34 @@ Examples
 
 ```jsx
 aria - label;
+aria - labelledby;
 aria - describedby;
 aria - invalid;
+aria - required;
 aria - disabled;
+aria - checked;
 aria - busy;
+role;
+tabIndex;
 ```
 
 ---
 
 # 9. Styling
 
-Always use:
+Always use
 
 - Tailwind CSS v4
 - CSS Variables
+- Design Tokens
 - CVA
 - cn()
 
-Never use:
+All visual styling must be driven by the project's design tokens.
 
+Never use
+
+- Hardcoded colors
 - Inline styles
 - CSS Modules
 - SCSS
@@ -203,23 +251,66 @@ aria-hidden="true"
 
 # 11. Theme Support
 
-Every component should support:
+Every component must support:
 
 - Light Theme
 - Dark Theme
+- System Theme
 
-Never hardcode colors.
+Components must never hardcode colors.
 
-Always use design tokens.
+Use only project design tokens.
 
-Example
+### Global Tokens
 
 ```css
-var(--surface)
-var(--border)
-var(--text)
-var(--primary)
+--bg
+--bg-secondary
+
+--surface
+--surface-hover
+--surface-active
+
+--text
+--text-secondary
+--text-muted
+--text-inverse
+
+--primary
+--accent
+
+--border
+--divider
+--focus-ring
+
+--success
+--warning
+--error
 ```
+
+### Component Tokens
+
+Components should consume dedicated component tokens when available.
+
+Examples
+
+```css
+--primary-bg
+--primary-bg-hover
+--primary-bg-active
+--primary-bg-text
+```
+
+Future components may introduce their own component-specific tokens such as:
+
+```css
+--input-bg
+--card-bg
+--dialog-bg
+--badge-bg
+```
+
+Components should never depend on fixed hex values.
 
 ---
 
@@ -227,16 +318,17 @@ var(--primary)
 
 Support only states that make sense.
 
-Common states
+Common States
 
 - Default
 - Hover
 - Active
-- Focus
+- Focus Visible
 - Disabled
 - Loading
 - Invalid
-- ReadOnly
+- Success
+- Read Only
 - Required
 
 ---
@@ -314,22 +406,39 @@ Tests should verify:
 - Variants
 - Sizes
 - States
+- Controlled behavior
+- Uncontrolled behavior
 - Events
 - Accessibility
+- Regression tests
 
 ---
 
 # 17. Playground
 
 Every component should have a Playground example.
+Every component must include a production-quality Playground.
 
-Playground is for:
+Playground requirements
 
-- Manual testing
+- Shared layout
+- max-w-6xl container
+- Card-based sections
+- Surface background
+- Divider below section title
+- Shadow XS
+- Responsive layout
+- Theme aware
+- Uses only Design Tokens
+- Matches the project's shared Playground design system.
+
+Playground is intended for
+
+- Manual QA
 - Visual verification
 - API exploration
 
-Playground is **not** a replacement for unit tests.
+It is not a replacement for unit tests.
 
 ---
 
@@ -378,6 +487,9 @@ A component is considered complete only when all of the following are satisfied:
 - Unit tests passing
 - Playground completed
 - README completed
+- Playground follows the shared design system
 - No ESLint warnings
 - No console warnings
-- No TypeScript/IDE issues (if applicable in the future)
+- No IDE/TypeScript issues
+- Uses only Design Tokens
+- No hardcoded colors

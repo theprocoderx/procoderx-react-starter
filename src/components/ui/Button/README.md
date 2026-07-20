@@ -2,7 +2,7 @@
 
 A production-ready, accessible, and theme-aware Button component built with **React**, **Tailwind CSS v4**, and **Class Variance Authority (CVA)**.
 
-The Button component preserves native HTML semantics while providing a clean, scalable API for modern applications.
+It supports multiple variants, sizes, loading states, icons, and link behavior while preserving native HTML semantics.
 
 ---
 
@@ -14,14 +14,13 @@ The Button component preserves native HTML semantics while providing a clean, sc
 - Disabled state
 - Start and end icons
 - Icon-only buttons
-- External links
-- Download links
+- External and download links
 - Full-width support
-- Theme aware
 - Keyboard accessible
 - Screen reader friendly
+- Theme-aware styling
 - CVA-powered variants
-- CSS variable-based styling
+- Fully unit tested
 
 ---
 
@@ -45,6 +44,21 @@ import Button from '@/components/ui/Button';
 
 ```jsx
 <Button>Save Changes</Button>
+
+<Button
+  variant="secondary"
+  size="lg"
+>
+  Continue
+</Button>
+
+<Button fullWidth>
+  Submit
+</Button>
+
+<Button disabled>
+  Disabled
+</Button>
 ```
 
 ---
@@ -76,7 +90,10 @@ import Button from '@/components/ui/Button';
 
 <Button size="lg">Large</Button>
 
-<Button size="icon" ariaLabel="Add item">
+<Button
+  size="icon"
+  ariaLabel="Add item"
+>
   <Plus />
 </Button>
 ```
@@ -84,20 +101,6 @@ import Button from '@/components/ui/Button';
 ---
 
 ## Icons
-
-Start icon
-
-```jsx
-<Button startIcon={<Download />}>Download</Button>
-```
-
-End icon
-
-```jsx
-<Button endIcon={<ArrowRight />}>Continue</Button>
-```
-
-Both icons
 
 ```jsx
 <Button startIcon={<Download />} endIcon={<ArrowRight />}>
@@ -113,131 +116,98 @@ Both icons
 <Button loading>Saving...</Button>
 ```
 
-Loading automatically:
-
-- displays a spinner
-- disables interaction
-- sets `aria-busy="true"`
-
----
-
-## Disabled
-
-```jsx
-<Button disabled>Submit</Button>
-```
-
----
-
-## Full Width
-
-```jsx
-<Button fullWidth>Continue</Button>
-```
+When `loading` is enabled, the button displays a spinner, disables interaction, and automatically sets `aria-busy="true"`.
 
 ---
 
 ## Links
 
-External link
-
 ```jsx
-<Button href='https://github.com/theprocoderx'>GitHub</Button>
-```
+<Button href="https://github.com/theprocoderx">
+  GitHub
+</Button>
 
-Download link
-
-```jsx
-<Button href='/resume.pdf' download>
+<Button
+  href="/resume.pdf"
+  download
+>
   Download Resume
 </Button>
 ```
 
-When `href` is provided, the component renders a native `<a>` element.
-
----
-
-## Native Rendering
-
-```jsx
-<Button>Save</Button>
-```
-
-renders
-
-```html
-<button type="button">Save</button>
-```
-
-```jsx
-<Button href='/about'>About</Button>
-```
-
-renders
-
-```html
-<a href="/about">About</a>
-```
+Providing an `href` renders a native `<a>` element instead of a `<button>`.
 
 ---
 
 ## Props
 
-| Prop      | Type                 | Default   | Description                    |
-| --------- | -------------------- | --------- | ------------------------------ |
-| children  | ReactNode            | —         | Button content                 |
-| variant   | string               | `primary` | Button variant                 |
-| size      | string               | `md`      | Button size                    |
-| fullWidth | boolean              | `false`   | Makes the button full width    |
-| href      | string               | —         | Renders an anchor element      |
-| target    | string               | `_blank`  | Anchor target                  |
-| download  | boolean              | `false`   | Enables file download          |
-| type      | string               | `button`  | Native button type             |
-| disabled  | boolean              | `false`   | Disables interaction           |
-| loading   | boolean              | `false`   | Shows loading spinner          |
-| startIcon | ReactNode            | —         | Icon before content            |
-| endIcon   | ReactNode            | —         | Icon after content             |
-| ariaLabel | string               | —         | Required for icon-only buttons |
-| className | string               | —         | Additional CSS classes         |
-| ...props  | ButtonHTMLAttributes | —         | Native button attributes       |
+## Props
 
-### Variant Values
+| Prop        | Type                   | Default     | Description                            |
+| ----------- | ---------------------- | ----------- | -------------------------------------- |
+| `children`  | `ReactNode`            | —           | Button content                         |
+| `variant`   | `string`               | `"primary"` | Button variant                         |
+| `size`      | `string`               | `"md"`      | Button size                            |
+| `fullWidth` | `boolean`              | `false`     | Expands button width                   |
+| `href`      | `string`               | —           | Renders an anchor element              |
+| `target`    | `string`               | `"_blank"`  | Anchor target                          |
+| `download`  | `boolean`              | `false`     | Enables file download                  |
+| `type`      | `string`               | `"button"`  | Native button type                     |
+| `disabled`  | `boolean`              | `false`     | Disables interaction                   |
+| `loading`   | `boolean`              | `false`     | Shows loading spinner                  |
+| `startIcon` | `ReactNode`            | —           | Icon before content                    |
+| `endIcon`   | `ReactNode`            | —           | Icon after content                     |
+| `ariaLabel` | `string`               | —           | Accessible label for icon-only buttons |
+| `className` | `string`               | —           | Additional CSS classes                 |
+| `...props`  | `ButtonHTMLAttributes` | —           | Native HTML button/anchor attributes   |
 
-- `primary`
-- `secondary`
-- `outline`
-- `ghost`
-- `destructive`
-- `link`
+---
 
-### Size Values
+### Available Values
 
-- `sm`
-- `md`
-- `lg`
-- `icon`
+#### Variants
 
-### Button Types
+```text
+primary
+secondary
+outline
+ghost
+destructive
+link
+```
 
-- `button`
-- `submit`
-- `reset`
+#### Sizes
+
+```text
+sm
+md
+lg
+icon
+```
+
+#### Button Types
+
+```text
+button
+submit
+reset
+```
+
+---
 
 ## Accessibility
 
-The Button component follows accessibility best practices.
+The component follows accessibility best practices.
 
-Features include:
-
-- Native HTML semantics
+- Native HTML button and anchor semantics
 - Keyboard accessible
-- Screen reader friendly
 - Focus-visible styles
 - Supports `aria-label`
 - Supports `aria-disabled`
 - Supports `aria-busy`
+- Icon-only buttons should always include an accessible label
 
-For icon-only buttons:
+Example:
 
 ```jsx
 <Button size='icon' ariaLabel='Add item'>
@@ -257,45 +227,43 @@ Unit tests cover:
 - Loading state
 - Disabled state
 - Links
-- Download attribute
+- Download links
 - Icons
 - Accessibility
 - Click events
+- Ref forwarding
 - Native HTML behavior
 
-See:
+Run tests:
 
-```text
-Button.test.jsx
+```bash
+npm test
+```
+
+or
+
+```bash
+npm run test
 ```
 
 ---
 
-## File Structure
+## Folder Structure
 
 ```text
-Button/
-├── Button.jsx
-├── buttonVariants.js
-├── Button.test.jsx
-├── README.md
-└── index.js
+src/
+└── components/
+    └── ui/
+        └── Button/
+            ├── Button.jsx
+            ├── buttonVariants.js
+            ├── Button.test.jsx
+            ├── README.md
+            └── index.js
 ```
-
----
-
-## Related Documentation
-
-Project-wide documentation:
-
-- `README.md`
-- `docs/ARCHITECTURE.md`
-- `docs/COMPONENT_GUIDELINES.md`
-- `docs/CHANGELOG.md`
-- `docs/ROADMAP.md`
 
 ---
 
 ## License
 
-MIT
+Part of the **ProCoderX React Starter** project.

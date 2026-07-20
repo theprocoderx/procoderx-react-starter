@@ -43,7 +43,7 @@ export default function Hero() {
         <div className='mt-10 flex flex-col gap-4 sm:flex-row' aria-label='Primary actions'>
           <a
             href='#quick-start'
-            className='rounded-xl bg-(--button-bg) px-6 py-3 font-semibold text-(--button-text) transition-transform duration-300 hover:-translate-y-0.5 hover:bg-(--button-hover) focus-visible:ring-2 focus-visible:ring-(--focus-ring) focus-visible:ring-offset-2 focus-visible:outline-none'
+            className='rounded-xl bg-(--primary-bg) px-6 py-3 font-semibold text-(--primary-bg-text) transition-transform duration-300 hover:-translate-y-0.5 hover:bg-(--primary-bg-hover) focus-visible:ring-2 focus-visible:ring-(--focus-ring) focus-visible:ring-offset-2 focus-visible:outline-none'
           >
             Get Started
           </a>

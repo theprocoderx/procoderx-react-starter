@@ -1,6 +1,6 @@
 import { forwardRef, useId } from 'react';
 
-import { cn } from '@/utils/cn';
+import { cn } from '@/utils';
 
 import { inputVariants } from './inputVariants';
 

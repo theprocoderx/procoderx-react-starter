@@ -47,7 +47,9 @@ export default function TechStack() {
       <div className='mx-auto max-w-7xl px-6'>
         {/* Section Header */}
         <header className='mx-auto mb-14 max-w-3xl text-center'>
-          <p className='text-sm font-semibold tracking-widest text-(--primary-text) uppercase'>Tech Stack</p>
+          <p className='rounded-4xl bg-(--primary-bg) py-2 text-sm font-semibold tracking-widest text-(--primary-bg-text) uppercase'>
+            Tech Stack
+          </p>
 
           <h2 id='tech-stack-heading' className='mt-3 text-3xl font-bold text-(--text) sm:text-4xl'>
             Built with modern technologies.

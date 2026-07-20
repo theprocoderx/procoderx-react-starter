@@ -23,7 +23,7 @@ export default function ThemeShowcase() {
       <div className='mx-auto max-w-6xl px-6'>
         {/* Section Header */}
         <header className='mx-auto mb-14 max-w-3xl text-center'>
-          <p className='text-sm font-semibold tracking-widest text-(--primary-text) uppercase'>
+          <p className='rounded-4xl bg-(--primary-bg) py-2 text-sm font-semibold tracking-widest text-(--primary-bg-text) uppercase'>
             Theme System
           </p>
 

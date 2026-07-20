@@ -1,7 +1,6 @@
 import { forwardRef } from 'react';
-
+import { cn } from '@/utils';
 import { buttonVariants } from './buttonVariants';
-import { cn } from '@/utils/cn';
 
 const Button = forwardRef(function Button(
   {

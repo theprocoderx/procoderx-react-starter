@@ -22,7 +22,7 @@ export default function CallToAction() {
         <div className='overflow-hidden rounded-3xl border border-(--border) bg-(--surface) p-10 text-center shadow-sm sm:p-16'>
           {/* Header */}
           <header>
-            <p className='rounded-full bg-(--primary) px-4 py-1 text-sm font-semibold text-(--primary-text)'>
+            <p className='rounded-full bg-(--primary-bg) px-4 py-2 text-sm font-semibold text-(--primary-bg-text)'>
               Open Source
             </p>
 
@@ -43,7 +43,7 @@ export default function CallToAction() {
               target='_blank'
               rel='noopener noreferrer'
               aria-label='Star ProCoderX React Starter on GitHub (opens in a new tab)'
-              className='rounded-xl bg-(--button-bg) px-6 py-3 font-semibold text-(--button-text) transition-all duration-300 hover:-translate-y-1 hover:opacity-90 focus-visible:ring-2 focus-visible:ring-(--focus-ring) focus-visible:ring-offset-2 focus-visible:outline-none'
+              className='rounded-xl bg-(--primary-bg) px-6 py-3 font-semibold text-(--primary-bg-text) transition-all duration-300 hover:-translate-y-1 hover:opacity-90 focus-visible:ring-2 focus-visible:ring-(--focus-ring) focus-visible:ring-offset-2 focus-visible:outline-none'
             >
               <span aria-hidden='true'>⭐</span> Star on GitHub
             </a>

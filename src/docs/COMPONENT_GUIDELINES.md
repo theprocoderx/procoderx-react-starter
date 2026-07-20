@@ -1,4 +1,12 @@
-# Component Guidelines
+## Version block
+
+| Field        | Value     |
+| ------------ | --------- |
+| Version      | 1.0.0     |
+| Status       | Stable    |
+| Last Updated | July 2026 |
+
+## Introduction
 
 This document defines the standards for creating, maintaining, and extending UI components in the **ProCoderX React Starter Kit**.
 
@@ -6,7 +14,7 @@ Every component in the project must follow these guidelines to ensure consistenc
 
 ---
 
-# Goals
+## Goals
 
 Every component should be:
 
@@ -22,7 +30,7 @@ Every component should be:
 
 ---
 
-# Component Folder Structure
+## Component Folder Structure
 
 Every UI component follows the same structure.
 
@@ -37,9 +45,9 @@ Component/
 
 ---
 
-# File Responsibilities
+## File Responsibilities
 
-## Component.jsx
+### Component.jsx
 
 Contains:
 
@@ -52,9 +60,7 @@ Contains:
 
 Do not place variant definitions or reusable utilities here.
 
----
-
-## componentVariants.js
+### componentVariants.js
 
 Contains:
 
@@ -66,9 +72,7 @@ Contains:
 
 No component logic should exist in this file.
 
----
-
-## Component.test.jsx
+### Component.test.jsx
 
 Contains:
 
@@ -80,9 +84,7 @@ Contains:
 
 Each component owns its own test file.
 
----
-
-## README.md
+### README.md
 
 Contains:
 
@@ -96,9 +98,7 @@ Contains:
 
 Keep the README focused on the component only.
 
----
-
-## index.js
+### index.js
 
 Exports the component through a barrel export.
 
@@ -110,7 +110,7 @@ export { default as Button } from './Button';
 
 ---
 
-# Naming Conventions
+## Naming Conventions
 
 Folders:
 
@@ -152,7 +152,7 @@ README.md
 
 ---
 
-# Component API
+## Component API
 
 Every component API should be:
 
@@ -168,52 +168,28 @@ Prefer composition over configuration.
 
 ---
 
-# Styling
+## Composition
 
-Use:
+Prefer component composition over excessive configuration.
 
-- Tailwind CSS v4
-- CSS Variables
-- CVA
-- cn() utility
+Good
 
-Avoid:
+```jsx
+<Card>
+  <CardHeader />
+  <CardContent />
+</Card>
+```
 
-- Inline styles
-- Hardcoded colors
-- Deep conditional class names
+Avoid
 
----
-
-# Accessibility
-
-Every component must:
-
-- Use semantic HTML
-- Support keyboard navigation
-- Expose required ARIA attributes
-- Display visible focus states
-- Work with screen readers
-
-Accessibility is mandatory.
+```jsx
+<Card header='...' body='...' footer='...' />
+```
 
 ---
 
-# Theme Support
-
-Every component must support:
-
-- Light Theme
-- Dark Theme
-- System Theme
-
-Use CSS Variables.
-
-Never hardcode colors.
-
----
-
-# Props
+## Props
 
 Every component should expose only meaningful props.
 
@@ -237,7 +213,74 @@ Avoid unnecessary boolean flags that duplicate native HTML behavior.
 
 ---
 
-# Variants
+## Form Component Standards
+
+All form controls should follow a shared API wherever applicable.
+
+### Requirements
+
+- Controlled support
+- Uncontrolled support
+- Shared variants
+- Shared sizes
+- Validation states
+- Helper text
+- Error message
+- Success message
+- Required state
+- Disabled state
+- Read-only state (where applicable)
+- Native HTML behavior
+- Accessibility compliance
+
+---
+
+## Styling
+
+Use:
+
+- Tailwind CSS v4
+- CSS Variables
+- CVA
+- cn() utility
+
+Avoid:
+
+- Inline styles
+- Hardcoded colors
+- Deep conditional class names
+
+---
+
+## Theme Support
+
+Every component must support:
+
+- Light Theme
+- Dark Theme
+- System Theme
+
+Use CSS Variables.
+
+Never hardcode colors.
+
+---
+
+## Accessibility
+
+Every component must:
+
+- Use semantic HTML
+- Support keyboard navigation
+- Expose required ARIA attributes
+- Display visible focus states
+- Work with screen readers
+
+Accessibility is mandatory.
+
+---
+
+## Variants
 
 Visual styles belong inside:
 
@@ -249,7 +292,7 @@ Never place Tailwind variant logic inside the component.
 
 ---
 
-# Icons
+## Icons
 
 When supported:
 
@@ -265,7 +308,7 @@ Example:
 
 ---
 
-# Ref Forwarding
+## Ref Forwarding
 
 Interactive components should use:
 
@@ -282,7 +325,7 @@ Examples:
 
 ---
 
-# Controlled vs Uncontrolled
+## Controlled vs Uncontrolled
 
 Form components should support both patterns whenever applicable.
 
@@ -300,7 +343,74 @@ Uncontrolled:
 
 ---
 
-# Component Documentation
+## Component States
+
+Components should support only the states that are meaningful.
+
+Common states:
+
+- Default
+- Hover
+- Active
+- Focus Visible
+- Disabled
+- Loading
+- Invalid
+- Success
+- Read Only
+
+---
+
+## Shared Utilities
+
+Components should reuse project utilities whenever possible.
+
+Examples
+
+- cn()
+- Shared Design Tokens
+- Shared Form Patterns
+- Theme Context
+- CVA Variants
+
+Avoid duplicating common logic across components.
+
+---
+
+## Playground
+
+Every component must include a Playground for manual verification before it can be marked Stable.
+
+### Verify:
+
+- Variants
+- Sizes
+- Theme switching
+- Accessibility
+- Responsive behavior
+- States
+- Keyboard interaction
+
+### Playground Standards
+
+Every component Playground should follow the shared design system.
+
+#### Requirements
+
+- max-w-6xl container
+- Card-based layout
+- Surface background
+- Divider below section title
+- Consistent spacing
+- Theme aware
+- Responsive layout
+- Uses Design Tokens only
+
+The Playground is intended for manual QA, visual verification, and API exploration.
+
+---
+
+## Component Documentation
 
 Every component must include:
 
@@ -314,23 +424,7 @@ Do not duplicate project-wide documentation.
 
 ---
 
-# Playground
-
-Every component must be manually verified in the Playground before being marked complete.
-
-Verify:
-
-- Variants
-- Sizes
-- Theme switching
-- Accessibility
-- Responsive behavior
-- States
-- Keyboard interaction
-
----
-
-# Testing
+## Testing
 
 Every component requires its own test file.
 
@@ -356,7 +450,34 @@ docs/TESTING_GUIDELINES.md
 
 ---
 
-# Development Workflow
+## Performance
+
+Components should:
+
+- Preserve native HTML behavior
+- Minimize unnecessary re-renders
+- Avoid unnecessary wrapper elements
+- Avoid duplicated logic
+- Keep bundle size small
+- Avoid unnecessary dependencies
+- Lazy load only when appropriate
+
+---
+
+## Code Quality
+
+Every component should:
+
+- Follow the Single Responsibility Principle
+- Prefer composition over inheritance
+- Avoid duplicated logic
+- Keep APIs consistent
+- Be easy to extend
+- Be easy to maintain
+
+---
+
+## Development Workflow
 
 Never begin a new component until the current component is fully complete.
 
@@ -376,46 +497,26 @@ This workflow is mandatory for every component.
 
 ---
 
-# Code Quality
+## Definition of Stable
 
-Every component should:
+A component is considered Stable only when it has:
 
-- Follow the Single Responsibility Principle
-- Avoid duplicated logic
-- Prefer composition
-- Be easy to extend
-- Keep APIs consistent
+- Production-ready implementation
+- Consistent API
+- Accessibility verified
+- Theme support
+- Playground completed
+- README completed
+- Unit tests passing
+- Manual QA completed
+- ESLint clean
+- No known issues
 
----
-
-# Performance
-
-Components should:
-
-- Minimize re-renders
-- Avoid unnecessary wrappers
-- Keep bundle size small
-- Preserve native HTML behavior
+After a component becomes Stable, only bug fixes and accessibility improvements should be made unless a breaking change is intentionally planned.
 
 ---
 
-# Export Strategy
-
-Component:
-
-```jsx
-export default Button;
-```
-
-Barrel:
-
-```jsx
-export { default as Button } from './Button';
-```
-
----
-
-# Component Completion Checklist
+## Component Completion Checklist
 
 A component is complete only when:
 
@@ -433,61 +534,7 @@ A component is complete only when:
 
 ---
 
-# Current Development Order
-
-## Foundation
-
-- ✅ Theme
-- ✅ Utilities
-- ✅ Button
-
-## Basic Form Components
-
-- ⏳ Input
-- Label
-- Textarea
-- Select
-- Checkbox
-- Radio
-- Switch
-
-## Display Components
-
-- Card
-- Badge
-- Avatar
-- Alert
-
-## Overlay Components
-
-- Modal
-- Drawer
-- Tooltip
-- Toast
-- Dropdown
-- Accordion
-- Tabs
-
-## Application Toolkit
-
-- Form utilities
-- Authentication templates
-- Layout templates
-- SEO toolkit
-- Dashboard templates
-
-## Ecosystem
-
-- Storybook
-- Documentation website
-- npm package
-- CLI
-- GitHub Actions
-- Release automation
-
----
-
-# Guiding Principle
+## Guiding Principle
 
 Every component should feel like a natural part of the same design system.
 

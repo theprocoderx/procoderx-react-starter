@@ -16,9 +16,10 @@
     "test:watch": "vitest --watch",
     "test:ui": "vitest --ui",
     "coverage": "vitest run --coverage",
-    "clean": "npm run lint:fix && npm run format:fix"
+    "clean": "npm run lint:fix && npm run format:fix && npm run build"
   },
   "dependencies": {
+    "@icons-pack/react-simple-icons": "^13.11.1",
     "@tailwindcss/vite": "^4.3.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -26,7 +27,6 @@
     "prop-types": "^15.8.1",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
-    "react-icons": "^5.7.0",
     "react-router-dom": "^7.16.0",
     "tailwind-merge": "^3.6.0",
     "tailwindcss": "^4.3.0"
