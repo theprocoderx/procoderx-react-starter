@@ -50,7 +50,9 @@ export default function Features() {
       <div className='mx-auto max-w-7xl px-6'>
         {/* Heading */}
         <header className='mx-auto mb-14 max-w-3xl text-center'>
-          <p className='text-sm font-semibold tracking-widest bg-(--primary-bg) py-2 rounded-4xl text-(--primary-bg-text) uppercase'>Features</p>
+          <p className='rounded-4xl bg-(--primary-bg) py-2 text-sm font-semibold tracking-widest text-(--primary-bg-text) uppercase'>
+            Features
+          </p>
 
           <h2 id='features-heading' className='mt-3 text-3xl font-bold text-(--text) sm:text-4xl'>
             Everything you need to start building.
