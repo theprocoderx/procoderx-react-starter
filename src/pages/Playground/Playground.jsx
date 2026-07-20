@@ -1,4 +1,4 @@
-import { ButtonPlayground, InputPlayground, LabelPlayground } from './';
+import { ButtonPlayground, InputPlayground, LabelPlayground, RadioPlayground } from './';
 
 const Playground = () => {
   return (
@@ -20,6 +20,7 @@ const Playground = () => {
       {/* <InputPlayground /> */}
 
       {/* <LabelPlayground /> */}
+      <RadioPlayground />
     </section>
   );
 };
