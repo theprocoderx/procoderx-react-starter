@@ -8,3 +8,4 @@ export { default as InputPlayground } from './components/InputPlayground';
 
 export { default as LabelPlayground } from './components/LabelPlayground';
 export { default as RadioPlayground } from './components/RadioPlayground';
+export { default as CheckboxPlayground } from './components/CheckboxPlayground';
