@@ -1,4 +1,4 @@
-import { ButtonPlayground, CheckboxPlayground, InputPlayground, LabelPlayground, RadioPlayground, SwitchPlayground, TextareaPlayground } from './';
+import { ButtonPlayground, CheckboxPlayground, InputPlayground, LabelPlayground, RadioPlayground, SelectPlayground, SwitchPlayground, TextareaPlayground } from './';
 
 const Playground = () => {
   return (
@@ -15,15 +15,16 @@ const Playground = () => {
       {/* Component Playgrounds */}
       {/* ====================================================== */}
 
-      <ButtonPlayground />
+      {/* <ButtonPlayground /> */}
 
       {/* <InputPlayground /> */}
 
       {/* <LabelPlayground /> */}
       {/* <RadioPlayground /> */}
       {/* <CheckboxPlayground /> */}
-      <SwitchPlayground />
-      <TextareaPlayground />
+      {/* <SwitchPlayground /> */}
+      {/* <TextareaPlayground /> */}
+      <SelectPlayground />
     </section>
   );
 };

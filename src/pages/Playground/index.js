@@ -11,3 +11,4 @@ export { default as RadioPlayground } from './components/RadioPlayground';
 export { default as CheckboxPlayground } from './components/CheckboxPlayground';
 export { default as SwitchPlayground } from './components/SwitchPlayground';
 export { default as TextareaPlayground } from './components/TextareaPlayground';
+export { default as SelectPlayground } from './components/SelectPlayground';
