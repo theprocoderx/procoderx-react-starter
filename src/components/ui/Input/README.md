@@ -1,6 +1,6 @@
 # Input
 
-A production-ready, accessible, and theme-aware Input component built with React, Tailwind CSS v4, and Class Variance Authority (CVA).
+A production-ready, accessible, and theme-aware Input component built with **React**, **Tailwind CSS v4**, and **Class Variance Authority (CVA)**.
 
 The component extends the native HTML `<input>` element while providing consistent styling, validation states, icon support, accessibility, and seamless integration with your design system.
 
@@ -19,15 +19,9 @@ The component extends the native HTML `<input>` element while providing consiste
 - Automatic ID generation
 - Ref forwarding
 - Accessible by default
-- Theme-aware using CSS variables
-
----
-
-## Installation
-
-```bash
-npm install class-variance-authority
-```
+- Theme-aware styling
+- CVA-powered variants
+- Fully unit tested
 
 ---
 
@@ -149,7 +143,7 @@ import { Mail, Eye } from 'lucide-react';
 
 ---
 
-## Controlled Input
+## Controlled Usage
 
 ```jsx
 const [value, setValue] = useState('');
@@ -159,7 +153,7 @@ const [value, setValue] = useState('');
 
 ---
 
-## Uncontrolled Input
+## Uncontrolled Usage
 
 ```jsx
 <Input defaultValue='John Doe' />
@@ -183,27 +177,88 @@ const [value, setValue] = useState('');
 
 ---
 
+## Native HTML Support
+
+Input forwards all native `<input>` attributes, including:
+
+- `type`
+- `name`
+- `value`
+- `defaultValue`
+- `placeholder`
+- `autoComplete`
+- `autoFocus`
+- `maxLength`
+- `minLength`
+- `inputMode`
+- `pattern`
+- `onChange`
+- `onFocus`
+- `onBlur`
+- and all other native input attributes.
+
+---
+
 ## Props
 
-| Prop           | Type                               | Default        | Description                        |
-| -------------- | ---------------------------------- | -------------- | ---------------------------------- |
-| type           | string                             | `"text"`       | Native input type                  |
-| variant        | `"default" \| "filled" \| "ghost"` | `"default"`    | Visual style                       |
-| size           | `"sm" \| "md" \| "lg"`             | `"md"`         | Input size                         |
-| fullWidth      | boolean                            | `false`        | Makes the input span its container |
-| disabled       | boolean                            | `false`        | Disables the input                 |
-| readOnly       | boolean                            | `false`        | Makes the input read-only          |
-| required       | boolean                            | `false`        | Marks the input as required        |
-| invalid        | boolean                            | `false`        | Displays the error state           |
-| success        | boolean                            | `false`        | Displays the success state         |
-| helperText     | ReactNode                          | —              | Helper text below the input        |
-| errorMessage   | ReactNode                          | —              | Error message                      |
-| successMessage | ReactNode                          | —              | Success message                    |
-| startIcon      | ReactNode                          | —              | Leading icon                       |
-| endIcon        | ReactNode                          | —              | Trailing icon                      |
-| id             | string                             | Auto generated | Input ID                           |
-| className      | string                             | —              | Additional CSS classes             |
-| ...props       | InputHTMLAttributes                | —              | Native input props                 |
+| Prop             | Type                  | Default        | Description                           |
+| ---------------- | --------------------- | -------------- | ------------------------------------- |
+| `type`           | `string`              | `"text"`       | Native input type                     |
+| `variant`        | `Variant`             | `"default"`    | Visual style                          |
+| `size`           | `Size`                | `"md"`         | Input size                            |
+| `fullWidth`      | `boolean`             | `false`        | Makes the input span its container    |
+| `disabled`       | `boolean`             | `false`        | Disables the input                    |
+| `readOnly`       | `boolean`             | `false`        | Makes the input read-only             |
+| `required`       | `boolean`             | `false`        | Marks the input as required           |
+| `invalid`        | `boolean`             | `false`        | Displays the error state              |
+| `success`        | `boolean`             | `false`        | Displays the success state            |
+| `helperText`     | `ReactNode`           | —              | Helper text displayed below the input |
+| `errorMessage`   | `ReactNode`           | —              | Error message                         |
+| `successMessage` | `ReactNode`           | —              | Success message                       |
+| `startIcon`      | `ReactNode`           | —              | Leading icon                          |
+| `endIcon`        | `ReactNode`           | —              | Trailing icon                         |
+| `id`             | `string`              | Auto generated | Input ID                              |
+| `className`      | `string`              | —              | Additional CSS classes                |
+| `...props`       | `InputHTMLAttributes` | —              | Native input attributes               |
+
+---
+
+## Available Values
+
+### Variants
+
+```text
+default
+filled
+ghost
+```
+
+### Sizes
+
+```text
+sm
+md
+lg
+```
+
+### Input Types
+
+```text
+text
+email
+password
+number
+search
+tel
+url
+date
+time
+file
+color
+checkbox
+radio
+and all native HTML input types
+```
 
 ---
 
@@ -211,18 +266,36 @@ const [value, setValue] = useState('');
 
 The component follows modern accessibility best practices.
 
-- Native HTML input element
+- Native HTML `<input>` semantics
+- Keyboard accessible
+- Screen reader friendly
 - Ref forwarding
 - Automatic ID generation
-- Supports labels
 - Supports `aria-label`
 - Supports `aria-labelledby`
 - Supports `aria-describedby`
 - Supports `aria-invalid`
-- Keyboard accessible
-- Screen reader friendly
 
-For the best experience, pair the Input with your Label component.
+Every Input should have an accessible name using one of the following:
+
+- `<Label />`
+- `aria-label`
+- `aria-labelledby`
+
+Example:
+
+```jsx
+<Label htmlFor="email">
+  Email Address
+</Label>
+
+<Input
+  id="email"
+  type="email"
+/>
+```
+
+If no `id` is provided, the component automatically generates a unique ID for accessibility.
 
 ---
 
@@ -239,23 +312,39 @@ Unit tests cover:
 - Read-only state
 - Required state
 - Icons
+- Controlled usage
+- Uncontrolled usage
 - Accessibility
 - Ref forwarding
-- Controlled inputs
-- Uncontrolled inputs
+- Class merging
 - Native HTML attributes
+
+Run tests:
+
+```bash
+npm test
+```
+
+or
+
+```bash
+npm run test
+```
 
 ---
 
-## File Structure
+## Folder Structure
 
 ```text
-Input/
-├── Input.jsx
-├── inputVariants.js
-├── Input.test.jsx
-├── README.md
-└── index.js
+src/
+└── components/
+    └── ui/
+        └── Input/
+            ├── Input.jsx
+            ├── inputVariants.js
+            ├── Input.test.jsx
+            ├── README.md
+            └── index.js
 ```
 
 ---
@@ -273,4 +362,4 @@ Input/
 
 ## License
 
-MIT
+Part of the **ProCoderX React Starter** project.

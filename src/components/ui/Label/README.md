@@ -1,23 +1,23 @@
 # Label
 
-A production-ready, accessible, and customizable **Label** component built with **React**, **Tailwind CSS v4**, and **Class Variance Authority (CVA)**.
+A production-ready, accessible, and theme-aware Label component built with **React**, **Tailwind CSS v4**, and **Class Variance Authority (CVA)**.
 
-The component provides semantic labeling for form controls while supporting multiple sizes, disabled state, required indicators, visually hidden labels, and CSS variable-based theming.
+The component extends the native HTML `<label>` element while providing consistent styling, required indicators, disabled states, visually hidden labels, accessibility, and seamless integration with your design system.
 
 ---
 
 ## Features
 
-- Semantic HTML `<label>`
 - Multiple sizes
 - Required indicator
 - Disabled state
 - Visually hidden labels
+- Semantic HTML label
 - Ref forwarding
+- Accessible by default
 - Theme-aware styling
 - CVA-powered variants
-- Accessible by default
-- Production-ready API
+- Fully unit tested
 
 ---
 
@@ -52,15 +52,44 @@ import Label from '@/components/ui/Label';
 
 ---
 
-## Examples
+## Sizes
 
-### Required
+```jsx
+<Label
+  htmlFor="name"
+  size="sm"
+>
+  Small
+</Label>
+
+<Label
+  htmlFor="name"
+  size="md"
+>
+  Medium
+</Label>
+
+<Label
+  htmlFor="name"
+  size="lg"
+>
+  Large
+</Label>
+```
+
+---
+
+## Required
 
 ```jsx
 <Label htmlFor='email' required>
   Email Address
 </Label>
 ```
+
+---
+
+## States
 
 ### Disabled
 
@@ -70,7 +99,7 @@ import Label from '@/components/ui/Label';
 </Label>
 ```
 
-### Hidden (Screen Reader Only)
+### Visually Hidden
 
 ```jsx
 <Label
@@ -86,29 +115,9 @@ import Label from '@/components/ui/Label';
 />
 ```
 
-### Sizes
+---
 
-```jsx
-<Label
-  htmlFor="name"
-  size="sm"
->
-  Small
-</Label>
-
-<Label htmlFor="name">
-  Medium
-</Label>
-
-<Label
-  htmlFor="name"
-  size="lg"
->
-  Large
-</Label>
-```
-
-### Custom Styling
+## Custom Styling
 
 ```jsx
 <Label htmlFor='email' className='text-blue-600'>
@@ -118,24 +127,44 @@ import Label from '@/components/ui/Label';
 
 ---
 
+## Native HTML Support
+
+Label forwards all native `<label>` attributes, including:
+
+- `htmlFor`
+- `title`
+- `id`
+- `className`
+- `style`
+- `onClick`
+- `onMouseEnter`
+- `onMouseLeave`
+- and all other native label attributes.
+
+---
+
 ## Props
 
-| Prop        | Type                  | Default | Description                                          |
-| ----------- | --------------------- | ------- | ---------------------------------------------------- |
-| `htmlFor`   | `string`              | —       | Associates the label with a form control             |
-| `children`  | `ReactNode`           | —       | Label content                                        |
-| `required`  | `boolean`             | `false` | Displays the required indicator                      |
-| `disabled`  | `boolean`             | `false` | Applies disabled styling                             |
-| `hidden`    | `boolean`             | `false` | Visually hides the label while keeping it accessible |
-| `size`      | `string`              | `"md"`  | Label size                                           |
-| `className` | `string`              | —       | Additional CSS classes                               |
-| `...props`  | `LabelHTMLAttributes` | —       | Native label attributes                              |
+| Prop        | Type                                    | Default | Description                                          |
+| ----------- | --------------------------------------- | ------- | ---------------------------------------------------- |
+| `htmlFor`   | `string`                                | —       | Associates the label with a form control             |
+| `children`  | `ReactNode`                             | —       | Label content                                        |
+| `size`      | `Size`                                  | `"md"`  | Label size                                           |
+| `required`  | `boolean`                               | `false` | Displays the required indicator                      |
+| `disabled`  | `boolean`                               | `false` | Applies disabled styling                             |
+| `hidden`    | `boolean`                               | `false` | Visually hides the label while keeping it accessible |
+| `className` | `string`                                | —       | Additional CSS classes                               |
+| `...props`  | `LabelHTMLAttributes<HTMLLabelElement>` | —       | Native label attributes                              |
 
-### Available Sizes
+---
+
+## Available Values
+
+### Sizes
 
 ```text
 sm
-md (default)
+md
 lg
 ```
 
@@ -143,14 +172,17 @@ lg
 
 ## Accessibility
 
-The Label component follows accessibility best practices.
+The component follows modern accessibility best practices.
 
-- Uses the native `<label>` element.
-- Supports `htmlFor` association.
-- Required indicator is hidden from assistive technologies using `aria-hidden="true"`.
-- Supports visually hidden labels via the `hidden` prop.
-- Displays a development warning when `htmlFor` is omitted.
-- Compatible with screen readers and keyboard navigation.
+- Native HTML `<label>` semantics
+- Keyboard accessible
+- Screen reader friendly
+- Ref forwarding
+- Supports `htmlFor`
+- Supports visually hidden labels
+- Required indicator uses `aria-hidden="true"`
+
+Every Label should reference its associated form control using the `htmlFor` prop.
 
 Example:
 
@@ -177,11 +209,12 @@ Unit tests cover:
 - Disabled state
 - Hidden labels
 - Size variants
-- Ref forwarding
 - Accessibility
-- Custom class names
+- Ref forwarding
+- Class merging
+- Native HTML attributes
 
-Run the tests:
+Run tests:
 
 ```bash
 npm test
@@ -195,28 +228,33 @@ npm run test
 
 ---
 
-## Best Practices
+## Folder Structure
 
-- Always match `htmlFor` with the target input's `id`.
-- Use the `hidden` prop instead of removing labels visually.
-- Keep labels short and descriptive.
-- Do not rely on placeholders as replacements for labels.
+```text
+src/
+└── components/
+    └── ui/
+        └── Label/
+            ├── Label.jsx
+            ├── labelVariants.js
+            ├── Label.test.jsx
+            ├── README.md
+            └── index.js
+```
 
 ---
 
-## File Structure
+## Related Components
 
-```text
-Label/
-├── Label.jsx
-├── labelVariants.js
-├── Label.test.jsx
-├── README.md
-└── index.js
-```
+- Input
+- Textarea
+- Select
+- Checkbox
+- Radio
+- Switch
 
 ---
 
 ## License
 
-MIT License
+Part of the **ProCoderX React Starter** project.

@@ -1,29 +1,37 @@
 # Radio
 
-A production-ready, accessible, and customizable **Radio** component built with **React**, **Tailwind CSS v4**, and **Class Variance Authority (CVA)**.
+A production-ready, accessible, and theme-aware Radio component built with **React**, **Tailwind CSS v4**, and **Class Variance Authority (CVA)**.
+
+The component extends the native HTML `<input type="radio">` element while providing consistent styling, validation states, helper text, accessibility, and seamless integration with your design system.
 
 ---
 
 ## Features
 
-- Native HTML radio input
-- Controlled & uncontrolled support
-- Multiple variants and sizes
-- Disabled, error, and success states
-- Helper text support
+- Multiple variants
+- Multiple sizes
+- Controlled and uncontrolled usage
+- Validation states
+- Helper, error, and success messages
+- Disabled state
+- Required state
+- Full accessibility support
 - Ref forwarding
 - Theme-aware styling
-- Keyboard and screen-reader accessible
+- CVA-powered variants
+- Fully unit tested
 
 ---
 
 ## Import
 
+Using the barrel export:
+
 ```jsx
 import { Radio } from '@/components/ui';
 ```
 
-Or:
+Or directly:
 
 ```jsx
 import Radio from '@/components/ui/Radio';
@@ -39,7 +47,84 @@ import Radio from '@/components/ui/Radio';
 
 ---
 
-## Controlled
+## Variants
+
+```jsx
+<Radio
+  variant="default"
+  aria-label="Default"
+/>
+
+<Radio
+  variant="outline"
+  aria-label="Outline"
+/>
+```
+
+---
+
+## Sizes
+
+```jsx
+<Radio
+  size="sm"
+  aria-label="Small"
+/>
+
+<Radio
+  size="md"
+  aria-label="Medium"
+/>
+
+<Radio
+  size="lg"
+  aria-label="Large"
+/>
+```
+
+---
+
+## Validation
+
+### Error
+
+```jsx
+<Radio invalid errorMessage='Please select an option.' aria-label='React' />
+```
+
+### Success
+
+```jsx
+<Radio success successMessage='Looks good!' aria-label='Vue' />
+```
+
+---
+
+## Helper Text
+
+```jsx
+<Radio helperText='Choose one option.' aria-label='React' />
+```
+
+---
+
+## States
+
+### Disabled
+
+```jsx
+<Radio disabled aria-label='React' />
+```
+
+### Required
+
+```jsx
+<Radio required aria-label='React' />
+```
+
+---
+
+## Controlled Usage
 
 ```jsx
 const [value, setValue] = useState('react');
@@ -55,7 +140,7 @@ const [value, setValue] = useState('react');
 
 ---
 
-## Uncontrolled
+## Uncontrolled Usage
 
 ```jsx
 <Radio name='framework' value='react' defaultChecked aria-label='React' />
@@ -63,100 +148,136 @@ const [value, setValue] = useState('react');
 
 ---
 
-## Variants
+## With Label
 
 ```jsx
-<Radio variant="default" aria-label="Default" />
-
-<Radio variant="outline" aria-label="Outline" />
-```
-
----
-
-## Sizes
-
-```jsx
-<Radio size="sm" aria-label="Small" />
-
-<Radio size="md" aria-label="Medium" />
-
-<Radio size="lg" aria-label="Large" />
-```
-
----
-
-## Validation
-
-```jsx
-<Radio
-  invalid
-  errorMessage="Please select an option."
-  aria-label="React"
-/>
+<Label htmlFor="react">
+  React
+</Label>
 
 <Radio
-  success
-  successMessage="Looks good!"
-  aria-label="Vue"
+  id="react"
+  name="framework"
+  value="react"
 />
 ```
 
 ---
 
-## Helper Text
+## Native HTML Support
 
-```jsx
-<Radio helperText='Choose one option.' aria-label='React' />
-```
+Radio forwards all native `<input type="radio">` attributes, including:
+
+- `name`
+- `value`
+- `checked`
+- `defaultChecked`
+- `required`
+- `disabled`
+- `autoFocus`
+- `tabIndex`
+- `onChange`
+- `onFocus`
+- `onBlur`
+- and all other native radio input attributes.
 
 ---
 
 ## Props
 
-| Prop             | Type                                    | Default     | Description        |
-| ---------------- | --------------------------------------- | ----------- | ------------------ |
-| `variant`        | `"default" \| "outline"`                | `"default"` | Radio variant      |
-| `size`           | `"sm" \| "md" \| "lg"`                  | `"md"`      | Radio size         |
-| `checked`        | `boolean`                               | —           | Controlled state   |
-| `defaultChecked` | `boolean`                               | `false`     | Uncontrolled state |
-| `disabled`       | `boolean`                               | `false`     | Disables the radio |
-| `required`       | `boolean`                               | `false`     | Marks as required  |
-| `invalid`        | `boolean`                               | `false`     | Error state        |
-| `success`        | `boolean`                               | `false`     | Success state      |
-| `helperText`     | `string`                                | —           | Helper text        |
-| `errorMessage`   | `string`                                | —           | Error message      |
-| `successMessage` | `string`                                | —           | Success message    |
-| `className`      | `string`                                | —           | Additional classes |
-| `...props`       | `InputHTMLAttributes<HTMLInputElement>` | —           | Native input props |
+| Prop             | Type                                    | Default        | Description                           |
+| ---------------- | --------------------------------------- | -------------- | ------------------------------------- |
+| `variant`        | `Variant`                               | `"default"`    | Visual style                          |
+| `size`           | `Size`                                  | `"md"`         | Radio size                            |
+| `checked`        | `boolean`                               | —              | Controlled state                      |
+| `defaultChecked` | `boolean`                               | `false`        | Initial uncontrolled state            |
+| `disabled`       | `boolean`                               | `false`        | Disables the radio                    |
+| `required`       | `boolean`                               | `false`        | Marks the radio as required           |
+| `invalid`        | `boolean`                               | `false`        | Displays the error state              |
+| `success`        | `boolean`                               | `false`        | Displays the success state            |
+| `helperText`     | `ReactNode`                             | —              | Helper text displayed below the radio |
+| `errorMessage`   | `ReactNode`                             | —              | Error message                         |
+| `successMessage` | `ReactNode`                             | —              | Success message                       |
+| `id`             | `string`                                | Auto generated | Radio ID                              |
+| `className`      | `string`                                | —              | Additional CSS classes                |
+| `...props`       | `InputHTMLAttributes<HTMLInputElement>` | —              | Native radio input attributes         |
+
+---
+
+## Available Values
+
+### Variants
+
+```text
+default
+outline
+```
+
+### Sizes
+
+```text
+sm
+md
+lg
+```
 
 ---
 
 ## Accessibility
 
-Supports:
+The component follows modern accessibility best practices.
 
-- Native radio semantics
-- Keyboard navigation
-- Screen readers
+- Native HTML `<input type="radio">` semantics
+- Keyboard accessible
+- Screen reader friendly
+- Ref forwarding
+- Automatic ID generation
+- Supports `aria-label`
+- Supports `aria-labelledby`
+- Supports `aria-describedby`
+- Supports `aria-invalid`
+
+Every Radio should have an accessible name using one of the following:
+
+- `<Label />`
 - `aria-label`
 - `aria-labelledby`
-- `aria-describedby`
-- `aria-invalid`
+
+Example:
+
+```jsx
+<Label htmlFor="react">
+  React
+</Label>
+
+<Radio
+  id="react"
+  name="framework"
+  value="react"
+/>
+```
+
+If no `id` is provided, the component automatically generates a unique ID for accessibility.
 
 ---
 
 ## Testing
 
-Covered by unit tests for:
+Unit tests cover:
 
 - Rendering
-- Native props
-- Controlled & uncontrolled usage
-- Interaction
-- Variants & sizes
-- Validation
+- Variants
+- Sizes
+- Controlled usage
+- Uncontrolled usage
+- Validation states
+- Helper text
+- Disabled state
+- Required state
 - Accessibility
 - Ref forwarding
+- Class merging
+- Native HTML attributes
 
 Run tests:
 
@@ -164,21 +285,41 @@ Run tests:
 npm test
 ```
 
+or
+
+```bash
+npm run test
+```
+
 ---
 
-## File Structure
+## Folder Structure
 
 ```text
-Radio/
-├── Radio.jsx
-├── radioVariants.js
-├── Radio.test.jsx
-├── README.md
-└── index.js
+src/
+└── components/
+    └── ui/
+        └── Radio/
+            ├── Radio.jsx
+            ├── radioVariants.js
+            ├── Radio.test.jsx
+            ├── README.md
+            └── index.js
 ```
+
+---
+
+## Related Components
+
+- Label
+- Checkbox
+- Switch
+- Input
+- Select
+- Textarea
 
 ---
 
 ## License
 
-MIT
+Part of the **ProCoderX React Starter** project.
