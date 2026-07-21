@@ -624,6 +624,11 @@
   --feedback-duration: var(--duration-normal);
   --feedback-easing: var(--ease-out);
 
+  /* ----------------------------------------------------------
+     Transition
+  ---------------------------------------------------------- */
+  --feedback-padding: 0.5rem; /* ya 8px */
+
   /* ==========================================================
    DATA DISPLAY
    Shared tokens for data presentation components
@@ -1467,6 +1472,11 @@
 
   --feedback-duration: var(--duration-normal);
   --feedback-easing: var(--ease-out);
+
+  /* ----------------------------------------------------------
+     Transition
+  ---------------------------------------------------------- */
+  --feedback-padding: 0.5rem; /* ya 8px */
 
   /* ==========================================================
      DATA DISPLAY
