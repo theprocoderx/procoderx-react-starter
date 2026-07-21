@@ -35,8 +35,6 @@ const Alert = forwardRef(function Alert(
 ) {
   const Icon = alertIcons[variant] ?? alertIcons.default;
 
-  const canDismiss = dismissible && Boolean(onDismiss);
-
   const alertRole = role ?? (variant === 'info' || variant === 'default' ? 'status' : 'alert');
 
   if (import.meta.env.DEV && dismissible && !onDismiss) {
@@ -68,7 +66,7 @@ const Alert = forwardRef(function Alert(
       </div>
 
       {/* Close Button */}
-      {canDismiss && (
+      {dismissible && (
         <button
           type='button'
           onClick={onDismiss}

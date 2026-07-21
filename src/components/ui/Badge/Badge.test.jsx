@@ -17,13 +17,13 @@ describe('Badge', () => {
   });
 
   it('applies default variant classes', () => {
-  render(<Badge>Default</Badge>);
+    render(<Badge>Default</Badge>);
 
-  const badge = screen.getByText('Default');
+    const badge = screen.getByText('Default');
 
-  expect(badge).toHaveClass('h-6');
-  expect(badge).toHaveClass('rounded-[var(--radius-full)]');
-});
+    expect(badge).toHaveClass('h-6');
+    expect(badge).toHaveClass('rounded-[var(--radius-full)]');
+  });
 
   it.each(['primary', 'secondary', 'success', 'warning', 'error', 'info', 'outline', 'ghost'])(
     'supports "%s" variant',
@@ -54,7 +54,6 @@ describe('Badge', () => {
     const badge = screen.getByText(size).closest('span');
 
     expect(badge).toHaveClass(cls);
-    screen.debug();
   });
 
   it('supports full width', () => {
