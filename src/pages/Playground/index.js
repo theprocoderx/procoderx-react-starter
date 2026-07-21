@@ -10,3 +10,4 @@ export { default as LabelPlayground } from './components/LabelPlayground';
 export { default as RadioPlayground } from './components/RadioPlayground';
 export { default as CheckboxPlayground } from './components/CheckboxPlayground';
 export { default as SwitchPlayground } from './components/SwitchPlayground';
+export { default as TextareaPlayground } from './components/TextareaPlayground';
