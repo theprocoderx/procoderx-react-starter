@@ -24,52 +24,55 @@ export const alertVariants = cva(
     'transition-[background-color,border-color,color,box-shadow]',
     'duration-[var(--feedback-duration)]',
     'ease-[var(--feedback-easing)]',
-  ],
 
+    // Focus
+    'focus-within:ring-2',
+    'focus-within:ring-[var(--feedback-focus-ring)]',
+    'focus-within:ring-offset-2',
+    'focus-within:ring-offset-[var(--bg)]',
+  ],
   {
     variants: {
       variant: {
         default: [
-          'border-[var(--feedback-info-border)]',
-          'bg-[var(--feedback-info-bg)]',
-          'text-[var(--feedback-info-text)]',
+          'bg-[var(--feedback-bg)]',
+          'text-[var(--feedback-text)]',
+          'border-[var(--feedback-border)]',
         ],
 
         info: [
-          'border-[var(--feedback-info-border)]',
           'bg-[var(--feedback-info-bg)]',
           'text-[var(--feedback-info-text)]',
+          'border-[var(--feedback-info-border)]',
         ],
 
         success: [
-          'border-[var(--feedback-success-border)]',
           'bg-[var(--feedback-success-bg)]',
           'text-[var(--feedback-success-text)]',
+          'border-[var(--feedback-success-border)]',
         ],
 
         warning: [
-          'border-[var(--feedback-warning-border)]',
           'bg-[var(--feedback-warning-bg)]',
           'text-[var(--feedback-warning-text)]',
+          'border-[var(--feedback-warning-border)]',
         ],
 
         error: [
-          'border-[var(--feedback-error-border)]',
           'bg-[var(--feedback-error-bg)]',
           'text-[var(--feedback-error-text)]',
+          'border-[var(--feedback-error-border)]',
         ],
       },
 
       fullWidth: {
         true: 'w-full',
-
         false: 'w-fit',
       },
     },
 
     defaultVariants: {
       variant: 'default',
-
       fullWidth: true,
     },
   },

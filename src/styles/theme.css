@@ -677,12 +677,16 @@
   --display-chip-radius: var(--radius-full);
   --display-chip-padding: 0.25rem 0.625rem;
   --display-chip-shadow: none;
+
   /* ----------------------------------------------------------
    Avatar
 ---------------------------------------------------------- */
 
   --display-avatar-bg: var(--surface-active);
   --display-avatar-text: var(--text);
+  --display-avatar-border: var(--border);
+  --display-avatar-radius: var(--radius-full);
+  --display-avatar-shadow: var(--shadow-xs);
 
   /* ----------------------------------------------------------
    Table
@@ -1479,32 +1483,60 @@
   --feedback-padding: 0.5rem; /* ya 8px */
 
   /* ==========================================================
-     DATA DISPLAY
-     Shared tokens for data presentation components
-     Data Display: Badge, Chip, Avatar, Card, Accordion, Table, Timeline, Statistic
-     ========================================================== */
+   DATA DISPLAY
+   Shared tokens for data presentation components
+   Components:
+   Badge, Chip, Avatar, Card, Accordion, Table, Timeline, Statistic
+   ========================================================== */
 
   /* ----------------------------------------------------------
-     Surface
-  ---------------------------------------------------------- */
+   Surface
+---------------------------------------------------------- */
 
   --display-bg: var(--surface);
   --display-bg-hover: var(--surface-hover);
 
   /* ----------------------------------------------------------
-     Border
-  ---------------------------------------------------------- */
+   Border
+---------------------------------------------------------- */
 
   --display-border: var(--border);
   --display-divider: var(--divider);
 
   /* ----------------------------------------------------------
-     Text
-  ---------------------------------------------------------- */
+   Text
+---------------------------------------------------------- */
 
   --display-title: var(--text);
   --display-text: var(--text-secondary);
   --display-muted: var(--text-muted);
+
+  /* ----------------------------------------------------------
+   Radius
+---------------------------------------------------------- */
+
+  --display-radius: var(--radius-md);
+  --display-radius-pill: var(--radius-full);
+
+  /* ----------------------------------------------------------
+   Shadow
+---------------------------------------------------------- */
+
+  --display-shadow: var(--shadow-sm);
+  --display-shadow-subtle: var(--shadow-xs);
+
+  /* ----------------------------------------------------------
+   Focus
+---------------------------------------------------------- */
+
+  --display-focus-ring: var(--focus-ring);
+
+  /* ----------------------------------------------------------
+   Transition
+---------------------------------------------------------- */
+
+  --display-duration: var(--duration-normal);
+  --display-easing: var(--ease-out);
 
   /* ==========================================================
    Badge
@@ -1512,65 +1544,28 @@
 
   --display-badge-bg: var(--primary-bg);
   --display-badge-text: var(--primary-bg-text);
-  --display-badge-border: transparent;
-  --display-badge-radius: var(--radius-full);
   --display-badge-padding: 0.25rem 0.625rem;
-  --display-badge-shadow: var(--shadow-xs);
 
   /* ==========================================================
-   chip
+   Chip
    ========================================================== */
+
   --display-chip-bg: var(--surface-secondary);
   --display-chip-text: var(--text);
-  --display-chip-border: var(--border);
-  --display-chip-radius: var(--radius-full);
   --display-chip-padding: 0.25rem 0.625rem;
-  --display-chip-shadow: none;
 
   /* ----------------------------------------------------------
-     Avatar
-  ---------------------------------------------------------- */
-
-  --display-avatar-bg: var(--surface-active);
-  --display-avatar-text: var(--text);
-
-  /* ----------------------------------------------------------
-     Table
-  ---------------------------------------------------------- */
+   Table
+---------------------------------------------------------- */
 
   --display-table-header: var(--surface-secondary);
   --display-table-row-hover: var(--surface-hover);
 
   /* ----------------------------------------------------------
-     Accordion
-  ---------------------------------------------------------- */
+   Accordion
+---------------------------------------------------------- */
 
   --display-accordion-hover: var(--surface-hover);
-
-  /* ----------------------------------------------------------
-     Radius
-  ---------------------------------------------------------- */
-
-  --display-radius: var(--radius-md);
-
-  /* ----------------------------------------------------------
-     Shadow
-  ---------------------------------------------------------- */
-
-  --display-shadow: var(--shadow-sm);
-
-  /* ----------------------------------------------------------
-     Focus
-  ---------------------------------------------------------- */
-
-  --display-focus-ring: var(--focus-ring);
-
-  /* ----------------------------------------------------------
-     Transition
-  ---------------------------------------------------------- */
-
-  --display-duration: var(--duration-normal);
-  --display-easing: var(--ease-out);
 
   /* ==========================================================
      SCROLLBAR

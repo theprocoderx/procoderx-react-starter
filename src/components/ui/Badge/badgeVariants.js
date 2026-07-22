@@ -14,18 +14,18 @@ export const badgeVariants = cva(
     'font-medium',
     'leading-none',
 
-    // Base Border
+    // Base
     'border',
 
-    // Animation
+    // Transition
     'transition-[background-color,border-color,color,box-shadow]',
-    'duration-[var(--duration-normal)]',
-    'ease-[var(--ease-out)]',
+    'duration-[var(--display-duration)]',
+    'ease-[var(--display-easing)]',
 
     // Focus
     'focus-visible:outline-none',
     'focus-visible:ring-2',
-    'focus-visible:ring-[var(--focus-ring)]',
+    'focus-visible:ring-[var(--display-focus-ring)]',
     'focus-visible:ring-offset-2',
     'focus-visible:ring-offset-[var(--bg)]',
 
@@ -37,9 +37,13 @@ export const badgeVariants = cva(
   {
     variants: {
       variant: {
-        primary: ['bg-[var(--primary-bg)]', 'text-[var(--primary-bg-text)]', 'border-transparent'],
+        primary: ['bg-[var(--display-badge-bg)]', 'text-[var(--display-badge-text)]', 'border-transparent'],
 
-        secondary: ['bg-[var(--surface-secondary)]', 'text-[var(--text)]', 'border-[var(--border)]'],
+        secondary: [
+          'bg-[var(--surface-secondary)]',
+          'text-[var(--display-title)]',
+          'border-[var(--display-border)]',
+        ],
 
         success: ['bg-[var(--success-bg)]', 'text-[var(--success)]', 'border-[var(--success)]'],
 
@@ -49,27 +53,27 @@ export const badgeVariants = cva(
 
         info: ['bg-[var(--info-bg)]', 'text-[var(--info)]', 'border-[var(--info)]'],
 
-        outline: ['bg-transparent', 'text-[var(--text)]', 'border-[var(--border)]'],
+        outline: ['bg-transparent', 'text-[var(--display-title)]', 'border-[var(--display-border)]'],
 
-        ghost: ['bg-transparent', 'text-[var(--text)]', 'border-transparent'],
+        ghost: ['bg-transparent', 'text-[var(--display-title)]', 'border-transparent'],
       },
 
       size: {
         sm: 'h-5 px-2 text-xs gap-1',
-        md: 'h-6 px-2.5 text-sm gap-1.5',
+        md: 'h-6 px-[var(--display-badge-padding)] text-sm gap-1.5',
         lg: 'h-7 px-3 text-base gap-2',
       },
 
       radius: {
         sm: 'rounded-[var(--radius-sm)]',
-        md: 'rounded-[var(--radius-md)]',
-        full: 'rounded-[var(--radius-full)]',
+        md: 'rounded-[var(--display-radius)]',
+        full: 'rounded-[var(--display-radius-pill)]',
       },
 
       elevation: {
         none: '',
-        sm: 'shadow-[var(--shadow-xs)]',
-        md: 'shadow-[var(--shadow-sm)]',
+        sm: 'shadow-[var(--display-shadow-subtle)]',
+        md: 'shadow-[var(--display-shadow)]',
       },
 
       interactive: {

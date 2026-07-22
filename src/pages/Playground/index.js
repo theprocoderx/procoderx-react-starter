@@ -14,3 +14,4 @@ export { default as TextareaPlayground } from './components/TextareaPlayground';
 export { default as SelectPlayground } from './components/SelectPlayground';
 export { default as BadgePlayground } from './components/BadgePlayground';
 export { default as AlertPlayground } from './components/AlertPlayground';
+export { default as AvatarPlayground } from './components/AvatarPlayground';
