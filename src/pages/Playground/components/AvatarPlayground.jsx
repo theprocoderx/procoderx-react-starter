@@ -154,7 +154,7 @@ export default function AvatarPlayground() {
         <h2 className={headingClass}>Broken Image Fallback</h2>
 
         <div className={optionsWrapperClass}>
-          <Avatar src='https://broken-image.jpg' name='John Doe' />
+          <Avatar src='https://i.pravatar.cc/150?img=1' name='John Doe' />
         </div>
       </section>
 

@@ -1,20 +1,28 @@
-import { forwardRef, useMemo, useState } from 'react';
+import { forwardRef, useEffect, useState } from 'react';
 
 import { cn } from '@/utils';
 
 import { avatarFallbackVariants, avatarImageVariants, avatarVariants } from './avatarVariants';
 
-function getInitials(name) {
-  if (!name) return '?';
+/* -------------------------------------------------------------------------- */
+/* Utilities                                                                   */
+/* -------------------------------------------------------------------------- */
 
-  const words = name.trim().split(/\s+/).filter(Boolean);
+function getInitials(name) {
+  if (!name?.trim()) return '?';
+
+  const words = name.trim().split(/\s+/);
 
   if (words.length === 1) {
     return words[0].slice(0, 2).toUpperCase();
   }
 
-  return `${words[0][0]}${words[words.length - 1][0]}`.toUpperCase();
+  return `${words[0][0]}${words.at(-1)[0]}`.toUpperCase();
 }
+
+/* -------------------------------------------------------------------------- */
+/* Component                                                                    */
+/* -------------------------------------------------------------------------- */
 
 const Avatar = forwardRef(function Avatar(
   {
@@ -33,8 +41,8 @@ const Avatar = forwardRef(function Avatar(
     imageClassName,
     fallbackClassName,
 
-    onError,
     onLoad,
+    onError,
 
     ...props
   },
@@ -42,20 +50,23 @@ const Avatar = forwardRef(function Avatar(
 ) {
   const [imageError, setImageError] = useState(false);
 
-  const initials = useMemo(() => {
-    return fallback ?? getInitials(name);
-  }, [fallback, name]);
+  // Reset error whenever image source changes.
+  useEffect(() => {
+    setImageError(false);
+  }, [src]);
+
+  const initials = fallback ?? getInitials(name);
 
   const showFallback = !src || imageError;
 
-  function handleImageError(event) {
-    setImageError(true);
-    onError?.(event);
-  }
-
-  function handleImageLoad(event) {
+  function handleLoad(event) {
     setImageError(false);
     onLoad?.(event);
+  }
+
+  function handleError(event) {
+    setImageError(true);
+    onError?.(event);
   }
 
   return (
@@ -78,8 +89,8 @@ const Avatar = forwardRef(function Avatar(
           loading='lazy'
           draggable={false}
           className={cn(avatarImageVariants(), imageClassName)}
-          onError={handleImageError}
-          onLoad={handleImageLoad}
+          onLoad={handleLoad}
+          onError={handleError}
         />
       )}
 

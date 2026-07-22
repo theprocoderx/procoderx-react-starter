@@ -30,13 +30,6 @@ export const avatarVariants = cva(
     'transition-[background-color,border-color,color,box-shadow]',
     'duration-[var(--display-duration)]',
     'ease-[var(--display-easing)]',
-
-    // Focus
-    'focus-visible:outline-none',
-    'focus-visible:ring-2',
-    'focus-visible:ring-[var(--display-focus-ring)]',
-    'focus-visible:ring-offset-2',
-    'focus-visible:ring-offset-[var(--bg)]',
   ],
   {
     variants: {
@@ -49,7 +42,7 @@ export const avatarVariants = cva(
 
         ghost: 'border-transparent bg-transparent shadow-none',
 
-        soft: 'border-transparent bg-[var(--display-bg-hover)] shadow-none',
+        soft: 'border-transparent bg-[var(--display-avatar-soft-bg)] shadow-none',
       },
 
       size: {
@@ -80,14 +73,26 @@ export const avatarVariants = cva(
 /* Avatar Image                                                               */
 /* -------------------------------------------------------------------------- */
 
-export const avatarImageVariants = cva(['h-full', 'w-full', 'object-cover', 'object-center']);
+export const avatarImageVariants = cva(['block', 'h-full', 'w-full', 'object-cover', 'object-center']);
 
 /* -------------------------------------------------------------------------- */
 /* Avatar Fallback                                                            */
 /* -------------------------------------------------------------------------- */
 
 export const avatarFallbackVariants = cva(
-  ['flex', 'h-full', 'w-full', 'items-center', 'justify-center', 'font-medium', 'uppercase', 'select-none'],
+  [
+    'flex',
+    'h-full',
+    'w-full',
+    'items-center',
+    'justify-center',
+
+    'font-medium',
+    'uppercase',
+    'leading-none',
+
+    'select-none',
+  ],
   {
     variants: {
       color: {
@@ -95,11 +100,11 @@ export const avatarFallbackVariants = cva(
 
         primary: 'bg-[var(--primary-bg)] text-[var(--primary-bg-text)]',
 
-        success: 'bg-[var(--success-bg)] text-[var(--success)]',
+        success: 'bg-[var(--success)] text-white',
 
-        warning: 'bg-[var(--warning-bg)] text-[var(--warning)]',
+        warning: 'bg-[var(--warning)] text-white',
 
-        danger: 'bg-[var(--error-bg)] text-[var(--error)]',
+        danger: 'bg-[var(--error)] text-white',
       },
     },
 
