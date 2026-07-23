@@ -593,13 +593,6 @@
   --feedback-skeleton-highlight: var(--surface-hover);
 
   /* ----------------------------------------------------------
-   Progress
----------------------------------------------------------- */
-
-  --progress-track-bg: var(--surface-active);
-  ---progress-fill-bg: var(--primary);
-
-  /* ----------------------------------------------------------
    Focus
 ---------------------------------------------------------- */
 
@@ -1432,13 +1425,6 @@
 
   --feedback-skeleton-bg: var(--surface-secondary);
   --feedback-skeleton-highlight: var(--surface-hover);
-
-  /* ----------------------------------------------------------
-     Progress
-  ---------------------------------------------------------- */
-
-  --progress-track-bg: var(--surface-active);
-  --progress-fill-bg: var(--primary);
 
   /* ----------------------------------------------------------
      Focus
