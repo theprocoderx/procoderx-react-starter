@@ -336,63 +336,63 @@
   --button-easing: var(--ease-out);
 
   /* ==========================================================
-   CARD
-   Shared tokens for all card components
-   ========================================================== */
+     CARD
+     Shared tokens for all card components
+     ========================================================== */
 
   /* ----------------------------------------------------------
-   Surface
----------------------------------------------------------- */
+     Surface
+  ---------------------------------------------------------- */
 
   --card-bg: var(--surface);
   --card-bg-hover: var(--surface-hover);
   --card-bg-active: var(--surface-active);
 
   /* ----------------------------------------------------------
-   Border
----------------------------------------------------------- */
+     Border
+  ---------------------------------------------------------- */
 
   --card-border: var(--border);
   --card-border-hover: var(--border-hover);
 
   /* ----------------------------------------------------------
-   Text
----------------------------------------------------------- */
+     Text
+  ---------------------------------------------------------- */
 
   --card-title: var(--text);
   --card-description: var(--text-secondary);
   --card-muted: var(--text-muted);
 
   /* ----------------------------------------------------------
-   Shadow
----------------------------------------------------------- */
+     Shadow
+  ---------------------------------------------------------- */
 
   --card-shadow: var(--shadow-sm);
   --card-shadow-hover: var(--shadow-md);
 
   /* ----------------------------------------------------------
-   Radius
----------------------------------------------------------- */
+     Radius
+  ---------------------------------------------------------- */
 
   --card-radius: var(--radius-lg);
 
   /* ----------------------------------------------------------
-   Padding
----------------------------------------------------------- */
+     Padding
+  ---------------------------------------------------------- */
 
   --card-padding-sm: 1rem;
   --card-padding-md: 1.5rem;
   --card-padding-lg: 2rem;
 
   /* ----------------------------------------------------------
-   Focus
----------------------------------------------------------- */
+     Focus
+  ---------------------------------------------------------- */
 
   --card-focus-ring: var(--focus-ring);
 
   /* ----------------------------------------------------------
-   Transition
----------------------------------------------------------- */
+     Transition
+  ---------------------------------------------------------- */
 
   --card-duration: var(--duration-normal);
   --card-easing: var(--ease-out);
@@ -632,7 +632,8 @@
   /* ==========================================================
    DATA DISPLAY
    Shared tokens for data presentation components
-   Data Display: Badge, Chip, Avatar, Card, Accordion, Table, Timeline, Statistic
+   Components:
+   Badge, Chip, Avatar, Accordion, Table, Timeline, Statistic
    ========================================================== */
 
   /* ----------------------------------------------------------
@@ -657,61 +658,19 @@
   --display-text: var(--text-secondary);
   --display-muted: var(--text-muted);
 
-  /* ==========================================================
-   Badge
-   ========================================================== */
-
-  --display-badge-bg: var(--primary-bg);
-  --display-badge-text: var(--primary-bg-text);
-  --display-badge-border: transparent;
-  --display-badge-radius: var(--radius-full);
-  --display-badge-padding: 0.25rem 0.625rem;
-  --display-badge-shadow: var(--shadow-xs);
-
-  /* ==========================================================
-   chip
-   ========================================================== */
-  --display-chip-bg: var(--surface-secondary);
-  --display-chip-text: var(--text);
-  --display-chip-border: var(--border);
-  --display-chip-radius: var(--radius-full);
-  --display-chip-padding: 0.25rem 0.625rem;
-  --display-chip-shadow: none;
-
-  /* ----------------------------------------------------------
-   Avatar
----------------------------------------------------------- */
-
-  --display-avatar-bg: var(--surface-active);
-  --display-avatar-text: var(--text);
-  --display-avatar-border: var(--border);
-  --display-avatar-radius: var(--radius-full);
-  --display-avatar-shadow: var(--shadow-xs);
-
-  /* ----------------------------------------------------------
-   Table
----------------------------------------------------------- */
-
-  --display-table-header: var(--surface-secondary);
-  --display-table-row-hover: var(--surface-hover);
-
-  /* ----------------------------------------------------------
-   Accordion
----------------------------------------------------------- */
-
-  --display-accordion-hover: var(--surface-hover);
-
   /* ----------------------------------------------------------
    Radius
 ---------------------------------------------------------- */
 
   --display-radius: var(--radius-md);
+  --display-radius-pill: var(--radius-full);
 
   /* ----------------------------------------------------------
    Shadow
 ---------------------------------------------------------- */
 
   --display-shadow: var(--shadow-sm);
+  --display-shadow-subtle: var(--shadow-xs);
 
   /* ----------------------------------------------------------
    Focus
@@ -725,6 +684,35 @@
 
   --display-duration: var(--duration-normal);
   --display-easing: var(--ease-out);
+
+  /* ==========================================================
+   Badge
+   ========================================================== */
+
+  --display-badge-bg: var(--primary-bg);
+  --display-badge-text: var(--primary-bg-text);
+  --display-badge-padding: 0.25rem 0.625rem;
+
+  /* ==========================================================
+   Chip
+   ========================================================== */
+
+  --display-chip-bg: var(--surface-secondary);
+  --display-chip-text: var(--text);
+  --display-chip-padding: 0.25rem 0.625rem;
+
+  /* ----------------------------------------------------------
+   Table
+---------------------------------------------------------- */
+
+  --display-table-header: var(--surface-secondary);
+  --display-table-row-hover: var(--surface-hover);
+
+  /* ----------------------------------------------------------
+   Accordion
+---------------------------------------------------------- */
+
+  --display-accordion-hover: var(--surface-hover);
 
   /* ==========================================================
    SCROLLBAR
