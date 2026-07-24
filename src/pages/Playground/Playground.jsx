@@ -10,6 +10,7 @@ import {
   LabelPlayground,
   RadioPlayground,
   SelectPlayground,
+  SeparatorPlayground,
   SwitchPlayground,
   TextareaPlayground,
 } from './';
@@ -43,7 +44,8 @@ const Playground = () => {
       {/* <AlertPlayground /> */}
       {/* <AvatarPlayground /> */}
       {/* <CardPlayground /> */}
-      <AccordionPlayground />
+      {/* <AccordionPlayground /> */}
+      <SeparatorPlayground />
     </section>
   );
 };
