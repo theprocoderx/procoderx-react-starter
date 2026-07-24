@@ -29,16 +29,16 @@ const AccordionTrigger = forwardRef(function AccordionTrigger({ className, child
             'font-medium',
 
             'transition-[background-color,color]',
-            'duration-[var(--display-duration)]',
-            'ease-[var(--display-easing)]',
+            'duration-(--display-duration)',
+            'ease-(--display-easing)',
 
-            'enabled:hover:bg-[var(--display-accordion-hover)]',
+            'enabled:hover:bg-(--display-accordion-hover)',
 
             'focus-visible:outline-none',
             'focus-visible:ring-2',
-            'focus-visible:ring-[var(--display-focus-ring)]',
+            'focus-visible:ring-(--display-focus-ring)',
             'focus-visible:ring-offset-2',
-            'focus-visible:ring-offset-[var(--focus-ring-offset)]',
+            'focus-visible:ring-offset-(--focus-ring-offset)',
 
             'disabled:cursor-not-allowed',
             'disabled:opacity-60',
@@ -57,11 +57,11 @@ const AccordionTrigger = forwardRef(function AccordionTrigger({ className, child
               'w-4',
               'flex-none',
 
-              'text-[var(--display-text)]',
+              'text-(--display-text)',
 
               'transition-transform',
-              'duration-[var(--display-duration)]',
-              'ease-[var(--display-easing)]',
+              'duration-(--display-duration)',
+              'ease-(--display-easing)',
             ].join(' '),
             isOpen && 'rotate-180',
           )}
