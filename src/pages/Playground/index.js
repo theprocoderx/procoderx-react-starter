@@ -16,3 +16,4 @@ export { default as BadgePlayground } from './components/BadgePlayground';
 export { default as AlertPlayground } from './components/AlertPlayground';
 export { default as AvatarPlayground } from './components/AvatarPlayground';
 export { default as CardPlayground } from './components/CardPlayground';
+export { default as AccordionPlayground } from './components/AccordionPlayground';

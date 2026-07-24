@@ -308,3 +308,43 @@ banakar blog me replace kar do.
 Final advice
 
 Main tumhari jagah hota to blog banane ke liye naye components ka wait nahi karta. Sirf Tailwind utilities se blog infrastructure complete karta, phir jab Badge, Card, Breadcrumb, aur Divider ready ho jate, tab blog pages ko un reusable components se migrate kar deta. Isse na blog rukega aur na UI library.
+
+Accordion/
+│
+├── Accordion.jsx
+├── AccordionItem.jsx
+├── AccordionTrigger.jsx
+├── AccordionContent.jsx
+├── Accordion.test.jsx
+├── README.md
+├── index.js
+│
+├── context/
+│   ├── AccordionContext.js
+│   └── AccordionItemContext.js
+│
+├── hooks/
+│   ├── useAccordionContext.js
+│   └── useAccordionItemContext.js
+│
+└── accordionVariants.js
+
+
+1. AccordionContext.js
+2. AccordionItemContext.js
+
+3. useAccordionContext.js
+4. useAccordionItemContext.js
+
+5. accordionVariants.js
+
+6. Accordion.jsx
+7. AccordionItem.jsx
+8. AccordionTrigger.jsx
+9. AccordionContent.jsx
+
+10. index.js
+
+11. Accordion.test.jsx
+
+12. README.md

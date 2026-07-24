@@ -1,4 +1,5 @@
 import {
+  AccordionPlayground,
   AlertPlayground,
   AvatarPlayground,
   BadgePlayground,
@@ -38,10 +39,11 @@ const Playground = () => {
       <SwitchPlayground />
       <TextareaPlayground /> */}
       {/* <SelectPlayground /> */}
-      <BadgePlayground />
-      <AlertPlayground />
-      <AvatarPlayground />
-      <CardPlayground />
+      {/* <BadgePlayground /> */}
+      {/* <AlertPlayground /> */}
+      {/* <AvatarPlayground /> */}
+      {/* <CardPlayground /> */}
+      <AccordionPlayground />
     </section>
   );
 };
