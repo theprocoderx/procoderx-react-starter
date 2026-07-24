@@ -320,15 +320,14 @@ Accordion/
 ├── index.js
 │
 ├── context/
-│   ├── AccordionContext.js
-│   └── AccordionItemContext.js
+│ ├── AccordionContext.js
+│ └── AccordionItemContext.js
 │
 ├── hooks/
-│   ├── useAccordionContext.js
-│   └── useAccordionItemContext.js
+│ ├── useAccordionContext.js
+│ └── useAccordionItemContext.js
 │
 └── accordionVariants.js
-
 
 1. AccordionContext.js
 2. AccordionItemContext.js

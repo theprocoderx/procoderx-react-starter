@@ -13,22 +13,21 @@ const AccordionItem = forwardRef(function AccordionItem(
     throw new Error('AccordionItem requires a unique "value" prop.');
   }
 
-  const accordion = useAccordionContext();
+  const { disabled: accordionDisabled, toggleItem, isItemOpen } = useAccordionContext();
 
   const generatedId = useId();
 
   const triggerId = `accordion-trigger-${value ?? generatedId}`;
   const contentId = `accordion-content-${value ?? generatedId}`;
 
-  const isOpen = accordion.isItemOpen(value);
-
-  const isDisabled = Boolean(accordion.disabled || disabled);
+  const isOpen = isItemOpen(value);
+  const isDisabled = Boolean(accordionDisabled || disabled);
 
   const toggle = useCallback(() => {
     if (!isDisabled) {
-      accordion.toggleItem(value);
+      toggleItem(value);
     }
-  }, [accordion.toggleItem, value, isDisabled]);
+  }, [toggleItem, value, isDisabled]);
 
   const contextValue = useMemo(
     () => ({
@@ -49,7 +48,7 @@ const AccordionItem = forwardRef(function AccordionItem(
         data-slot='accordion-item'
         data-state={isOpen ? 'open' : 'closed'}
         data-disabled={isDisabled ? '' : undefined}
-        className={cn('border-b border-[var(--display-divider)] last:border-b-0', className)}
+        className={cn('border-b border-(--display-divider) last:border-b-0', className)}
         {...props}
       >
         {children}

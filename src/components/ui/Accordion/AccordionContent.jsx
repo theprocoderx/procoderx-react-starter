@@ -23,11 +23,11 @@ const AccordionContent = forwardRef(function AccordionContent({ className, child
           'px-4',
           'pb-4',
 
-          'text-[var(--display-text)]',
+          'text-(--display-text)',
 
           'transition-[height,opacity]',
-          'duration-[var(--display-duration)]',
-          'ease-[var(--display-easing)]',
+          'duration-(--display-duration)',
+          'ease-(--display-easing)',
         ].join(' '),
         className,
       )}
