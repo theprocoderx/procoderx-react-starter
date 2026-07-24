@@ -3,6 +3,7 @@ import {
   AlertPlayground,
   AvatarPlayground,
   BadgePlayground,
+  BreadcrumbPlayground,
   ButtonPlayground,
   CardPlayground,
   CheckboxPlayground,
@@ -45,7 +46,8 @@ const Playground = () => {
       {/* <AvatarPlayground /> */}
       {/* <CardPlayground /> */}
       {/* <AccordionPlayground /> */}
-      <SeparatorPlayground />
+      {/* <SeparatorPlayground /> */}
+      <BreadcrumbPlayground />
     </section>
   );
 };

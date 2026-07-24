@@ -18,3 +18,4 @@ export { default as AvatarPlayground } from './components/AvatarPlayground';
 export { default as CardPlayground } from './components/CardPlayground';
 export { default as AccordionPlayground } from './components/AccordionPlayground';
 export { default as SeparatorPlayground } from './components/SeparatorPlayground';
+export { default as BreadcrumbPlayground } from './components/BreadcrumbPlayground';
