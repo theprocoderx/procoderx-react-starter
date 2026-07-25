@@ -661,12 +661,10 @@
   /* ----------------------------------------------------------
      Skeleton 
   ---------------------------------------------------------- */
-  --display-skeleton: #e2e8f0; /* or add these solid color like #e2e8f0 */
-
+  --display-skeleton: var(--surface-active); /* or add these solid color like #e2e8f0 */
   /* ----------------------------------------------------------
    Shadow
 ---------------------------------------------------------- */
-
   --display-shadow: var(--shadow-sm);
   --display-shadow-subtle: var(--shadow-xs);
 
