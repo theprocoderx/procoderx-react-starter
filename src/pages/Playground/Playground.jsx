@@ -12,6 +12,7 @@ import {
   RadioPlayground,
   SelectPlayground,
   SeparatorPlayground,
+  SkeletonPlayground,
   SwitchPlayground,
   TextareaPlayground,
 } from './';
@@ -47,7 +48,8 @@ const Playground = () => {
       {/* <CardPlayground /> */}
       {/* <AccordionPlayground /> */}
       {/* <SeparatorPlayground /> */}
-      <BreadcrumbPlayground />
+      {/* <BreadcrumbPlayground /> */}
+      <SkeletonPlayground />
     </section>
   );
 };
