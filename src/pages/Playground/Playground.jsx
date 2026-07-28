@@ -32,7 +32,7 @@ const Playground = () => {
       {/* Component Playgrounds */}
       {/* ====================================================== */}
 
-      {/* <ButtonPlayground />
+      <ButtonPlayground />
 
       <InputPlayground />
 
@@ -40,15 +40,15 @@ const Playground = () => {
       <RadioPlayground />
       <CheckboxPlayground />
       <SwitchPlayground />
-      <TextareaPlayground /> */}
-      {/* <SelectPlayground /> */}
-      {/* <BadgePlayground /> */}
-      {/* <AlertPlayground /> */}
-      {/* <AvatarPlayground /> */}
-      {/* <CardPlayground /> */}
-      {/* <AccordionPlayground /> */}
-      {/* <SeparatorPlayground /> */}
-      {/* <BreadcrumbPlayground /> */}
+      <TextareaPlayground />
+      <SelectPlayground />
+      <BadgePlayground />
+      <AlertPlayground />
+      <AvatarPlayground />
+      <CardPlayground />
+      <AccordionPlayground />
+      <SeparatorPlayground />
+      <BreadcrumbPlayground />
       <SkeletonPlayground />
     </section>
   );

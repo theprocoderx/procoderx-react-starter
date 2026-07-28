@@ -10,6 +10,8 @@ This directory contains the architectural, engineering, design system, and devel
 
 ## Project
 
+- PROJECT_CONTEXT.md
+- MASTER_CONTEXT.md
 - ARCHITECTURE.md
 - ROADMAP.md
 - CHANGELOG.md
@@ -17,16 +19,18 @@ This directory contains the architectural, engineering, design system, and devel
 
 ---
 
+## Development
+
+- API_GUIDELINES.md
+- COMPONENT_GUIDELINES.md
+- TESTING_GUIDELINES.md
+
+---
+
 ## Design System
 
 - THEME_SYSTEM.md
 - DESIGN_TOKENS.md
-
----
-
-## Development
-
-- COMPONENT_GUIDELINES.md
 
 ---
 
@@ -42,10 +46,10 @@ src/
     └── ui/
         ├── Button/
         │   ├── Button.jsx
-        │   ├── button.css
         │   ├── buttonVariants.js
         │   ├── Button.test.jsx
-        │   └── README.md
+        │   ├── README.md
+        │   └── index.js
         │
         ├── Input/
         │   └── README.md
@@ -91,11 +95,15 @@ Documentation should evolve together with the implementation.
 
 ```text
 docs/
-├── README.md                 ← Documentation index
+├── README.md
+├── PROJECT_CONTEXT.md
+├── MASTER_CONTEXT.md
 ├── ARCHITECTURE.md
+├── API_GUIDELINES.md
 ├── COMPONENT_GUIDELINES.md
-├── DESIGN_TOKENS.md
+├── TESTING_GUIDELINES.md
 ├── THEME_SYSTEM.md
+├── DESIGN_TOKENS.md
 ├── ROADMAP.md
 ├── CHANGELOG.md
 └── FUTURE_VISION.md
@@ -107,14 +115,14 @@ docs/
 
 Every component follows the same development process.
 
-1. Component implementation
-2. Variant implementation
-3. Playground verification
-4. Documentation
-5. Unit testing
-6. Accessibility review
-7. Code review
-8. Stability verification
+1. Planning
+2. API Design
+3. Component Implementation
+4. Playground Verification
+5. Accessibility Review
+6. Unit Testing
+7. Documentation
+8. Stable Release
 
 Only after completing all steps should development continue to the next component.
 
@@ -125,12 +133,13 @@ Only after completing all steps should development continue to the next componen
 When introducing a new component or feature:
 
 - Follow the project architecture.
+- Follow the API guidelines.
 - Follow the component guidelines.
-- Use semantic design tokens.
+- Follow the testing guidelines.
+- Use Design Tokens.
 - Maintain accessibility standards.
-- Add or update documentation.
-- Write unit tests.
-- Verify the Playground examples.
+- Update documentation.
+- Verify the Playground.
 - Update the changelog when appropriate.
 
 ---

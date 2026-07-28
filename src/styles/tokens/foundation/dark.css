@@ -1,0 +1,372 @@
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  /* ==========================================================================
+     FOUNDATION
+     Raw design decisions.
+     These tokens define the visual language of the design system.
+     Shared and component tokens should consume these tokens instead of using
+     hard-coded values.
+     ========================================================================== */
+
+  /* ==========================================================================
+     BACKGROUND
+     Global application backgrounds.
+     ========================================================================== */
+
+  --bg: #020617;
+  --bg-secondary: #0f172a;
+  --bg-tertiary: #1e293b;
+
+  /* ==========================================================================
+     SURFACE
+     Containers, cards, panels, menus, dialogs and elevated surfaces.
+     ========================================================================== */
+
+  --surface: #111827;
+  --surface-secondary: #1f2937;
+  --surface-tertiary: #273549;
+
+  --surface-hover: #273549;
+  --surface-active: #334155;
+
+  /* ==========================================================================
+     TEXT
+     Global typography colors.
+     ========================================================================== */
+
+  --text: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-disabled: #64748b;
+  --text-inverse: #0f172a;
+
+  /* ==========================================================================
+     BRAND
+     Brand identity colors.
+     Used for logos, marketing pages, branding, hero sections and
+     brand-focused UI only.
+     ========================================================================== */
+
+  --brand: #22d3ee;
+  --brand-hover: #06b6d4;
+  --brand-active: #0891b2;
+  --brand-text: #083344;
+
+  --brand-accent: #818cf8;
+  --brand-accent-hover: #6366f1;
+  --brand-accent-active: #4f46e5;
+  --brand-accent-text: #ffffff;
+
+  /* ==========================================================================
+     PRIMARY
+     Default application theme colors.
+     Used by interactive UI components.
+     ========================================================================== */
+
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --primary-active: #1d4ed8;
+  --primary-text: #ffffff;
+
+  --primary-accent: #38bdf8;
+  --primary-accent-hover: #0ea5e9;
+  --primary-accent-active: #0284c7;
+  --primary-accent-text: #ffffff;
+
+  /* ==========================================================================
+     PRIMITIVES
+     Reusable raw colors shared across multiple components.
+     Promote values here only when they have multiple semantic uses.
+     ========================================================================== */
+
+  --gold: #fbbf24;
+
+  /* ==========================================================================
+     SEMANTIC
+     Cross-component design semantics.
+     ========================================================================== */
+
+  /* --------------------------------------------------------------------------
+     Interactive
+     -------------------------------------------------------------------------- */
+
+  --interactive-bg: var(--primary);
+  --interactive-bg-hover: var(--primary-hover);
+  --interactive-bg-active: var(--primary-active);
+
+  --interactive-text: var(--primary-text);
+  --interactive-border: transparent;
+
+  /* ==========================================================================
+     BORDER
+     Borders, dividers and outlines.
+     ========================================================================== */
+
+  --border: #334155;
+  --border-muted: #475569;
+  --border-strong: #64748b;
+
+  --divider: #334155;
+
+  /* ==========================================================================
+     STATUS
+     Semantic colors for validation, feedback and system states.
+     ========================================================================== */
+
+  /* Success */
+
+  --success: #22c55e;
+  --success-hover: #16a34a;
+  --success-active: #15803d;
+  --success-text: #052e16;
+
+  /* Warning */
+
+  --warning: #f59e0b;
+  --warning-hover: #d97706;
+  --warning-active: #b45309;
+  --warning-text: #1c1917;
+
+  /* Info */
+
+  --info: #38bdf8;
+  --info-hover: #0ea5e9;
+  --info-active: #0284c7;
+  --info-text: #082f49;
+
+  /* Error */
+
+  --error: #ef4444;
+  --error-hover: #dc2626;
+  --error-active: #b91c1c;
+  --error-text: #fef2f2;
+
+  /* ==========================================================================
+     STATUS BACKGROUND
+     Surface colors used by Alert, Toast, Badge, Banner and validation states.
+     ========================================================================== */
+
+  --success-bg: #052e16;
+  --success-border: #166534;
+
+  --warning-bg: #451a03;
+  --warning-border: #92400e;
+
+  --info-bg: #082f49;
+  --info-border: #075985;
+
+  --error-bg: #450a0a;
+  --error-border: #991b1b;
+
+  /* ==========================================================================
+     TYPOGRAPHY
+     Global typography foundation.
+     ========================================================================== */
+
+  /* Font Family */
+
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, monospace;
+
+  /* Font Size */
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+
+  /* Font Weight */
+
+  --font-light: 300;
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
+  /* Line Height */
+
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+
+  /* Letter Spacing */
+
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+
+  /* ==========================================================================
+     SHADOW
+     Foundation shadows used throughout the design system.
+     ========================================================================== */
+
+  --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.3);
+
+  --shadow-sm: 0 2px 6px rgb(0 0 0 / 0.35);
+
+  --shadow-md: 0 8px 24px rgb(0 0 0 / 0.4);
+
+  --shadow-lg: 0 16px 40px rgb(0 0 0 / 0.45);
+
+  --shadow-xl: 0 24px 60px rgb(0 0 0 / 0.5);
+
+  /* ==========================================================================
+     ELEVATION
+     Semantic elevation levels.
+     Components: Card, Dialog, Drawer, Popover, Dropdown Menu, Tooltip
+     ========================================================================== */
+
+  --elevation-0: none;
+  --elevation-1: var(--shadow-xs);
+  --elevation-2: var(--shadow-sm);
+  --elevation-3: var(--shadow-md);
+  --elevation-4: var(--shadow-lg);
+  --elevation-5: var(--shadow-xl);
+
+  /* ==========================================================================
+     RADIUS
+     Global corner radius scale.
+     ========================================================================== */
+
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  /* ==========================================================================
+     MOTION
+     Global animation durations and easing curves.
+     ========================================================================== */
+
+  /* Duration */
+
+  --duration-instant: 0ms;
+  --duration-fast: 150ms;
+  --duration-normal: 200ms;
+  --duration-slow: 300ms;
+  --duration-slower: 500ms;
+
+  /* Easing */
+
+  --ease-linear: linear;
+  --ease-default: ease;
+  --ease-in: ease-in;
+  --ease-out: ease-out;
+  --ease-in-out: ease-in-out;
+
+  /* Cubic Bezier */
+
+  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --ease-decelerate: cubic-bezier(0, 0, 0.2, 1);
+  --ease-accelerate: cubic-bezier(0.4, 0, 1, 1);
+
+  /* ==========================================================================
+     OPACITY
+     Standard opacity scale.
+     ========================================================================== */
+
+  --opacity-0: 0;
+  --opacity-25: 0.25;
+  --opacity-50: 0.5;
+  --opacity-75: 0.75;
+  --opacity-100: 1;
+
+  --opacity-disabled: 0.5;
+  --opacity-overlay: 0.55;
+  --opacity-glass: 0.8;
+
+  /* ==========================================================================
+     FOCUS
+     Accessible focus indicators.
+     ========================================================================== */
+
+  --focus-ring: var(--primary);
+  --focus-ring-offset: var(--surface);
+
+  --focus-ring-width: 2px;
+  --focus-ring-offset-width: 2px;
+
+  /* ==========================================================================
+     OVERLAY
+     Shared overlay colors.
+     ========================================================================== */
+
+  --overlay: rgb(2 6 23 / 0.75);
+  --overlay-light: rgb(255 255 255 / 0.08);
+  --overlay-dark: rgb(0 0 0 / 0.8);
+
+  /* ==========================================================================
+     GLASS
+     Glassmorphism foundation.
+     ========================================================================== */
+
+  --glass: rgb(15 23 42 / 0.7);
+  --glass-border: rgb(255 255 255 / 0.08);
+
+  --glass-backdrop: blur(16px);
+  --glass-saturate: saturate(180%);
+
+  /* ==========================================================================
+     GLOW
+     Decorative glow effects.
+     ========================================================================== */
+
+  --glow-primary: rgb(59 130 246 / 0.3);
+  --glow-brand: rgb(34 211 238 / 0.3);
+  --glow-success: rgb(34 197 94 / 0.3);
+  --glow-warning: rgb(245 158 11 / 0.3);
+  --glow-error: rgb(239 68 68 / 0.3);
+
+  /* ==========================================================================
+     SELECTION
+     Text selection.
+     ========================================================================== */
+
+  --selection-bg: var(--brand);
+  --selection-text: var(--brand-text);
+
+  /* ==========================================================================
+     Z-INDEX
+     Layer hierarchy.
+     ========================================================================== */
+
+  --z-hide: -1;
+  --z-base: 0;
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-overlay: 1040;
+  --z-drawer: 1050;
+  --z-dialog: 1060;
+  --z-popover: 1070;
+  --z-tooltip: 1080;
+  --z-toast: 1090;
+
+  /* ==========================================================================
+     SCROLLBAR
+     Global scrollbar styling.
+     ========================================================================== */
+
+  --scrollbar-track: var(--bg-secondary);
+
+  --scrollbar-thumb: var(--border-strong);
+  --scrollbar-thumb-hover: var(--text-muted);
+  --scrollbar-thumb-active: var(--text-secondary);
+
+  --scrollbar-corner: transparent;
+
+  --scrollbar-size: 10px;
+  --scrollbar-radius: var(--radius-full);
+
+  --scrollbar-duration: var(--duration-fast);
+  --scrollbar-easing: var(--ease-out);
+}

@@ -1,18 +1,27 @@
 :root {
   color-scheme: light;
 
-  /* Background */
+  /* ==========================================================
+   BACKGROUND
+   ========================================================== */
+
   --bg: #fcfdfe;
   --bg-secondary: #f5f7fa;
   --bg-tertiary: #eef2f7;
 
-  /* Surface */
+  /* ==========================================================
+   SURFACE
+   ========================================================== */
+
   --surface: #ffffff;
   --surface-secondary: #f8fafc;
   --surface-hover: #f1f5f9;
   --surface-active: #e2e8f0;
 
-  /* Text */
+  /* ==========================================================
+   TEXT
+   ========================================================== */
+
   --text: #0f172a;
   --text-secondary: #475569;
   --text-muted: #64748b;
@@ -20,64 +29,71 @@
   --text-inverse: #ffffff;
 
   /* ==========================================================
-     BRAND
-     ========================================================== */
-
-  --primary: #00c8ff;
-  --primary-hover: #22d3ee;
-  --primary-active: #06b6d4;
-  --primary-text: #083344;
-
-  /* ==========================================================
    BRAND
-   Brand identity colors
+   ProCoderX identity
    ========================================================== */
 
-  --primary-bg: #0b3b5c;
-  --primary-bg-hover: #0e507a;
-  --primary-bg-active: #092f49;
+  --brand: #00c8ff;
+  --brand-hover: #00b8eb;
+  --brand-active: #0891b2;
+  --brand-text: #083344;
 
-  --primary-bg-text: #f8fafc;
+  --brand-accent: #6366f1;
+  --brand-accent-hover: #4f46e5;
+  --brand-accent-active: #4338ca;
+  --brand-accent-text: #ffffff;
 
-  --accent: #6366f1;
-  --accent-hover: #4f46e5;
+  /* ==========================================================
+   PRIMARY
+   Default application theme
+   ========================================================== */
+
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-active: #1e40af;
+  --primary-text: #ffffff;
+
+  --primary-accent: #0ea5e9;
+  --primary-accent-hover: #0284c7;
+  --primary-accent-active: #0369a1;
+  --primary-accent-text: #ffffff;
 
   /* ==========================================================
    BORDER
    ========================================================== */
 
   --border: #cbd5e1;
-  --border-hover: #94a3b8;
+  --border-muted: #94a3b8;
   --border-strong: #64748b;
 
   --divider: #e2e8f0;
 
   /* ==========================================================
-     STATUS
-     ========================================================== */
+   STATUS
+   ========================================================== */
 
-  /* =============     SUCCESS      ================== */
+  /* Success */
 
   --success: #16a34a;
   --success-hover: #15803d;
   --success-active: #166534;
   --success-text: #f8fafc;
 
-  /* =============     Warning      ================== */
+  /* Warning */
 
   --warning: #d97706;
   --warning-hover: #b45309;
   --warning-active: #92400e;
   --warning-text: #f8fafc;
 
-  /* =============     information      ================== */
+  /* Info */
 
   --info: #0284c7;
   --info-hover: #0369a1;
   --info-active: #075985;
   --info-text: #f8fafc;
 
-  /* =============     ERROR      ================== */
+  /* Error */
 
   --error: #c24141;
   --error-hover: #b13636;
@@ -85,31 +101,38 @@
   --error-text: #f8fafc;
 
   /* ==========================================================
-     STATUS BACKGROUND
-     ========================================================== */
+   STATUS BACKGROUND
+   ========================================================== */
 
   --success-bg: #dcfce7;
+  --success-border: #86efac;
+
   --warning-bg: #fef3c7;
-  --error-bg: #fee2e2;
+  --warning-border: #fcd34d;
+
   --info-bg: #e0f2fe;
+  --info-border: #7dd3fc;
+
+  --error-bg: #fee2e2;
+  --error-border: #fca5a5;
 
   /* ==========================================================
-     SHADOW
-     ========================================================== */
+   SHADOW
+   ========================================================== */
 
   --shadow-xs: 0 1px 2px rgb(15 23 42 / 0.04);
 
-  --shadow-sm: 0 2px 6px rgb(15 23 42 / 0.05);
+  --shadow-sm: 0 2px 6px rgb(15 23 42 / 0.06);
 
-  --shadow-md: 0 8px 24px rgb(15 23 42 / 0.08);
+  --shadow-md: 0 8px 24px rgb(15 23 42 / 0.1);
 
-  --shadow-lg: 0 16px 40px rgb(15 23 42 / 0.12);
+  --shadow-lg: 0 16px 40px rgb(15 23 42 / 0.14);
 
-  --shadow-xl: 0 24px 60px rgb(15 23 42 / 0.16);
+  --shadow-xl: 0 24px 60px rgb(15 23 42 / 0.18);
 
   /* ==========================================================
-     RADIUS
-     ========================================================== */
+   RADIUS
+   ========================================================== */
 
   --radius-xs: 2px;
   --radius-sm: 4px;
@@ -120,8 +143,8 @@
   --radius-full: 9999px;
 
   /* ==========================================================
-     MOTION
-     ========================================================== */
+   MOTION
+   ========================================================== */
 
   --duration-fast: 150ms;
   --duration-normal: 200ms;
@@ -133,31 +156,37 @@
   --ease-in-out: ease-in-out;
 
   /* ==========================================================
-     FOCUS
-     ========================================================== */
+   FOCUS
+   ========================================================== */
 
-  --focus-ring: #2563eb;
-  --focus-ring-offset: #ffffff;
-
-  /* ==========================================================
-     GLASS
-     ========================================================== */
-
-  --glass: rgb(255 255 255 / 0.75);
-  --glass-border: rgb(15 23 42 / 0.08);
+  --focus-ring: var(--primary);
+  --focus-ring-offset: var(--surface);
 
   /* ==========================================================
-     GLOW
-     ========================================================== */
+   OVERLAY
+   ========================================================== */
 
-  --glow: rgb(56 189 248 / 0.25);
+  --overlay: rgb(15 23 42 / 0.5);
 
   /* ==========================================================
-     SELECTION
-     ========================================================== */
+   GLASS
+   ========================================================== */
 
-  --selection-bg: var(--primary);
-  --selection-text: #ffffff;
+  --glass: rgb(255 255 255 / 0.8);
+  --glass-border: rgb(255 255 255 / 0.18);
+
+  /* ==========================================================
+   GLOW
+   ========================================================== */
+
+  --glow: rgb(0 200 255 / 0.25);
+
+  /* ==========================================================
+   SELECTION
+   ========================================================== */
+
+  --selection-bg: var(--brand);
+  --selection-text: var(--brand-text);
 
   /* ==========================================================
      FORM
@@ -258,9 +287,9 @@
    Primary
 ---------------------------------------------------------- */
 
-  --button-primary-bg: var(--primary-bg);
-  --button-primary-bg-hover: var(--primary-bg-hover);
-  --button-primary-bg-active: var(--primary-bg-active);
+  --button-primary-bg: var(--primary);
+  --button-primary-bg-hover: var(--primary-hover);
+  --button-primary-bg-active: var(--primary-active);
 
   --button-primary-text: var(--text-inverse);
   --button-primary-border: transparent;
@@ -439,7 +468,7 @@
 ---------------------------------------------------------- */
 
   --nav-item-bg-hover: var(--surface-hover);
-  --nav-item-bg-active: var(--primary-bg);
+  --nav-item-bg-active: var(--primary);
 
   /* ----------------------------------------------------------
    Indicator
@@ -685,8 +714,8 @@
    Badge
    ========================================================== */
 
-  --display-badge-bg: var(--primary-bg);
-  --display-badge-text: var(--primary-bg-text);
+  --display-badge-bg: var(--primary);
+  --display-badge-text: var(--primary-text);
   --display-badge-padding: 0.25rem 0.625rem;
 
   /* ==========================================================
@@ -799,7 +828,7 @@
    CALENDAR
    ========================================================== */
 
-  --calendar-today-bg: var(--primary-bg);
+  --calendar-today-bg: var(--primary);
   --calendar-selected-bg: var(--primary);
 
   --calendar-selected-text: var(--text-inverse);
@@ -828,29 +857,25 @@
   color-scheme: dark;
 
   /* ==========================================================
-     FOUNDATION
-     ========================================================== */
+   BACKGROUND
+   ========================================================== */
 
-  /* ==========================================================
-     BACKGROUND
-     ========================================================== */
-
-  --bg: #0f172a;
-  --bg-secondary: #111827;
+  --bg: #020617;
+  --bg-secondary: #0f172a;
   --bg-tertiary: #1e293b;
 
   /* ==========================================================
-     SURFACE
-     ========================================================== */
+   SURFACE
+   ========================================================== */
 
-  --surface: #1e293b;
-  --surface-secondary: #243244;
-  --surface-hover: #334155;
-  --surface-active: #475569;
+  --surface: #111827;
+  --surface-secondary: #1f2937;
+  --surface-hover: #273549;
+  --surface-active: #334155;
 
   /* ==========================================================
-     TEXT
-     ========================================================== */
+   TEXT
+   ========================================================== */
 
   --text: #f8fafc;
   --text-secondary: #cbd5e1;
@@ -859,95 +884,110 @@
   --text-inverse: #0f172a;
 
   /* ==========================================================
-     BRAND
-     ========================================================== */
-
-  --primary: #00c8ff;
-  --primary-hover: #15c7ee;
-  --primary-active: #06b6d4;
-  --primary-text: #083344;
-
-  /* ==========================================================
    BRAND
-   Brand identity colors
+   ProCoderX identity
    ========================================================== */
-  --primary-bg: #0e7490;
-  --primary-bg-hover: #155e75;
-  --primary-bg-active: #164e63;
 
-  --primary-bg-text: #f8fafc;
+  --brand: #22d3ee;
+  --brand-hover: #06b6d4;
+  --brand-active: #0891b2;
+  --brand-text: #083344;
 
-  --accent: #818cf8;
-  --accent-hover: #6366f1;
+  --brand-accent: #818cf8;
+  --brand-accent-hover: #6366f1;
+  --brand-accent-active: #4f46e5;
+  --brand-accent-text: #ffffff;
 
   /* ==========================================================
-     BORDER
-     ========================================================== */
+   PRIMARY
+   Default application theme
+   ========================================================== */
+
+  --primary: #3b82f6;
+  --primary-hover: #2563eb;
+  --primary-active: #1d4ed8;
+  --primary-text: #ffffff;
+
+  --primary-accent: #38bdf8;
+  --primary-accent-hover: #0ea5e9;
+  --primary-accent-active: #0284c7;
+  --primary-accent-text: #ffffff;
+
+  /* ==========================================================
+   BORDER
+   ========================================================== */
 
   --border: #334155;
-  --border-hover: #475569;
+  --border-muted: #475569;
   --border-strong: #64748b;
 
-  --divider: #3b4b61;
+  --divider: #334155;
 
   /* ==========================================================
-     STATUS
-     ========================================================== */
+   STATUS
+   ========================================================== */
 
-  /* =============     SUCCESS      ================== */
+  /* Success */
 
-  --success: #16a34a;
-  --success-hover: #15803d;
-  --success-active: #166534;
-  --success-text: #f8fafc;
+  --success: #22c55e;
+  --success-hover: #16a34a;
+  --success-active: #15803d;
+  --success-text: #052e16;
 
-  /* =============     Warning      ================== */
+  /* Warning */
 
-  --warning: #d97706;
-  --warning-hover: #b45309;
-  --warning-active: #92400e;
-  --warning-text: #f8fafc;
+  --warning: #f59e0b;
+  --warning-hover: #d97706;
+  --warning-active: #b45309;
+  --warning-text: #1c1917;
 
-  /* =============     information      ================== */
+  /* Info */
 
-  --info: #0284c7;
-  --info-hover: #0369a1;
-  --info-active: #075985;
-  --info-text: #f8fafc;
+  --info: #38bdf8;
+  --info-hover: #0ea5e9;
+  --info-active: #0284c7;
+  --info-text: #082f49;
 
-  /* =============     ERROR      ================== */
+  /* Error */
 
-  --error: #c24141;
-  --error-hover: #b13636;
-  --error-active: #972d2d;
-  --error-text: #f8fafc;
-
-  /* ==========================================================
-     STATUS BACKGROUND
-     ========================================================== */
-
-  --success-bg: rgba(34, 197, 94, 0.15);
-  --warning-bg: rgba(234, 179, 8, 0.15);
-  --error-bg: rgba(239, 68, 68, 0.15);
-  --info-bg: rgba(56, 189, 248, 0.15);
+  --error: #ef4444;
+  --error-hover: #dc2626;
+  --error-active: #b91c1c;
+  --error-text: #fef2f2;
 
   /* ==========================================================
-     SHADOW
-     ========================================================== */
+   STATUS BACKGROUND
+   ========================================================== */
 
-  --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.2);
+  --success-bg: #052e16;
+  --success-border: #166534;
 
-  --shadow-sm: 0 2px 8px rgb(0 0 0 / 0.28);
+  --warning-bg: #451a03;
+  --warning-border: #92400e;
+
+  --info-bg: #082f49;
+  --info-border: #075985;
+
+  --error-bg: #450a0a;
+  --error-border: #991b1b;
+
+  /* ==========================================================
+   SHADOW
+   ========================================================== */
+
+  --shadow-xs: 0 1px 2px rgb(0 0 0 / 0.3);
+
+  --shadow-sm: 0 2px 6px rgb(0 0 0 / 0.35);
 
   --shadow-md: 0 8px 24px rgb(0 0 0 / 0.4);
 
-  --shadow-lg: 0 16px 48px rgb(0 0 0 / 0.55);
+  --shadow-lg: 0 16px 40px rgb(0 0 0 / 0.45);
 
-  --shadow-xl: 0 24px 64px rgb(0 0 0 / 0.7);
+  --shadow-xl: 0 24px 60px rgb(0 0 0 / 0.5);
 
   /* ==========================================================
-     RADIUS
-     ========================================================== */
+   RADIUS
+   ========================================================== */
 
   --radius-xs: 2px;
   --radius-sm: 4px;
@@ -958,8 +998,8 @@
   --radius-full: 9999px;
 
   /* ==========================================================
-     MOTION
-     ========================================================== */
+   MOTION
+   ========================================================== */
 
   --duration-fast: 150ms;
   --duration-normal: 200ms;
@@ -971,31 +1011,37 @@
   --ease-in-out: ease-in-out;
 
   /* ==========================================================
-     FOCUS
-     ========================================================== */
+   FOCUS
+   ========================================================== */
 
-  --focus-ring: #38bdf8;
-  --focus-ring-offset: #0f172a;
+  --focus-ring: var(--primary);
+  --focus-ring-offset: var(--surface);
 
   /* ==========================================================
-     GLASS
-     ========================================================== */
+   OVERLAY
+   ========================================================== */
 
-  --glass: rgb(15 23 42 / 0.75);
+  --overlay: rgb(2 6 23 / 0.75);
+
+  /* ==========================================================
+   GLASS
+   ========================================================== */
+
+  --glass: rgb(15 23 42 / 0.7);
   --glass-border: rgb(255 255 255 / 0.08);
 
   /* ==========================================================
-     GLOW
-     ========================================================== */
+   GLOW
+   ========================================================== */
 
-  --glow: rgb(56 189 248 / 0.35);
+  --glow: rgb(34 211 238 / 0.25);
 
   /* ==========================================================
-     SELECTION
-     ========================================================== */
+   SELECTION
+   ========================================================== */
 
-  --selection-bg: var(--primary);
-  --selection-text: #0f172a;
+  --selection-bg: var(--brand);
+  --selection-text: var(--brand-text);
 
   /* ==========================================================
      FORM
@@ -1096,9 +1142,9 @@
      Primary
   ---------------------------------------------------------- */
 
-  --button-primary-bg: var(--primary-bg);
-  --button-primary-bg-hover: var(--primary-bg-hover);
-  --button-primary-bg-active: var(--primary-bg-active);
+  --button-primary-bg: var(--primary);
+  --button-primary-bg-hover: var(--primary-hover);
+  --button-primary-bg-active: var(--primary-active);
 
   --button-primary-text: var(--text-inverse);
   --button-primary-border: var(--border);
@@ -1276,7 +1322,7 @@
   ---------------------------------------------------------- */
 
   --nav-item-bg-hover: var(--surface-hover);
-  --nav-item-bg-active: var(--primary-bg);
+  --nav-item-bg-active: var(--primary);
 
   /* ----------------------------------------------------------
      Indicator
@@ -1524,8 +1570,8 @@
    Badge
    ========================================================== */
 
-  --display-badge-bg: var(--primary-bg);
-  --display-badge-text: var(--primary-bg-text);
+  --display-badge-bg: var(--primary);
+  --display-badge-text: var(--primary-text);
   --display-badge-padding: 0.25rem 0.625rem;
 
   /* ==========================================================
@@ -1638,7 +1684,7 @@
      CALENDAR
      ========================================================== */
 
-  --calendar-today-bg: var(--primary-bg);
+  --calendar-today-bg: var(--primary);
 
   --calendar-selected-bg: var(--primary);
   --calendar-selected-text: var(--text-inverse);

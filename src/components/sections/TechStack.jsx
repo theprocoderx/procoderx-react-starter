@@ -47,7 +47,7 @@ export default function TechStack() {
       <div className='mx-auto max-w-7xl px-6'>
         {/* Section Header */}
         <header className='mx-auto mb-14 max-w-3xl text-center'>
-          <p className='rounded-4xl bg-(--primary-bg) py-2 text-sm font-semibold tracking-widest text-(--primary-bg-text) uppercase'>
+          <p className='rounded-4xl bg-(--primary) py-2 text-sm font-semibold tracking-widest text-(--primary-text) uppercase'>
             Tech Stack
           </p>
 
@@ -80,7 +80,7 @@ export default function TechStack() {
                   {tech.icon}
                 </div>
 
-                <h3 id={`tech-${id}`} className='mb-2 text-lg font-semibold text-(--primary-text)'>
+                <h3 id={`tech-${id}`} className='mb-2 text-lg font-semibold text-(--text)'>
                   {tech.name}
                 </h3>
 

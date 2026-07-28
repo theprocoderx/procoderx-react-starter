@@ -50,7 +50,7 @@ export default function Features() {
       <div className='mx-auto max-w-7xl px-6'>
         {/* Heading */}
         <header className='mx-auto mb-14 max-w-3xl text-center'>
-          <p className='rounded-4xl bg-(--primary-bg) py-2 text-sm font-semibold tracking-widest text-(--primary-bg-text) uppercase'>
+          <p className='rounded-4xl bg-(--primary) py-2 text-sm font-semibold tracking-widest text-(--primary-text) uppercase'>
             Features
           </p>
 
@@ -78,7 +78,7 @@ export default function Features() {
               className='rounded-2xl border border-(--border) bg-(--surface) p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg'
             >
               <div
-                className='mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-(--primary)/10 text-2xl'
+                className='mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-(--brand)/10 text-2xl'
                 aria-hidden='true'
               >
                 {feature.icon}

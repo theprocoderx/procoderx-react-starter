@@ -1,6 +1,6 @@
 # ProCoderX React Starter Kit — API Guidelines
 
-> Purpose: Define a consistent API design for all UI components.
+> Purpose: Define a consistent, predictable, and production-ready API for every reusable UI component.
 
 ---
 
@@ -14,128 +14,131 @@ Every component API should be:
 - Accessible
 - Theme Aware
 - Production Ready
-- Easy to extend
+- Easy to Extend
 - Composition Friendly
+
+Whenever possible, components should behave like their native HTML counterparts.
 
 ---
 
 # 2. General Rules
 
-Every component should:
+Every reusable component should:
 
 - Support `className`
+- Forward `ref` where appropriate
 - Spread remaining props (`...props`)
-- Follow native HTML behavior whenever possible
-- Keep prop names consistent across components
+- Support native HTML attributes
+- Preserve native browser behaviour
+- Keep prop names consistent across the library
 - Avoid unnecessary custom props
 - Prefer composition over configuration
-- Support ref forwarding where appropriate
-- Follow the shared Form API conventions
-- Prefer native HTML attributes over custom props
+- Avoid exposing internal implementation details
 
 ---
 
-# 3. Export Convention
+# 3. Export Conventions
 
 ## Components
 
-Default export
+Use a default export.
 
 ```jsx
 export default Button;
 ```
 
-Barrel export
+Use a barrel file for public exports.
 
 ```js
 export { default as Button } from './Button';
 ```
 
----
+## Hooks
 
-# 4. Prop Order
+Use named exports.
 
-Use the same prop order in every component.
-
-```jsx
-function Component({
-  children,
-
-  variant,
-  size,
-
-  required,
-  disabled,
-  readOnly,
-  invalid,
-  success,
-
-  helperText,
-  errorMessage,
-  successMessage,
-
-  startIcon,
-  endIcon,
-
-  className,
-
-  ariaLabel,
-
-  onClick,
-  onChange,
-  onFocus,
-  onBlur,
-
-  ...props
-})
+```js
+export function useTheme() {}
 ```
 
-Recommended order:
+## Utilities
 
-1. Children
-2. Appearance props
-3. Layout props
-4. State props
-5. Accessibility props
-6. Event handlers
-7. className
-8. Remaining props
+Use named exports.
+
+```js
+export function cn() {}
+```
+
+---
+
+# 4. Component API Standards
+
+Every component API should be:
+
+- Small
+- Explicit
+- Stable
+- Discoverable
+- Backward compatible whenever possible
+
+Avoid adding props that solve uncommon use cases.
+
+Prefer extending through composition instead of increasing API complexity.
 
 ---
 
 # 5. Common Props
 
-Use these names consistently.
+Use these prop names consistently across the component library.
 
-| Prop           | Purpose                     |
-| -------------- | --------------------------- |
-| variant        | Visual appearance           |
-| size           | Component size              |
-| className      | Custom classes              |
-| disabled       | Disabled state              |
-| loading        | Loading state               |
-| fullWidth      | Width control               |
-| required       | Required field              |
-| readOnly       | Read-only state             |
-| invalid        | Validation error state      |
-| success        | Success state               |
-| helperText     | Helper message              |
-| errorMessage   | Error message               |
-| successMessage | Success message             |
-| startIcon      | Icon before content         |
-| endIcon        | Icon after content          |
-| children       | Component content           |
-| name           | Form group                  |
-| defaultValue   | Uncontrolled input value    |
-| checked        | Controlled checkbox/radio   |
-| defaultChecked | Uncontrolled checkbox/radio |
-| id             | Label association           |
+| Prop      | Purpose                  |
+| --------- | ------------------------ |
+| children  | Component content        |
+| variant   | Visual appearance        |
+| size      | Component size           |
+| className | Additional CSS classes   |
+| disabled  | Disabled state           |
+| loading   | Loading state            |
+| fullWidth | Width behaviour          |
+| id        | Element identifier       |
+| name      | Form field name          |
+| required  | Required input           |
+| readOnly  | Read-only input          |
+| invalid   | Validation error state   |
+| success   | Validation success state |
+
+Only expose props that are relevant to the component.
 
 ---
 
-# 6. Size Scale
+# 6. Variant Guidelines
 
-Use the same sizes whenever applicable.
+Use shared variant names whenever possible.
+
+Preferred variants:
+
+```text
+primary
+secondary
+outline
+ghost
+destructive
+link
+```
+
+Form controls may additionally support:
+
+```text
+default
+```
+
+Avoid creating component-specific variant names unless there is a strong design requirement.
+
+---
+
+# 7. Size Guidelines
+
+Use the shared size scale throughout the library.
 
 ```text
 sm
@@ -143,182 +146,21 @@ md
 lg
 ```
 
-Special cases
+Special-purpose components may additionally support:
 
 ```text
 icon
 ```
 
-Avoid creating custom size names.
+Avoid custom size names that reduce consistency.
 
 ---
 
-# 7. Variant Names
+# 8. State Guidelines
 
-Prefer these names.
+Components should support only meaningful states.
 
-```text
-Common variants
-
-primary
-secondary
-outline
-ghost
-destructive
-link
-
-Form components may expose
-
-default
-outline
-
-```
-
-Only introduce new variants when there is a clear use case.
-
----
-
-# 8. Accessibility
-
-Every interactive component should support:
-
-- Keyboard navigation
-- focus-visible
-- Semantic HTML
-- Appropriate `aria-*` attributes
-- Screen readers
-
-Examples
-
-```jsx
-aria - label;
-aria - labelledby;
-aria - describedby;
-aria - invalid;
-aria - required;
-aria - disabled;
-aria - checked;
-aria - busy;
-role;
-tabIndex;
-```
-
----
-
-# 9. Styling
-
-Always use
-
-- Tailwind CSS v4
-- CSS Variables
-- Design Tokens
-- CVA
-- cn()
-
-All visual styling must be driven by the project's design tokens.
-
-Never use
-
-- Hardcoded colors
-- Inline styles
-- CSS Modules
-- SCSS
-- styled-components
-
----
-
-# 10. Icons
-
-Use:
-
-- lucide-react
-
-Supported props
-
-```jsx
-startIcon;
-
-endIcon;
-```
-
-Icons should always have:
-
-```jsx
-aria-hidden="true"
-```
-
----
-
-# 11. Theme Support
-
-Every component must support:
-
-- Light Theme
-- Dark Theme
-- System Theme
-
-Components must never hardcode colors.
-
-Use only project design tokens.
-
-### Global Tokens
-
-```css
---bg
---bg-secondary
-
---surface
---surface-hover
---surface-active
-
---text
---text-secondary
---text-muted
---text-inverse
-
---primary
---accent
-
---border
---divider
---focus-ring
-
---success
---warning
---error
-```
-
-### Component Tokens
-
-Components should consume dedicated component tokens when available.
-
-Examples
-
-```css
---primary-bg
---primary-bg-hover
---primary-bg-active
---primary-bg-text
-```
-
-Future components may introduce their own component-specific tokens such as:
-
-```css
---input-bg
---card-bg
---dialog-bg
---badge-bg
-```
-
-Components should never depend on fixed hex values.
-
----
-
-# 12. Component States
-
-Support only states that make sense.
-
-Common States
+Common states include:
 
 - Default
 - Hover
@@ -331,165 +173,239 @@ Common States
 - Read Only
 - Required
 
+Do not expose unsupported states through the public API.
+
 ---
 
-# 13. Event Props
+# 9. Event Guidelines
 
-Follow React naming.
+Follow standard React event naming.
 
-Examples
+Common events:
 
 ```jsx
 onClick;
-
 onChange;
-
 onFocus;
-
 onBlur;
-
 onKeyDown;
+onKeyUp;
 ```
 
-Never invent custom event names.
+Never introduce custom event names when an equivalent React event already exists.
 
 ---
 
-# 14. Ref Support
+# 10. Part 1 Summary
 
-Use refs only where appropriate.
+This section defines the core API standards for the component library, including:
 
-Examples
+- API philosophy
+- General rules
+- Export conventions
+- Component API design
+- Common props
+- Variant naming
+- Size conventions
+- State handling
+- Event naming
 
+## The remaining sections cover accessibility, theme support, styling, composition, documentation, testing, playground standards, and the Definition of Done.
+
+# 11. Accessibility API
+
+Every interactive component must support accessible usage by default.
+
+Where applicable, components should expose:
+
+```jsx
+aria - label;
+aria - labelledby;
+aria - describedby;
+aria - invalid;
+aria - required;
+aria - disabled;
+aria - expanded;
+aria - controls;
+role;
+tabIndex;
+```
+
+Use semantic HTML before adding ARIA attributes.
+
+Accessibility must never depend on JavaScript alone.
+
+---
+
+# 12. Styling Rules
+
+All components should use the project's shared styling system.
+
+Use:
+
+- Tailwind CSS v4
+- CSS Variables
+- Design Tokens
+- CVA
+- `cn()`
+
+Avoid:
+
+- Hardcoded colours
+- Hardcoded spacing
+- Inline styles
+- CSS Modules
+- SCSS
+- Styled Components
+
+Component styling should remain predictable and theme-aware.
+
+---
+
+# 13. Theme API
+
+Every reusable component must support:
+
+- Light Theme
+- Dark Theme
+- System Theme
+
+Components should consume semantic design tokens instead of fixed visual values.
+
+Theme behaviour should remain transparent to component consumers.
+
+---
+
+# 14. Ref Forwarding
+
+Forward refs whenever direct DOM access is useful.
+
+Typical components include:
+
+- Button
 - Input
 - Textarea
 - Select
 - Checkbox
 - Radio
 - Switch
-- Modal
+- Dialog
 
-Simple display components don't require ref forwarding unless there's a clear use case.
+Display-only components should avoid unnecessary ref forwarding.
 
 ---
 
-# 15. Component Documentation
+# 15. Composition Rules
 
-Every component includes:
+Prefer composition over configuration.
 
-README.md
+Good example:
 
-Recommended sections
+```jsx
+<Button>
+  <SaveIcon />
+  Save
+</Button>
+```
+
+Avoid introducing numerous boolean props when composition provides a cleaner solution.
+
+Component APIs should remain small and flexible.
+
+---
+
+# 16. Documentation Requirements
+
+Every stable component must include a `README.md` covering:
 
 - Overview
 - Features
+- Installation
+- Usage
 - Props
 - Variants
-- Sizes
 - Accessibility
 - Examples
 - Best Practices
-- Notes
+
+Documentation should be updated alongside implementation.
 
 ---
 
-# 16. Testing
+# 17. Testing Requirements
 
-Each component includes:
+Every reusable component requires automated tests.
 
-Component.test.jsx
-
-Tests should verify:
+Minimum coverage should include:
 
 - Rendering
 - Props
 - Variants
 - Sizes
 - States
-- Controlled behavior
-- Uncontrolled behavior
-- Events
+- User interaction
 - Accessibility
-- Regression tests
+- Regression behaviour
+
+Tests should use:
+
+- Vitest
+- React Testing Library
 
 ---
 
-# 17. Playground
+# 18. Playground Requirements
 
-Every component should have a Playground example.
-Every component must include a production-quality Playground.
+Every component must be verified in the shared Playground before becoming Stable.
 
-Playground requirements
+The Playground should demonstrate:
 
-- Shared layout
-- max-w-6xl container
-- Card-based sections
-- Surface background
-- Divider below section title
-- Shadow XS
-- Responsive layout
-- Theme aware
-- Uses only Design Tokens
-- Matches the project's shared Playground design system.
+- Variants
+- Sizes
+- States
+- Theme support
+- Responsive behaviour
+- Keyboard interaction
 
-Playground is intended for
-
-- Manual QA
-- Visual verification
-- API exploration
-
-It is not a replacement for unit tests.
+Playground verification complements automated testing but does not replace it.
 
 ---
 
-# 18. Stability Policy
+# 19. Stability Policy
 
-Component lifecycle
+Component lifecycle:
 
+```text
 Draft
-
-↓
-
+   ↓
 Development
-
-↓
-
+   ↓
 Stable
-
-↓
-
+   ↓
 Frozen
+```
 
-Once a component is marked **Stable**, only bug fixes and accessibility improvements should be made unless a breaking change is intentionally planned.
+Once a component is marked **Stable**, only bug fixes, accessibility improvements, and intentional versioned enhancements should be introduced.
 
----
-
-# 19. Breaking Changes
-
-Breaking API changes should:
-
-- Be documented
-- Be versioned
-- Include migration guidance
-- Be avoided whenever possible
+Breaking API changes should be avoided whenever possible.
 
 ---
 
 # 20. Definition of Done
 
-A component is considered complete only when all of the following are satisfied:
+A reusable component is considered complete only when all of the following are satisfied:
 
 - Production-ready implementation
-- Consistent API
+- Consistent public API
 - Theme support
-- Responsive behavior
 - Accessibility verified
+- Responsive behaviour
+- Playground verified
 - Unit tests passing
-- Playground completed
 - README completed
-- Playground follows the shared design system
-- No ESLint warnings
+- No linting errors
 - No console warnings
-- No IDE/TypeScript issues
-- Uses only Design Tokens
-- No hardcoded colors
+- Uses shared Design Tokens
+- Uses shared project utilities
+
+Only after meeting every requirement should a component be declared **Stable**.

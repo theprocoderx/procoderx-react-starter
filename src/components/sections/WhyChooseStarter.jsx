@@ -37,7 +37,7 @@ export default function WhyChooseStarter() {
       <div className='mx-auto max-w-7xl px-6'>
         {/* Section Header */}
         <header className='mx-auto mb-14 max-w-3xl text-center'>
-          <p className='rounded-4xl bg-(--primary-bg) py-2 text-sm font-semibold tracking-widest text-(--primary-bg-text) uppercase'>
+          <p className='rounded-4xl bg-(--primary) py-2 text-sm font-semibold tracking-widest text-(--primary-text) uppercase'>
             Why Choose This Starter
           </p>
 
@@ -72,7 +72,7 @@ export default function WhyChooseStarter() {
               >
                 <div
                   aria-hidden='true'
-                  className='mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-(--primary)/10 text-3xl'
+                  className='mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-(--brand)/10 text-3xl'
                 >
                   {reason.icon}
                 </div>

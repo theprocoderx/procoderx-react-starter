@@ -1,0 +1,116 @@
+:root {
+  /* ==========================================================================
+   SHARED TOKENS
+   Everything reusable across multiple component families.
+   ========================================================================== */
+
+  /* ==========================================================================
+   FORM
+   Shared tokens for all form controls.
+   Components: Input, Textarea, Select, Checkbox, Radio, Switch, Slider, OTP, Search, Password, Combobox, DatePicker
+   ========================================================================== */
+
+  /* --------------------------------------------------------------------------
+   Surface
+-------------------------------------------------------------------------- */
+
+  --field-bg: var(--surface);
+  --field-bg-hover: var(--surface-hover);
+  --field-bg-active: var(--surface-active);
+
+  /* --------------------------------------------------------------------------
+   Border
+-------------------------------------------------------------------------- */
+
+  --field-border: var(--border);
+  --field-border-hover: var(--border-muted);
+  --field-border-focus: var(--primary);
+
+  /* --------------------------------------------------------------------------
+   Text
+-------------------------------------------------------------------------- */
+
+  --field-text: var(--text);
+  --field-placeholder: var(--text-muted);
+
+  /* --------------------------------------------------------------------------
+   Label
+-------------------------------------------------------------------------- */
+
+  --field-label: var(--text);
+  --field-label-muted: var(--text-secondary);
+
+  /* --------------------------------------------------------------------------
+   Helper Text
+-------------------------------------------------------------------------- */
+
+  --field-helper: var(--text-muted);
+
+  /* --------------------------------------------------------------------------
+   Icon
+-------------------------------------------------------------------------- */
+
+  --field-icon: var(--text-secondary);
+  --field-icon-hover: var(--primary);
+
+  /* --------------------------------------------------------------------------
+   Selection
+-------------------------------------------------------------------------- */
+
+  --field-selection-bg: var(--selection-bg);
+  --field-selection-text: var(--selection-text);
+
+  /* --------------------------------------------------------------------------
+   Validation
+-------------------------------------------------------------------------- */
+
+  --field-success: var(--success);
+  --field-warning: var(--warning);
+  --field-error: var(--error);
+
+  --field-success-bg: var(--success-bg);
+  --field-warning-bg: var(--warning-bg);
+  --field-error-bg: var(--error-bg);
+
+  --field-success-border: var(--success-border);
+  --field-warning-border: var(--warning-border);
+  --field-error-border: var(--error-border);
+
+  /* --------------------------------------------------------------------------
+   Focus
+-------------------------------------------------------------------------- */
+
+  --field-focus-ring: var(--focus-ring);
+  --field-focus-offset: var(--focus-ring-offset);
+
+  /* --------------------------------------------------------------------------
+   Disabled
+-------------------------------------------------------------------------- */
+
+  --field-disabled-bg: var(--bg-secondary);
+  --field-disabled-border: var(--border);
+  --field-disabled-text: var(--text-disabled);
+  --field-disabled-placeholder: var(--text-disabled);
+
+  /* --------------------------------------------------------------------------
+   Read Only
+-------------------------------------------------------------------------- */
+
+  --field-readonly-bg: var(--surface-secondary);
+  --field-readonly-border: var(--border);
+  --field-readonly-text: var(--text);
+  --field-readonly-placeholder: var(--text-muted);
+
+  /* --------------------------------------------------------------------------
+   Radius
+-------------------------------------------------------------------------- */
+
+  --field-radius: var(--radius-md);
+
+  /* --------------------------------------------------------------------------
+   Transition
+-------------------------------------------------------------------------- */
+
+  --field-duration: var(--duration-normal);
+  --field-easing: var(--ease-out);
+}

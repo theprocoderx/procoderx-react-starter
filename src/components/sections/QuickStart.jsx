@@ -38,7 +38,7 @@ export default function QuickStart() {
       <div className='mx-auto max-w-6xl px-6'>
         {/* Section Header */}
         <header className='mx-auto mb-14 max-w-3xl text-center'>
-          <p className='rounded-4xl bg-(--primary-bg) py-2 text-sm font-semibold tracking-widest text-(--primary-bg-text) uppercase'>
+          <p className='rounded-4xl bg-(--primary) py-2 text-sm font-semibold tracking-widest text-(--primary-text) uppercase'>
             Quick Start
           </p>
 
@@ -66,7 +66,7 @@ export default function QuickStart() {
                   Step {index + 1}
                 </h3>
 
-                <p className='rounded-full bg-(--primary-bg) px-3 py-1 text-xs font-medium text-(--primary-bg-text)'>
+                <p className='rounded-full bg-(--primary) px-3 py-1 text-xs font-medium text-(--primary-text)'>
                   {item.title}
                 </p>
               </div>

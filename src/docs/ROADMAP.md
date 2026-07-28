@@ -14,23 +14,18 @@ v0.7.0
 
 ## Current Sprint
 
-Building the remaining **Core Form Components**.
+Expanding the **Core UI Component Library** while strengthening the project's architecture and documentation.
 
 Current focus:
 
-- ⬜ Textarea
-- ⬜ Select
+- Planning the next stable UI components
+- Improving documentation
+- Maintaining API consistency
+- Enhancing testing infrastructure
+
+---
 
 ## Stable Components
-
-### Form Components
-
-- ✅ Button
-- ✅ Input
-- ✅ Label
-- ✅ Checkbox
-- ✅ Radio
-- ✅ Switch
 
 ### Foundation
 
@@ -42,6 +37,24 @@ Current focus:
 - ✅ Documentation Architecture
 - ✅ Testing Infrastructure
 
+### Form Components
+
+- ✅ Button
+- ✅ Input
+- ✅ Label
+- ✅ Textarea
+- ✅ Select
+- ✅ Checkbox
+- ✅ Radio
+- ✅ Switch
+
+### Display Components
+
+- ✅ Badge
+- ✅ Card
+- ✅ Avatar
+- ✅ Alert
+
 ---
 
 # Development Workflow
@@ -49,12 +62,12 @@ Current focus:
 Every feature follows the same production workflow.
 
 1. Planning
-2. Implementation
-3. Variant Implementation (if applicable)
+2. API Design
+3. Implementation
 4. Playground Verification
-5. Documentation
+5. Accessibility Review
 6. Unit Testing
-7. Accessibility Review
+7. Documentation
 8. Code Review
 9. Stability Verification
 
@@ -80,46 +93,37 @@ Completed
 - ✅ Testing Infrastructure
 - ✅ Unified Playground Design
 
-Status
-
-**Completed**
+**Status:** Completed
 
 ---
 
-# Phase 2 — Core Form Components
+# Phase 2 — Core Form Components ✅
 
-## Completed
+Completed
 
 - ✅ Button
 - ✅ Input
 - ✅ Label
+- ✅ Textarea
+- ✅ Select
 - ✅ Checkbox
 - ✅ Radio
 - ✅ Switch
 
-## Current Sprint
-
-- ⬜ Textarea
-- ⬜ Select
-
-Status
-
-**In Progress**
+**Status:** Completed
 
 ---
 
-# Phase 3 — Display Components
+# Phase 3 — Display Components ✅
 
-Planned Components
+Completed
 
-- ⬜ Badge
-- ⬜ Card
-- ⬜ Avatar
-- ⬜ Alert
+- ✅ Badge
+- ✅ Card
+- ✅ Avatar
+- ✅ Alert
 
-Status
-
-Not Started
+**Status:** Completed
 
 ---
 
@@ -136,9 +140,7 @@ Planned Components
 - ⬜ Accordion
 - ⬜ Tabs
 
-Status
-
-Not Started
+**Status:** Planned
 
 ---
 
@@ -153,9 +155,7 @@ Planned Features
 - ⬜ SEO Toolkit
 - ⬜ Dashboard Templates
 
-Status
-
-Planned
+**Status:** Planned
 
 ---
 
@@ -173,15 +173,11 @@ Planned Features
 - ⬜ Component Generator
 - ⬜ VS Code Snippets
 
-Status
-
-Planned
+**Status:** Planned
 
 ---
 
 # Future Enhancements
-
-Potential additions after the initial stable release.
 
 ## Data Display
 
@@ -224,7 +220,7 @@ Includes:
 - ✅ Foundation
 - ✅ Core Form Components
 - ✅ Display Components
-- ✅ Overlay Components
+- ⬜ Overlay Components
 - ✅ Documentation
 - ✅ Playground
 - ✅ Unit Tests
@@ -309,23 +305,14 @@ A component is considered **Stable** only when it satisfies all of the following
 
 # Project Vision
 
-The long-term goal is to build a modern, production-ready React component library that emphasizes:
-
-- Clean Architecture
-- Accessibility
-- Performance
-- Scalability
-- Developer Experience
-- Maintainability
-- Consistency
-
-The library should be suitable for personal projects, production applications, and future open-source contributions.
+For the long-term vision, strategic direction, and future evolution of the project, refer to **FUTURE_VISION.md**.
 
 ---
 
 # Notes
 
 - This roadmap is a living document and will evolve as the project grows.
+- Current sprint information should always reflect the latest development status.
 - Completed milestones should never be removed from the project history.
 - Future milestones may be added without rewriting previous phases.
 - Every release should be accompanied by updates to the CHANGELOG and project documentation.

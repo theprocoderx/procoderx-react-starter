@@ -43,7 +43,7 @@ export default function Hero() {
         <div className='mt-10 flex flex-col gap-4 sm:flex-row' aria-label='Primary actions'>
           <a
             href='#quick-start'
-            className='rounded-xl bg-(--primary-bg) px-6 py-3 font-semibold text-(--primary-bg-text) transition-transform duration-300 hover:-translate-y-0.5 hover:bg-(--primary-bg-hover) focus-visible:ring-2 focus-visible:ring-(--focus-ring) focus-visible:ring-offset-2 focus-visible:outline-none'
+            className='rounded-xl bg-(--primary) px-6 py-3 font-semibold text-(--primary-text) transition-transform duration-300 hover:-translate-y-0.5 hover:bg-(--primary-hover) focus-visible:ring-2 focus-visible:ring-(--focus-ring) focus-visible:ring-offset-2 focus-visible:outline-none'
           >
             Get Started
           </a>
@@ -53,7 +53,7 @@ export default function Hero() {
             target='_blank'
             rel='noopener noreferrer'
             aria-label='View ProCoderX React Starter on GitHub (opens in a new tab)'
-            className='rounded-xl border border-(--border) bg-(--surface) px-6 py-3 font-semibold transition-all duration-300 hover:bg-(--surface-hover) focus-visible:ring-2 focus-visible:ring-(--primary) focus-visible:ring-offset-2 focus-visible:outline-none'
+            className='rounded-xl border border-(--border) bg-(--surface) px-6 py-3 font-semibold transition-all duration-300 hover:bg-(--surface-hover) focus-visible:ring-2 focus-visible:ring-(--brand) focus-visible:ring-offset-2 focus-visible:outline-none'
           >
             View on GitHub
           </Link>

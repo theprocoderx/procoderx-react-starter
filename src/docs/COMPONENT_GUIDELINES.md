@@ -154,7 +154,9 @@ README.md
 
 ## Component API
 
-Every component API should be:
+Component APIs must follow the standards defined in `API_GUIDELINES.md`.
+
+Every component implementation should preserve a public API that is:
 
 - Predictable
 - Minimal
@@ -162,11 +164,7 @@ Every component API should be:
 - Easy to understand
 - Backward compatible
 
-Avoid unnecessary props.
-
-Prefer composition over configuration.
-
----
+Prefer composition over configuration, and avoid introducing unnecessary props.
 
 ## Composition
 
@@ -191,9 +189,9 @@ Avoid
 
 ## Props
 
-Every component should expose only meaningful props.
+Components should implement their public props according to **API_GUIDELINES.md**.
 
-Examples:
+Example:
 
 ```jsx
 <Button
@@ -254,15 +252,16 @@ Avoid:
 
 ## Theme Support
 
-Every component must support:
+Components must consume the project's Theme System and Design Tokens.
 
-- Light Theme
-- Dark Theme
-- System Theme
+Implementation details are defined in **ARCHITECTURE.md**.
 
-Use CSS Variables.
+Theme-aware components should:
 
-Never hardcode colors.
+- Use CSS Variables
+- Consume Design Tokens
+- Support Light, Dark, and System themes
+- Never hardcode colours
 
 ---
 
@@ -294,11 +293,11 @@ Never place Tailwind variant logic inside the component.
 
 ## Icons
 
-When supported:
+Components supporting icons should:
 
-- Accept React nodes.
-- Support start and end icons.
-- Icons should not affect accessibility.
+- Accept React nodes
+- Support leading and trailing icons
+- Preserve accessibility
 
 Example:
 
@@ -363,15 +362,16 @@ Common states:
 
 ## Shared Utilities
 
-Components should reuse project utilities whenever possible.
+Components should reuse existing project utilities whenever possible instead of duplicating logic.
 
-Examples
+Common shared utilities include:
 
-- cn()
+- `cn()`
 - Shared Design Tokens
-- Shared Form Patterns
+- Shared CVA variants
 - Theme Context
-- CVA Variants
+- Shared hooks
+- Shared testing utilities
 
 Avoid duplicating common logic across components.
 
@@ -460,7 +460,6 @@ Components should:
 - Avoid duplicated logic
 - Keep bundle size small
 - Avoid unnecessary dependencies
-- Lazy load only when appropriate
 
 ---
 

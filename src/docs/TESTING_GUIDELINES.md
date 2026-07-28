@@ -1,1222 +1,613 @@
-# ProCoderX React Starter Kit — Testing Guidelines
+# Testing Guidelines
 
-> Purpose: Define the testing philosophy, standards, structure, workflow, and best practices for testing all components in the ProCoderX React Starter Kit.
+## Version
+
+| Field        | Value     |
+| ------------ | --------- |
+| Version      | 1.0.0     |
+| Status       | Stable    |
+| Last Updated | July 2026 |
 
 ---
 
-# 1. Testing Philosophy
+# Introduction
 
-Testing is a fundamental part of the ProCoderX React Starter Kit.
+This document defines the testing standards for the **ProCoderX React Starter Kit**.
 
-Every production-ready component must include automated unit tests to ensure reliability, maintainability, accessibility, and long-term scalability.
+Its purpose is to establish a consistent testing strategy that ensures every reusable component is reliable, accessible, maintainable, and production-ready.
 
-Testing should verify:
+These guidelines apply to every UI component, shared utility, and testing helper in the project.
+
+---
+
+# Testing Philosophy
+
+Testing should verify how software behaves from a user's perspective rather than how it is internally implemented.
+
+Every test should be:
+
+- Reliable
+- Independent
+- Maintainable
+- Readable
+- Predictable
+- Production focused
+
+Testing is intended to increase confidence when refactoring, extending, or releasing the project.
+
+---
+
+# Testing Goals
+
+The testing strategy aims to ensure:
 
 - Correct rendering
-- Component behavior
-- Accessibility
-- User interactions
+- Stable public APIs
+- Reliable user interactions
+- Accessibility compliance
+- Theme compatibility
 - Regression prevention
-- API consistency
-
-Playground is intended for manual verification only.
-
-Playground **does not replace automated testing**.
-
-A component is **not considered complete** until its implementation, documentation, playground, and automated tests are all finished.
+- Long-term maintainability
 
 ---
 
-# 2. Testing Pyramid
+# Core Principles
 
-The ProCoderX React Starter Kit follows an industry-standard testing pyramid.
+Follow these principles when writing tests.
 
-```text
-                 End-to-End Tests
-                  (Playwright)
-
-             Integration Testing
-              (Future Support)
-
-         Component Unit Testing
- (Vitest + React Testing Library)
-```
-
-Testing priority:
-
-1. Unit Tests
-2. Integration Tests (Future)
-3. End-to-End Tests (Future)
-
-Since this project is a reusable UI component library, the primary focus is comprehensive **component-level unit testing**.
+- Test behaviour instead of implementation.
+- Prefer user interactions over internal state.
+- Keep tests isolated.
+- Keep tests deterministic.
+- Keep tests easy to understand.
+- Avoid unnecessary mocking.
+- Write only meaningful assertions.
+- One test should verify one behaviour whenever possible.
 
 ---
 
-# 3. Testing Stack
+# Testing Stack
 
-## Current Stack
+The project uses the following testing tools.
 
-- Vitest
-- React Testing Library
-- @testing-library/jest-dom
-- @testing-library/user-event
-- jsdom
-
-## Future Stack
-
-- Storybook
-- Playwright (End-to-End Testing)
-- Axe Accessibility Testing
-- Visual Regression Testing
-- GitHub Actions (Automated CI)
+| Tool                  | Purpose           |
+| --------------------- | ----------------- |
+| Vitest                | Test Runner       |
+| React Testing Library | Component Testing |
+| user-event            | User Interaction  |
+| jest-dom              | DOM Matchers      |
 
 ---
 
-# 4. Testing Goals
+# Testing Architecture
 
-Every test should answer one question:
+Testing is organised into two levels.
 
-> "Can this component safely be used in production?"
+1. Component Tests
+2. Shared Testing Utilities
 
-The objective is **not** simply to increase code coverage.
-
-The primary goals are:
-
-- Prevent regressions
-- Verify component behavior
-- Maintain accessibility
-- Enable safe refactoring
-- Ensure API stability
-- Increase long-term developer confidence
-
-High test coverage is valuable only when the tests verify meaningful behavior.
+Every reusable component owns its own test suite while shared helpers provide reusable infrastructure.
 
 ---
 
-# 5. Testing Architecture
-
-Industry-standard UI libraries maintain a dedicated test file for every component.
-
-This approach improves:
-
-- Maintainability
-- Scalability
-- Faster debugging
-- Easier refactoring
-- Better organization
-- Independent component development
-
-Recommended project structure:
+# Project Structure
 
 ```text
 src/
-├── assets/
-├── components/
-│   ├── common/
-│   ├── layout/
-│   ├── sections/
-│   └── ui/
-│       ├── Button/
-│       │   ├── Button.jsx
-│       │   ├── buttonVariants.js
-│       │   ├── Button.test.jsx
-│       │   ├── README.md
-│       │   └── index.js
-│       │
-│       ├── Input/
-│       │   ├── Input.jsx
-│       │   ├── inputVariants.js
-│       │   ├── Input.test.jsx
-│       │   ├── README.md
-│       │   └── index.js
-│       │
-│       └── ...
-│
-├── contexts/
-├── hooks/
-├── layouts/
-├── pages/
-├── router/
-├── styles/
-├── tests/
-│   ├── setup.js
-│   ├── test-utils.js
-│   ├── renderWithTheme.js
-│   ├── renderWithProviders.js
-│   └── helpers.js
-│
-├── utils/
-└── lib/
+
+components/
+└── ui/
+    └── Button/
+        └── Button.test.jsx
+
+tests/
+├── setup.js
+├── test-utils.js
+├── renderWithTheme.js
+├── renderWithProviders.js
+└── helpers.js
 ```
-
-Each component owns its own test suite.
-
-Never create shared component test files such as:
-
-```text
-components.test.jsx
-
-ui.test.jsx
-
-everything.test.jsx
-```
-
-Each component must remain fully isolated and independently testable.
 
 ---
 
-# 6. Shared Testing Utilities
+# Shared Testing Utilities
 
-Shared testing utilities should be placed inside a dedicated testing directory.
-
-```text
-src/
-└── tests/
-    ├── setup.js
-    ├── test-utils.js
-    ├── renderWithTheme.js
-    ├── renderWithProviders.js
-    └── helpers.js
-```
-
-These utilities eliminate duplication and provide consistent testing behavior across the project.
-
----
+The `src/tests` directory contains reusable testing utilities shared across the project.
 
 ## setup.js
 
-Global test configuration.
+Responsible for global testing configuration.
 
 Typical responsibilities include:
 
-- jest-dom matchers
+- jest-dom setup
 - Global mocks
-- Test cleanup
-- Environment configuration
+- Cleanup configuration
 
 ---
 
 ## test-utils.js
 
-Provides reusable testing helpers.
-
-Typical responsibilities include:
-
-- Custom render()
-- Common wrapper components
-- Shared testing utilities
+Provides reusable helpers that reduce duplication across component tests.
 
 ---
 
-## renderWithTheme()
+## renderWithTheme.js
 
-Renders components inside the application's ThemeProvider.
+Renders components inside the project's Theme Provider.
 
-Use this helper whenever a component depends on theme context.
+Use this helper whenever theme-dependent behaviour is tested.
 
 ---
 
-## renderWithProviders()
+## renderWithProviders.js
 
-Renders components with every required provider.
+Renders components inside all required providers.
 
 Examples include:
 
-- ThemeProvider
+- Theme Provider
 - Router
 - Context Providers
-- Redux (Future)
-- React Query (Future)
-
-This helper should be used whenever multiple providers are required.
 
 ---
 
-# 7. Component Testing Standards
+## helpers.js
 
-Every component must test **only its own public behavior**.
+Contains reusable testing helpers that are shared across multiple test suites.
 
-A component's test suite should never verify the implementation of another component.
-
-Each test should verify **one responsibility only**.
-
-Good examples:
-
-```text
-✓ renders button
-
-✓ calls onClick
-
-✓ renders loading state
-
-✓ applies disabled state
-```
-
-Avoid combining multiple behaviors into a single test.
-
-Bad example:
-
-```text
-✗ renders button, loading spinner, disabled state and click event
-```
-
-Small, focused tests are easier to understand, maintain, and debug.
+Business-specific helpers should remain inside the component's own test file.
 
 ---
 
-# 8. Test Development Workflow
+# Test File Standards
 
-Every component should follow the same development lifecycle.
+Every reusable component owns its own test file.
+
+Example:
 
 ```text
-Design API
+Button/
+└── Button.test.jsx
 
-↓
+Input/
+└── Input.test.jsx
 
-Implement Component
-
-↓
-
-Manual Playground Testing
-
-↓
-
-Write Unit Tests
-
-↓
-
-Run Tests
-
-↓
-
-Fix Test Failures
-
-↓
-
-Accessibility Review
-
-↓
-
-Update README
-
-↓
-
-Final Review
-
-↓
-
-Mark Component as Stable
+Card/
+└── Card.test.jsx
 ```
 
-Development should not continue to the next component until the current component satisfies the project's Definition of Done.
+Component tests should remain colocated with the component.
 
 ---
 
-# 9. Query Priority
+# Naming Conventions
 
-React Testing Library encourages querying the application the same way users interact with it.
+Test suites should clearly describe the component being tested.
 
-Preferred query order:
+Example:
+
+```jsx
+describe('Button', () => {});
+```
+
+Test cases should describe observable behaviour.
+
+Example:
+
+```jsx
+it('renders the primary variant');
+```
+
+Avoid vague descriptions.
+
+---
+
+# Query Priority
+
+Always prefer accessible queries.
+
+Recommended order:
 
 1. getByRole()
 2. getByLabelText()
 3. getByPlaceholderText()
 4. getByText()
 5. getByDisplayValue()
-6. getByAltText()
-7. getByTitle()
-8. getByTestId() _(last resort)_
+6. getByTestId()
 
-Preferred example:
-
-```jsx
-screen.getByRole('button', {
-  name: /save/i,
-});
-```
-
-Avoid implementation-specific queries such as:
-
-```jsx
-container.querySelector('.btn');
-```
-
-Tests should validate user-facing behavior rather than implementation details.
+`getByTestId()` should only be used when no accessible alternative exists.
 
 ---
 
-# 10. Button Testing Checklist
+# Component Testing Standards
 
-The Button component should verify all publicly exposed functionality.
+Every component should be tested according to its public API.
 
-Testing categories:
+The following areas should be verified whenever applicable.
 
-## Rendering
+- Rendering
+- Variants
+- Sizes
+- States
+- Icons
+- Behavior
+- Accessibility
 
-- ✓ renders as a `<button>` by default
-- ✓ renders children correctly
-- ✓ renders default variant
-- ✓ renders default size
-
----
-
-## Variants
-
-- ✓ primary
-- ✓ secondary
-- ✓ outline
-- ✓ ghost
-- ✓ destructive
-- ✓ link
-
-Each variant should render correctly and remain accessible.
+Only test categories that are relevant to the component.
 
 ---
 
-## Sizes
+# Form Component Testing
 
-- ✓ sm
-- ✓ md
-- ✓ lg
-- ✓ icon
+Form controls should verify:
 
-Each size should render correctly without breaking layout.
-
----
-
-## States
-
-- ✓ disabled
-- ✓ loading
-- ✓ fullWidth
-
-Verify both visual and functional behavior.
-
-Example:
-
-- Disabled buttons cannot be clicked.
-- Loading buttons indicate busy state.
+- Controlled behaviour
+- Uncontrolled behaviour
+- Validation
+- Required state
+- Disabled state
+- Read-only state
+- Helper text
+- Error messages
+- Success messages
+- Native HTML behaviour
 
 ---
 
-## Icons
+# User Interaction Testing
 
-- ✓ startIcon
-- ✓ endIcon
+Verify user interactions rather than implementation details.
 
-Verify icons render only when provided.
+Common interactions include:
 
----
+- Click
+- Change
+- Input
+- Focus
+- Blur
+- Keyboard Navigation
 
-## Behavior
-
-- ✓ click event
-- ✓ href renders anchor element
-- ✓ download attribute
-- ✓ external link attributes
-- ✓ disabled prevents interaction
+Interactions should simulate real user behaviour whenever possible.
 
 ---
 
-## Accessibility
+# Accessibility Testing
 
-- ✓ accessible button role
-- ✓ aria-label
-- ✓ aria-disabled
-- ✓ aria-busy
-- ✓ keyboard focus
-- ✓ Enter key support
-- ✓ Space key support
-
----
-
-# 11. Input Testing Checklist
-
-The Input component should verify rendering, interaction, validation, and accessibility.
-
-## Rendering
-
-- ✓ renders input element
-- ✓ renders label
-- ✓ renders placeholder
-- ✓ renders helper text
-
----
-
-## Props
-
-- ✓ placeholder
-- ✓ label
-- ✓ helperText
-- ✓ required
-- ✓ disabled
-- ✓ readOnly
-
----
-
-## States
-
-- ✓ default
-- ✓ error
-- ✓ success
-- ✓ disabled
-- ✓ readOnly
-- ✓ focused
-
----
-
-## Icons
-
-- ✓ startIcon
-- ✓ endIcon
-
----
-
-## Behavior
-
-- ✓ accepts typing
-- ✓ updates value
-- ✓ fires onChange
-- ✓ fires onFocus
-- ✓ fires onBlur
-
----
-
-## Accessibility
-
-- ✓ label association
-- ✓ aria-invalid
-- ✓ aria-describedby
-- ✓ keyboard navigation
-- ✓ focus visibility
-
----
-
-# 12. Card Testing Checklist
-
-Card components are primarily presentational.
-
-Testing should verify:
-
-## Rendering
-
-- ✓ renders children
-- ✓ renders header
-- ✓ renders body
-- ✓ renders footer (if supported)
-
----
-
-## Props
-
-- ✓ custom className
-- ✓ custom content
-- ✓ interactive mode (if applicable)
-
----
-
-## States
-
-- ✓ hover
-- ✓ selected
-- ✓ disabled (if applicable)
-
----
-
-## Accessibility
-
-- ✓ semantic HTML
-- ✓ correct heading hierarchy (when applicable)
-
----
-
-# 13. Future Component Testing Examples
-
-Future UI components should follow the same testing methodology.
-
----
-
-## Modal
-
-Verify:
-
-- ✓ opens
-- ✓ closes
-- ✓ Escape key
-- ✓ overlay click
-- ✓ focus trap
-- ✓ initial focus
-- ✓ restores focus
-- ✓ aria-modal
-- ✓ role="dialog"
-
----
-
-## Drawer
-
-Verify:
-
-- ✓ opens
-- ✓ closes
-- ✓ overlay click
-- ✓ Escape key
-- ✓ keyboard navigation
-
----
-
-## Dropdown
-
-Verify:
-
-- ✓ opens
-- ✓ closes
-- ✓ keyboard navigation
-- ✓ item selection
-- ✓ outside click
-
----
-
-## Tooltip
-
-Verify:
-
-- ✓ hover
-- ✓ keyboard focus
-- ✓ aria-describedby
-- ✓ positioning
-
----
-
-## Toast
-
-Verify:
-
-- ✓ appears
-- ✓ auto dismiss
-- ✓ manual dismiss
-- ✓ multiple toasts
-
----
-
-## Accordion
-
-Verify:
-
-- ✓ expands
-- ✓ collapses
-- ✓ keyboard interaction
-- ✓ aria-expanded
-
----
-
-## Tabs
-
-Verify:
-
-- ✓ tab switching
-- ✓ keyboard navigation
-- ✓ active panel
-- ✓ aria-controls
-
----
-
-# 14. Accessibility Testing
-
-Accessibility is a first-class requirement.
-
-Every interactive component should verify:
-
-## Keyboard Support
-
-- ✓ Tab
-- ✓ Shift + Tab
-- ✓ Enter
-- ✓ Space
-- ✓ Escape (when applicable)
-- ✓ Arrow Keys (when applicable)
-
----
-
-## Screen Reader Support
+Accessibility is a mandatory part of testing.
 
 Verify:
 
 - Semantic HTML
-- Accessible names
-- Accessible descriptions
-- Required ARIA attributes
-- Correct landmark usage
-
----
-
-## Focus Management
-
-Verify:
-
+- Keyboard navigation
 - Focus visibility
-- Focus order
-- Focus restoration
-- No keyboard traps
+- ARIA attributes
+- Screen reader compatibility
+
+Accessibility regressions should be treated as functional regressions.
 
 ---
 
-Accessibility issues should be treated as functional bugs.
+# Mocking Guidelines
 
----
+Mock only external dependencies.
 
-# 15. Testing Best Practices
+Typical examples include:
 
-Write tests from the user's perspective.
-
-Prefer testing:
-
-- What users see
-- What users click
-- What users type
-- What users hear through assistive technologies
-
-Avoid testing:
-
-- Internal implementation
-- React state
-- Private functions
-- Component internals
-
-Prefer semantic queries:
-
-```jsx
-screen.getByRole();
-```
-
-instead of
-
-```jsx
-container.querySelector();
-```
-
----
-
-# 16. Test Writing Rules
-
-Every test should follow these rules.
-
-## One Behavior Per Test
-
-Good
-
-```text
-✓ renders loading spinner
-```
-
-Bad
-
-```text
-✗ loading + disabled + click + icon
-```
-
----
-
-## Independent Tests
-
-Tests should never depend on:
-
-- execution order
-- shared variables
-- previous tests
-
-Each test should be runnable in isolation.
-
----
-
-## Clear Test Names
-
-Good
-
-```jsx
-renders loading spinner
-```
-
-Bad
-
-```jsx
-Button works
-```
-
----
-
-## Arrange → Act → Assert
-
-Structure every test consistently.
-
-```text
-Arrange
-
-↓
-
-Act
-
-↓
-
-Assert
-```
-
-This improves readability and maintainability.
-
----
-
-# 17. Mocking Guidelines
-
-Mock only external dependencies that cannot be reliably tested.
-
-Common examples include:
-
-- ResizeObserver
-- IntersectionObserver
-- MatchMedia
+- Network requests
 - Browser APIs
 - Timers
-- Network requests
 
-Avoid mocking:
+Avoid mocking internal component logic.
 
-- React state
-- Component behavior
-- Props
-- User interactions
-
-Mocking should simplify tests—not hide implementation problems.
+Over-mocking reduces test confidence.
 
 ---
 
-# 18. What Not to Test
+# General Best Practices
 
-Avoid writing tests for:
-
-- Tailwind utility classes
-- Internal React state
-- Third-party library internals
-- Implementation details
-- Private helper functions
-
-Focus on observable behavior from the user's perspective.
-
-Ask yourself:
-
-> "Would a real user notice this?"
-
-If the answer is **No**, it usually does not belong in a unit test.
+- Keep tests small.
+- Keep assertions focused.
+- Avoid duplicated setup.
+- Prefer reusable helpers.
+- Test observable behaviour.
+- Avoid implementation-specific assertions.
+- Remove unused mocks.
+- Keep test files easy to read.
 
 ---
 
-# 19. Regression Testing
+# Display Component Testing
 
-Regression testing ensures that previously fixed bugs never reappear.
+Display components should verify only the behaviour that is meaningful to their API.
 
-Whenever a bug is discovered:
+Typical checks include:
 
-1. Reproduce the issue.
-2. Write a failing test.
-3. Fix the implementation.
-4. Verify the test passes.
-5. Commit both the fix and the test together.
-
-Every bug fix should introduce a regression test.
-
-Never fix a production bug without adding a corresponding automated test.
-
----
-
-# 20. Coverage Goals
-
-Code coverage is a quality indicator, not the primary objective.
-
-Recommended minimum targets:
-
-| Metric     | Target |
-| ---------- | ------ |
-| Statements | 90%    |
-| Branches   | 85%    |
-| Functions  | 90%    |
-| Lines      | 90%    |
-
-High coverage does **not** guarantee high-quality tests.
-
-Prefer meaningful behavioral tests over artificially increasing coverage.
-
----
-
-# 21. Playground vs Unit Testing
-
-Playground and automated tests serve different purposes.
-
-## Playground
-
-Purpose:
-
-- Manual verification
-- Visual inspection
-- Component API exploration
-- Theme verification
-- Responsive testing
-- Developer experimentation
-
-Example:
-
-```text
-Playground/
-└── Components.jsx
-```
-
-Playground helps developers manually verify component behavior.
-
-It should never be considered a replacement for automated testing.
-
----
-
-## Unit Testing
-
-Purpose:
-
-- Automated verification
-- Behavior testing
-- Accessibility validation
-- Regression prevention
-- API stability
+- Rendering
+- Variants
+- Sizes
+- Content rendering
+- Icons
+- Accessibility
 
 Examples:
 
-```text
-Button.test.jsx
+- Badge
+- Card
+- Alert
+- Avatar
 
-Input.test.jsx
-
-Card.test.jsx
-```
-
-Unit tests execute automatically and verify production behavior.
+Display components generally do not require interaction testing unless they expose interactive behaviour.
 
 ---
 
-## Comparison
+# Interactive Component Testing
 
-| Playground                  | Unit Tests              |
-| --------------------------- | ----------------------- |
-| Manual                      | Automated               |
-| Visual verification         | Functional verification |
-| Developer focused           | Production focused      |
-| No regression protection    | Prevents regressions    |
-| Optional during development | Required before release |
+Interactive components should verify user interactions in addition to rendering.
 
----
+Typical checks include:
 
-# 22. Future Storybook Integration
+- Click
+- Keyboard interaction
+- Focus management
+- Disabled state
+- Loading state
+- Accessibility
 
-When Storybook is introduced, components may include:
+Examples:
 
-```text
-Button/
-
-├── Button.jsx
-├── buttonVariants.js
-├── Button.test.jsx
-├── Button.stories.jsx
-├── README.md
-└── index.js
-```
-
-Storybook will be used for:
-
-- Interactive documentation
-- Visual component discovery
-- Design collaboration
-- Component showcase
-- Manual UI review
-
-Storybook complements Playground and automated tests.
-
-It does **not** replace unit testing.
+- Button
+- Switch
+- Checkbox
+- Radio
+- Select
 
 ---
 
-# 23. CI/CD Testing (Future)
+# Overlay Component Testing
 
-Every Pull Request should automatically execute the following pipeline:
+Overlay components require additional behavioural testing.
 
-```text
-GitHub Actions
+Verify:
 
-↓
+- Open and close behaviour
+- Focus trapping
+- Escape key handling
+- Outside click behaviour
+- Keyboard navigation
+- Accessibility
 
-Install Dependencies
+Examples:
 
-↓
-
-ESLint
-
-↓
-
-Unit Tests
-
-↓
-
-Build Verification
-
-↓
-
-Coverage Report
-
-↓
-
-Merge
-```
-
-Typical commands:
-
-```bash
-npm install
-
-npm run lint
-
-npm test
-
-npm run build
-```
-
-A Pull Request should not be merged if:
-
-- ESLint fails
-- Tests fail
-- Build fails
-
-Automated quality checks ensure long-term project stability.
+- Dialog
+- Modal
+- Drawer
+- Dropdown
+- Tooltip
 
 ---
 
-# 24. Component Completion Checklist
+# Rendering Tests
 
-A component is considered complete only when every item below has been satisfied.
+Every component should verify that it renders correctly using its default configuration.
 
-## Implementation
+Typical assertions include:
 
-- [ ] Production-ready implementation
-- [ ] Public API finalized
+- Component renders successfully.
+- Default content is displayed.
+- Required attributes exist.
+- Default classes are applied.
 
----
-
-## Architecture
-
-- [ ] Correct folder structure
-- [ ] Consistent naming
-- [ ] Barrel export configured
+Rendering tests provide the foundation for all other tests.
 
 ---
 
-## Theme Support
+# Variant Testing
 
-- [ ] Light Theme
-- [ ] Dark Theme
+Every supported visual variant should be verified.
 
----
+Examples include:
 
-## Accessibility
+- Primary
+- Secondary
+- Outline
+- Ghost
+- Destructive
 
-- [ ] WCAG compliant
-- [ ] Keyboard accessible
-- [ ] Screen reader friendly
-- [ ] Focus management verified
-
----
-
-## Documentation
-
-- [ ] README.md completed
-- [ ] Usage examples included
-- [ ] Props documented
+Variant tests should confirm that the expected styles and behaviour are applied.
 
 ---
 
-## Testing
+# Size Testing
 
-- [ ] Component.test.jsx completed
-- [ ] All tests passing
-- [ ] Accessibility verified
-- [ ] Regression tests added (when applicable)
+Verify every supported size when applicable.
+
+Typical sizes include:
+
+- sm
+- md
+- lg
+- icon
+
+Only test sizes that are actually implemented.
 
 ---
+
+# State Testing
+
+Verify every supported component state.
+
+Common states include:
+
+- Default
+- Hover (when applicable)
+- Active
+- Disabled
+- Loading
+- Invalid
+- Success
+- Read Only
+- Required
+
+Only verify meaningful states for the component.
+
+---
+
+# Icon Testing
+
+Components supporting icons should verify:
+
+- Start icon rendering
+- End icon rendering
+- Icon alignment
+- Accessibility
+
+Decorative icons should remain hidden from assistive technologies.
+
+---
+
+# Behaviour Testing
+
+Verify observable component behaviour.
+
+Examples include:
+
+- Callback execution
+- Value updates
+- State changes
+- Keyboard interaction
+- Focus movement
+
+Avoid testing internal implementation details.
+
+---
+
+# Regression Testing
+
+Regression tests help prevent previously fixed bugs from returning.
+
+Add regression tests whenever:
+
+- A production bug is fixed.
+- A critical accessibility issue is resolved.
+- A public API behaviour changes.
+
+Regression tests should remain simple and focused.
+
+---
+
+# Coverage Expectations
+
+Aim for meaningful coverage rather than maximum coverage.
+
+Focus on testing:
+
+- Public API
+- User behaviour
+- Accessibility
+- Critical states
+
+Avoid writing tests solely to increase coverage percentages.
+
+---
+
+# Playground vs Unit Tests
+
+Playground and unit tests serve different purposes.
 
 ## Playground
 
-- [ ] Playground example completed
-- [ ] All variants demonstrated
+Used for:
+
+- Manual QA
+- Visual verification
+- Theme verification
+- API exploration
+
+## Unit Tests
+
+Used for:
+
+- Behaviour verification
+- Regression prevention
+- Accessibility validation
+- Automated testing
+
+The Playground never replaces automated tests.
 
 ---
 
-## Quality
+# Continuous Integration
 
-- [ ] ESLint passing
-- [ ] Production build passing
-- [ ] No console warnings
-- [ ] No accessibility warnings
+Before merging changes, verify:
 
----
+- Tests pass.
+- ESLint passes.
+- Production build succeeds.
+- No accessibility regressions are introduced.
 
-# 25. Testing Principles
-
-Every test should be:
-
-- Small
-- Independent
-- Predictable
-- Fast
-- Readable
-- Maintainable
-
-Avoid writing tests that depend on:
-
-- Other component tests
-- Shared mutable state
-- Execution order
-- External side effects
-
-Each test should be capable of running independently.
+Automated testing should be part of the project's release workflow.
 
 ---
 
-# 26. Stable Component Lifecycle
+# Common Mistakes
 
-Every UI component follows the same lifecycle.
+Avoid the following:
 
-```text
-Planning
-
-↓
-
-API Design
-
-↓
-
-Implementation
-
-↓
-
-Playground
-
-↓
-
-Unit Testing
-
-↓
-
-Accessibility Review
-
-↓
-
-Documentation
-
-↓
-
-Code Review
-
-↓
-
-Stable
-
-↓
-
-Future Maintenance
-```
-
-No component should move to the next stage until the current stage has been completed successfully.
+- Testing implementation details.
+- Overusing `getByTestId()`.
+- Mocking everything unnecessarily.
+- Writing overly large test files.
+- Combining multiple behaviours into one test.
+- Depending on test execution order.
+- Ignoring accessibility.
 
 ---
 
-# 27. Definition of Done
+# Test Maintenance
 
-A component is considered production-ready only when it contains:
+Keep test suites maintainable.
 
-```text
-Component/
+When updating a component:
 
-├── Component.jsx
-├── componentVariants.js (if required)
-├── Component.test.jsx
-├── README.md
-└── index.js
-```
+- Remove obsolete tests.
+- Update outdated assertions.
+- Reuse shared helpers.
+- Keep test names descriptive.
 
-and satisfies all of the following:
-
-- ✅ Production-ready implementation
-- ✅ Stable public API
-- ✅ Unit tests completed
-- ✅ Accessibility verified
-- ✅ Theme support
-- ✅ Documentation completed
-- ✅ Playground completed
-- ✅ Clean architecture
-- ✅ ESLint passing
-- ✅ Production build passing
-- ✅ No console warnings
-- ✅ No accessibility violations
-
-Only after meeting these requirements should the component be considered **Stable**.
+Tests should evolve alongside the component.
 
 ---
 
-# 28. Guiding Principles
+# Definition of Done
 
-Testing is not an afterthought.
+A component's test suite is complete when it verifies, where applicable:
 
-Testing begins during component development—not after implementation is complete.
-
-Every new component should be developed alongside:
-
-- Implementation
-- Documentation
-- Playground
-- Automated tests
-
-The project prioritizes:
-
-- Reliability
+- Rendering
+- Variants
+- Sizes
+- States
+- Icons
+- Behavior
 - Accessibility
-- Maintainability
-- Scalability
-- Consistency
-- Developer confidence
 
-A feature is considered complete only when its implementation, documentation, playground, and automated tests have all been completed successfully.
+Additionally:
+
+- All tests pass.
+- No duplicated test logic exists.
+- Shared helpers are reused where appropriate.
+- Test code is readable and maintainable.
 
 ---
 
-# Final Principle
+# Guiding Principles
 
-> **If a component is not tested, it is not production-ready.**
+The testing strategy should always prioritise:
 
-Testing is a core part of the ProCoderX React Starter Kit development workflow and is required for every reusable UI component.
+- Behaviour over implementation
+- Accessibility over convenience
+- Maintainability over quantity
+- Confidence over coverage
+- Consistency across the entire component library
 
-Final Review
-
-Your testing-guidelines.md is now comparable to the documentation style used by mature UI libraries.
-
-It covers:
-
-✅ Testing philosophy
-✅ Testing architecture
-✅ Testing workflow
-✅ Testing utilities
-✅ Component-specific checklists
-✅ Accessibility
-✅ Best practices
-✅ Mocking
-✅ Regression testing
-✅ Coverage goals
-✅ Playground vs Unit Testing
-✅ Storybook integration
-✅ CI/CD pipeline
-✅ Component completion checklist
-✅ Stable component lifecycle
-✅ Definition of Done
-✅ Guiding principles
-
-This is a solid foundation for a production-quality React component library.
+Well-written tests should make future development safer, easier, and more predictable.
