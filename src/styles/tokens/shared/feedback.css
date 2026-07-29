@@ -1,93 +1,121 @@
 :root {
   /* ==========================================================================
-   FEEDBACK
-   Shared tokens for feedback components.
-   Components: Alert, Toast, Progress, Skeleton, Spinner
-   ========================================================================== */
+     FEEDBACK
+     Shared tokens for feedback components.
+     Components: Alert, Toast, Progress, Skeleton, Spinner
+     ========================================================================== */
 
   /* --------------------------------------------------------------------------
-   Success
--------------------------------------------------------------------------- */
+     Success
+  -------------------------------------------------------------------------- */
 
   --feedback-success-bg: var(--success-bg);
+  --feedback-success-bg-hover: var(--success-bg);
+  --feedback-success-bg-active: var(--success-bg);
+
   --feedback-success-border: var(--success-border);
   --feedback-success-text: var(--success);
 
   /* --------------------------------------------------------------------------
-   Warning
--------------------------------------------------------------------------- */
+     Warning
+  -------------------------------------------------------------------------- */
 
   --feedback-warning-bg: var(--warning-bg);
+  --feedback-warning-bg-hover: var(--warning-bg);
+  --feedback-warning-bg-active: var(--warning-bg);
+
   --feedback-warning-border: var(--warning-border);
   --feedback-warning-text: var(--warning);
 
   /* --------------------------------------------------------------------------
-   Info
--------------------------------------------------------------------------- */
+     Info
+  -------------------------------------------------------------------------- */
 
   --feedback-info-bg: var(--info-bg);
+  --feedback-info-bg-hover: var(--info-bg);
+  --feedback-info-bg-active: var(--info-bg);
+
   --feedback-info-border: var(--info-border);
   --feedback-info-text: var(--info);
 
   /* --------------------------------------------------------------------------
-   Error
--------------------------------------------------------------------------- */
+     Error
+  -------------------------------------------------------------------------- */
 
   --feedback-error-bg: var(--error-bg);
+  --feedback-error-bg-hover: var(--error-bg);
+  --feedback-error-bg-active: var(--error-bg);
+
   --feedback-error-border: var(--error-border);
   --feedback-error-text: var(--error);
 
   /* --------------------------------------------------------------------------
-   Loading
--------------------------------------------------------------------------- */
+     Loading
+  -------------------------------------------------------------------------- */
 
   --feedback-loading: var(--primary);
+  --feedback-loading-track: var(--surface-active);
 
   /* --------------------------------------------------------------------------
-   Skeleton
--------------------------------------------------------------------------- */
+     Skeleton
+  -------------------------------------------------------------------------- */
 
   --feedback-skeleton-bg: var(--surface-secondary);
   --feedback-skeleton-highlight: var(--surface-hover);
 
   /* --------------------------------------------------------------------------
-   Progress
--------------------------------------------------------------------------- */
+     Progress
+  -------------------------------------------------------------------------- */
 
   --feedback-progress-track: var(--surface-active);
+
   --feedback-progress-fill: var(--primary);
+  --feedback-progress-fill-success: var(--success);
+  --feedback-progress-fill-warning: var(--warning);
+  --feedback-progress-fill-error: var(--error);
 
   /* --------------------------------------------------------------------------
-   Focus
--------------------------------------------------------------------------- */
+     Focus
+  -------------------------------------------------------------------------- */
 
   --feedback-focus-ring: var(--focus-ring);
   --feedback-focus-offset: var(--focus-ring-offset);
 
+  --feedback-focus-ring-width: var(--focus-ring-width);
+  --feedback-focus-offset-width: var(--focus-ring-offset-width);
+
   /* --------------------------------------------------------------------------
-   Shadow
--------------------------------------------------------------------------- */
+     Shadow
+  -------------------------------------------------------------------------- */
 
   --feedback-shadow: var(--shadow-sm);
+  --feedback-shadow-hover: var(--shadow-md);
+  --feedback-shadow-active: var(--shadow-sm);
 
   /* --------------------------------------------------------------------------
-   Radius
--------------------------------------------------------------------------- */
+     Radius
+  -------------------------------------------------------------------------- */
 
   --feedback-radius: var(--radius-md);
 
   /* --------------------------------------------------------------------------
-   Transition
--------------------------------------------------------------------------- */
+     Transition
+  -------------------------------------------------------------------------- */
 
   --feedback-duration: var(--duration-normal);
   --feedback-easing: var(--ease-out);
 
   /* --------------------------------------------------------------------------
-   Padding
--------------------------------------------------------------------------- */
+     Padding
+  -------------------------------------------------------------------------- */
 
   --feedback-padding-sm: 0.5rem;
   --feedback-padding-md: 0.75rem;
   --feedback-padding-lg: 1rem;
+
+  /* --------------------------------------------------------------------------
+     Disabled
+  -------------------------------------------------------------------------- */
+
+  --feedback-disabled-opacity: var(--opacity-disabled);
 }
